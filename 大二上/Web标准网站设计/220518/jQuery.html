@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//js大小写敏感
+			//分号可有可无,但推荐加上分号
+			var xy=25;
+			var XY=45;
+			document.write(xy + '<br/>');
+			document.write(XY + '<br/>');
+			
+			var x = 12.5; //自动变成浮点类型
+			var z = '12.5';
+			var y; //此时系统不能确定他的类型
+			document.write(typeof x + '<br/>'); //输出x的类型(number)
+			document.write(typeof z + '<br/>'); //输出z的类型(string)
+			document.write(typeof y + '<br/>'); //输出y的类型(undefined)
+			
+			document.write(undefined==null); //true 他们的值相等的两个类型(undefined:已经声明没有赋值 null:不存在的对象)
+			document.write('<br/>')
+			
+			var f=false;
+			var t=true;
+			document.write(f==0); //true 表示false即等于0
+			document.write('<br/>')
+			document.write(t==1); //true 表示true即等于1
+			document.write('<br/>')
+			document.write(t==0); //true 表示非零不一定为true
+			document.write('<br/>')
+			
+			document.write(Number.MAX_VALUE); //1.7976931348623157e+308
+			document.write('<br/>')
+			document.write(Number.MIN_VALUE); //5e-324
+			document.write('<br/>')
+			document.write(Number.POSITIVE_INFINITY); //Infinity
+			document.write('<br/>')
+			document.write(Number.NEGATIVE_INFINITY); //-Infinity
+			document.write('<br/>')
+			
+			document.write(Number('hello')); //NaN 无法转换为数字类型
+			document.write('<br/>')
+			document.write(Number('12.3')) //12.3 可以进行转换
+			document.write('<br/>')
+			
+			var str="hello"; //字符串类型(可以用单引号,也可用双引号)
+			var ch="c"; //字符串类型(可以用单引号,也可用双引号)
+			document.write(typeof ch); //string jQuery只有字符串类型
+			document.write('<br/>')
+			document.write(ch[0]); //取字符串的第一个字符
+			document.write('<br/>')
+			document.write(str[1]); //取单个字符(字符串下表为1,即第2个字符)
+			document.write('<br/>')
+			document.write(typeof (ch + '12')); //typeof是一个操作符,后面可以添加变量等
+			document.write('<br/>')
+			
+			var student = new Array(); //使用new关键字创建一个student数组
+			document.write(typeof student); //object
+			document.write('<br/>')
+			if(student instanceof Array) //instanceof只能用于引用类型,不能用于原始值
+			{
+				document.write('student 属于数组');
+				document.write('<br/>')
+			}
+			else
+			{
+				document.write('student 不属于数组');
+				document.write('<br/>')
+			}
+			
+			var str ='12.36';
+			var num_y = Number(str);
+			document.write(num_y+12);
+			document.write('<br/>')
+			var num_x = 25.14;
+			document.write(parseInt(num_x)); //25 解析字符串,返回整形
+			document.write('<br/>')
+			
+			var b_t=13;
+			document.write(Boolean(b_t)) //true 如果把数值类型转换为Boolean类型,非零即为true
+		</script>
+	</body>
+</html>

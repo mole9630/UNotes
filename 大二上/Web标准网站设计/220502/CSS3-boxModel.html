@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#radius {
+				width: 100px;
+				height: 100px;
+				border: 5px solid red;
+				margin: 5px;
+			}
+			#shadow {
+				width: 100px;
+				height: 100px;
+				border: 2px solid red;
+				margin: 10px;
+				float: left;
+			}
+			#resize {
+				width: 100px;
+				height: 100px;
+				border: 2px solid red;
+				margin: 10px;
+				float: left;
+				/* 前提 ↓ */
+				overflow: auto;
+			}
+			
+			#outline-offset {
+				width: 100px;
+				height: 100px;
+				outline: 2px solid lightblue;
+				border: 1px solid red;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- border-top-left-radius: 10px:设置左上角圆角为10px -->
+		<!-- border-bottom-left-radius: 50% 20px:设置左下角圆角 50%指半径的50% -->
+		<div id="radius" style="border-top-left-radius: 10px;border-bottom-left-radius: 50% 20px;">
+		</div>
+		<div id="radius" style="border-radius: 2em 1em 4em/0.5em 3em;">
+		</div>
+		<div id="radius" style="border-radius: 1em 10em/1em 10em;">
+		</div>
+		
+		<!-- 正负值表示阴影往正方向偏还是负方向 -->
+		<!-- x与y方向为必填项 不可省略 -->
+		<div id="shadow" style="box-shadow: 10px -10px;">
+		</div>
+		<!-- 60px表示模糊半径的距离 -->
+		<div id="shadow" style="box-shadow: 10px 10px 60px;">
+		</div>
+		<!-- 10px表示模糊度 -->
+		<div id="shadow" style="box-shadow: 10px 10px 30px 10px;">
+		</div>
+		<!-- 增加一个亮蓝色的模糊度 -->
+		<div id="shadow" style="box-shadow: 10px 10px 30px 10px lightblue;">
+		</div>
+		
+		<!-- insert表示向内部做阴影样式 -->
+		<div id="shadow" style="box-shadow: 10px 10px 30px 10px lightblue inset;">
+		</div>
+		
+		<!-- resize:设置元素是否由用户调整尺寸大小(前提:必须设置overflow属性,值可以是auto/hidden/scroll) -->
+		<!-- resize: both:宽高均可调整 -->
+		<div id="resize" style="resize: both;">
+		</div>
+		<!-- resize: horizontal:只可调整宽度 -->
+		<div id="resize" style="resize: horizontal;">
+		</div>
+		<!-- resize: vertical:只可调整高度 -->
+		<div id="resize" style="resize: vertical;">
+		</div>
+		
+		<!-- 设置轮廓线的偏移 -->
+		<!-- 正值向内 负值向外 -->
+		<div id="outline-offset" style="outline-offset: 10px;">
+		</div>
+	
+		<div id="outline-offset" style="outline-offset: -10px;">
+		</div>
+	</body>
+</html>

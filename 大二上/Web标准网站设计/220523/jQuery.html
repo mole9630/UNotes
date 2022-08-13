@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var x = -3.2;
+			var y = -12.5;
+			document.write(y % x); //求余(与x正负无关)
+			document.write("<br />");
+
+			document.write('123' == 123); //true '=='只判断值是否相等
+			document.write("<br />");
+			document.write('123' === 123); //false '==='判断类型和值是否相等
+			document.write("<br />");
+
+			var x1 = 12;
+			var y1 = 12;
+			document.write(x1++); //12 先参与运算后自增
+			document.write("<br />");
+			document.write(x1) //13
+			document.write("<br />");
+			document.write(++y1); //13 先自增后参与运算
+			document.write("<br />");
+
+			var x2 = 12;
+			var z = 1;
+			x2 += 8; //等价于x = x + 8;
+			x2 *= 15 + z; //等价于x = x * (15+z)
+			document.write("<br />");
+
+			var stu = {
+				id: 1234,
+				name: 'ZhangSan',
+				age: 20,
+				sex: 'm'
+			};
+			for (key in stu) {
+				document.write('stu[' + key + ']=' + stu[key])
+				document.write("<br />");
+			}
+
+			//定义数组 方法1
+			var stu1 = new Array();
+			var stu2 = new Array(5); //限定了长度为5的存储空间
+			//定义数组 方法2
+			var stu2 = new Array('ZhangSan', 'LiSi', 'WangWu');
+			//定义数组 方法3
+			var stu4 = ['ZhangSan', 'LiSi', 'WangWu'];
+
+			var stu5 = new Array();
+			stu5[0] = 'ZhangSan';
+			stu5[1] = 'LiSi';
+			stu5[2] = 'WangWu';
+			stu5[3] = 'ZhaoYi';
+			stu5[4] = 'QianEr';
+			stu5.push('Lisa'); //向数组内追加数据
+			stu5.push('Lisa1');
+			stu5.pop(); //从数组尾部删除数据
+			stu5.push('Lisa1');
+			document.write("<br />");
+			var stuPop = stu5.pop(); //定义stuPop的值为被删除的数据
+			document.write(stuPop);
+			stu5.shift(); //从数组首部删除数据
+			var stuSplice = stu5.splice(0,2); //删除索引为0的位置后面2个
+			document.write("<br />");
+			document.write(stuSplice);
+			
+			document.write("<br />");
+			for (i = 0; i < stu5.length; i++) {
+				document.write(stu5[i]);
+				document.write("<br />");
+			}
+			document.write("<br />");
+			for (key in stu5) { //for/in循环
+				document.write(stu5[key]);
+				document.write("<br />");
+			}
+		</script>
+	</body>
+</html>

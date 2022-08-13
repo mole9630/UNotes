@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background: lightsteelblue;
+			}
+			div:hover {
+				width: 300px;
+				background: lightcoral;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<!-- transition-delay: 10ms:设置过渡效果的延迟时间 -->
+		<!-- transition-duration: 5s:设置过渡的过渡时间 -->
+		<!-- transition-timing-function: linear:设置过渡的时间曲线 匀速过渡效果 -->
+		<div id="" style="transition-delay: 10ms;transition-duration: 5s;transition-timing-function: linear;">
+		</div>
+		<!-- 给常用的不同浏览器设置 -->
+		<div id="" style="-webkit-transition-delay: 10ms;-webkit-transition-duration: 5s;-webkit-transition-timing-function: linear;">
+		</div>
+		<div id="" style="-moz-transition-delay: 10ms;-moz-transition-duration: 5s;-moz-transition-timing-function: linear;">
+		</div>
+		<div id="" style="-o-transition-delay: 10ms;-o-transition-duration: 5s;-o-transition-timing-function: linear;">
+		</div>
+		
+		<hr style="clear: both;">
+		<div id="" style="transition: width 4s,height 4s,background-color 4s;
+		-webkit-transition: width 4s,height 4s,background-color 4s;
+		-moz-transition: width 4s,height 4s,background-color 4s;
+		-o-transition: width 4s,height 4s,background-color 4s;">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!-- 文字格式化元素 -->
+		<!-- 文字方向 -->
+		<bdo dir="rtl">这是一段文字</bdo><br />
+		<!-- 高亮文字 -->
+		这是<mark>一段</mark>文字<br />
+		<!-- 标准日期或时间 -->
+		<time datetime="2022-04-18" pubdate="">2022年04月18日</time><br />
+		<time datetime="8:12:00">上午08点12分00秒</time><br />
+		
+		<!-- 页面增强元素 -->
+		<!-- 表示一个已知最大值和最小值的计数器 -->
+		<meter value="120" min="60" max="120" low="60" high="120"></meter><br />
+		文件下载:<progress value="50" max="100"></progress><br />
+		
+		<!-- 多媒体元素 -->
+		<!-- src:定义播放文件路径 controls:定义是否显示播放控制 -->
+		<audio src="" controls="controls" >
+			当前浏览器不支持audio
+		</audio>
+		<!--  -->
+		<video src="" controls="controls"></video><br />
+		
+		<!-- contenteditable属性和designMode属性 -->
+		<table border="" cellspacing="" cellpadding="" contenteditable="true">
+			<tr>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+			<tr>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+			<tr>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+		</table><br />
+		<!-- 设置全局可编辑 -->
+		<script type="text/javascript">
+			// document.designMode='on';
+		</script>
+		
+		<!-- hidden属性 -->
+		<div id="d1">
+			这是一段文本
+		</div>
+		<div id="d2">
+			这是一段文本
+		</div>
+		<div id="d3">
+			这是一段文本
+		</div>
+		<button id="btn" onclick="
+			var d2=document.getElementById('d2'); //获取html标签元素,转换成js变量
+			d2.hidden=!d2.hidden;
+			var btn=document.getElementById('btn'); //获取html标签元素,转换成js变量
+			if(btn.hidden)
+			{
+				btn.innerHTML='显示'; //innerHTML表示当前对象所显示的内容
+			}
+			else
+			{
+				btn.innerHTML='隐藏';
+			}
+		">显示</button><br />
+		
+		<!-- spellcheck属性 -->
+		<textarea rows="20" cols="50" spellcheck="true">
+			Hello World!
+			Hallo World!
+		</textarea>
+	</body>
+</html>

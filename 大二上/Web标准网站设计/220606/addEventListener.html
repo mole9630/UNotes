@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				d1 = document.getElementById('div1');
+				d2 = document.getElementById('div2');
+				d3 = document.getElementById('div3');
+				d1.addEventListener('click',function(event){alert('d1响应')},true);
+				d2.addEventListener('click',function(event){alert('d2响应')},true);
+				d3.addEventListener('click',function(event){alert('d3响应')},true);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="background: #c7edcc;width: 800px;height: 600px;">
+			<div id="div2" style="background: lightblue; width: 400px;height: 300px;">
+				<div id="div3" style="background: lightgreen; width: 200px;height: 150px;">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

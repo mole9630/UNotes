@@ -1,0 +1,58 @@
+<!-- 由<xx>括起来的称之为标签,且分为单标签和双标签(一个开始一个结束) -->
+
+<!-- 声明文档类型 -->
+<!DOCTYPE html>
+
+<!-- 网页文件根标签 -->
+<html>
+	<!-- 网页头部 -->
+	<head>
+		<meta charset="utf-8" />
+		<!-- 网站标题(双标签) -->
+		<title>Hello World!</title>
+		<!-- 样式标签 -->
+		<style>
+			/* 字体颜色 */
+			.div1{
+				color: blue;
+			}
+			/* 字体加粗 */
+			#id1{
+				font-weight: 800;
+			}
+		</style>
+	</head>
+	
+	
+	<!-- 网页主体部分 -->
+	<body>
+		<!-- 显示标签(双标签) -->
+		<!-- class为类属性,名为:div1且class的类名可重复 -->
+		<div class="div1">Hello World!!</div>
+		<div class="div1">Hello World!!!</div>
+		
+		<!-- 属性为id的名不可重复 -->
+		<!-- 决定文本方向(左对齐还是右对齐) -->
+		<div id="id1" dir="rtl">Hello World!!!</div>
+		
+		<!-- 也可在属性内直接添加样式 -->
+		<!-- long指定元素内容的语言 -->
+		<div id="id2" style="color: greenyellow;" lang="">Hello World!!!</div>
+		
+		<!-- 图片标签(单标签) -->
+		<!-- tabindex用于指定元素在Tab键下的次序 -->
+		<img tabindex="0" />
+		
+		<!-- 表单事件 -->
+		<form>
+			<label>用户名:</label>
+			<input type="text" id="user" /><br />
+			<label>密码:</label>
+			<input type="password" id="password" /><br />
+			<!-- 通过单击鼠标事件,将用户名输入框的文本复制到密码框内 -->
+			<input type="button" value="复制" onclick="document.getElementById('password').value=document.getElementById('user').value" />
+			
+		</form>
+		
+	</body>
+</html>

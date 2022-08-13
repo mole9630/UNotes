@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		/* 后代选择器 */
+			h1 em{
+				color: red;
+			}
+			p span{
+				color: blue;
+			}
+		/* 子元素选择器 */
+			p>em{
+				color: darkcyan;
+			}
+		/* 兄弟选择器 */
+			h2+p{
+				color: coral;
+			}
+			#p1+p{
+				color: cornflowerblue;
+			}
+		/* ID选择器 */
+			#p2{
+				color: cadetblue;
+			}
+		/* 类选择器 */
+			.p1{
+				color: darkgoldenrod;
+			}
+			/* 一般省略第一个p,但也可以加上 */
+			p.p1
+			{
+				color: darkgoldenrod;
+			}
+		</style>
+	</head>
+	<body>
+		<h1><em>这是第一段文本</em>这是第二段文本</h1>
+		<p><em>这是第一段文本<span>这是第二段文本</span></em>这是第三段文本</p>
+		<h2>这是第一段文本</h2>
+		<p id="p1">这是第二段文本</p>
+		<p>这是第三段文本</p>
+		<p id="p2">这是第四段文本</p>
+		<div id="">
+			<p class="p1">这是一段文本</p>
+		</div>
+	</body>
+</html>

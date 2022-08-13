@@ -1,0 +1,159 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+article {
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	height: 310px;
+	margin: 0px auto;
+	clear: both;
+	margin: 10px auto;
+}
+
+.container .news {
+	width: 30%;
+	height: 310px;
+	float: left;
+}
+
+.container .news .n_top {
+	height: 35px;
+	border-bottom: 1px solid darkgray;
+}
+
+.container .news .n_top .cat_title {
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	font-family: '微软雅黑', '等线';
+	font-weight: 700;
+}
+
+.container .news .n_top .more a {
+	width: 50px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	background: url(../img/more.png)no-repeat center center;
+	float: right;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+.container .news .n_center {
+	height: 100px;
+	padding-top: 5px;
+}
+
+.container .news .n_center img {
+	float: left;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.container .news .n_center div {
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.container .news .n_bottom {
+	height: 155px;
+	margin-top: 10px;
+}
+
+.container .news .n_bottom a {
+	display: block;
+	height: 28px;
+	line-height: 28px;
+	font-size: 14px;
+	color: #000000;
+	border-bottom: 1px solid darkgray;
+}
+
+.about {
+	width: 30%;
+	height: 310px;
+	float: left;
+	margin-left: 20px;
+	
+}
+
+.about .a_top {
+	height: 31px;
+}
+
+.about .a_center {
+	margin: 5px auto;
+}
+
+.about .a_bottom {
+	font-size: 13px;
+	line-height: 20px;
+	text-indent: 2em;
+	margin-top: 5px;
+}
+
+.produce {
+	width: 30%;
+	height: 310px;
+	float: right;
+}
+
+.produce .p_top {
+	height: 31px;
+	border-bottom: 1px solid #A9A9A9;
+}
+
+.produce .p_bottom {
+	height: 270px;
+	margin-top: 5px;	
+}
+
+.produce .slideBox {
+	width: 270px;
+	height: 270px;
+	overflow: hidden;
+	position: relative;
+	margin-left: 5px;
+}
+
+.produce .slideBox .bd {
+	position: relative;
+	height: 100%;
+	z-index: 0;
+}
+
+.produce .slideBox .bd li {
+	/* zoom:缩放 */
+	zoom: 1;
+	/* 垂直排列方式:居中 */
+	vertical-align: middle;
+}
+
+.produce .slideBox .bd img {
+	width: 300px;
+	height: 270px;
+	display: block;
+	border: none;
+}
+
+/* footer {
+	position: relative;
+	top: 80px;
+} */

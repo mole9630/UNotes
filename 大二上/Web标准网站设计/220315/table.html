@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- table定义表格 -->
+		<!-- border属性为边框粗细 cellspacing属性设置单元格之间距离(外边距) cellpadding属性设置单元格边沿与内容的距离(内边距)  -->
+		<!-- thead 用于组合html表格的表头内容 -->
+		<thead>
+			<table border="5" cellspacing="10" cellpadding="10" width="400" height="400">
+				<!-- captain定义大标题 -->
+				<caption>职业调查</caption>
+				<!-- tr定义行 -->
+				<tr>
+					<!-- th定义小标题 -->
+					<th>姓名</th>
+					<th>性别</th>
+					<th>职业</th>
+				</tr>
+		</thead>
+		
+		<!-- tbody 用于组合html表格的主体内容 -->
+		<tbody>
+			<!-- colgroup 对表格列分组 -->
+			<colgroup>
+				<!-- 设置三列背景色 -->
+				<col bgcolor="#c7edcc">
+				<col bgcolor="#c7edcc">
+				<col bgcolor="#c7edcc">
+			</colgroup>
+			<tr>
+				<!-- td定义单元格列 -->
+				<td>张三</td>
+				<td>男</td>
+				<td>学生</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>男</td>
+				<td>学生</td>
+			</tr>
+			<tr>
+				<td>李娜</td>
+				<td>女</td>
+				<td>学生</td>
+			</tr>
+		</tbody>
+		
+			<!-- 用于组合html表格中的表注/脚注内容 -->
+			<tfoot>
+				<tr>
+					<td>合计:</td>
+					<td colspan="2"></td>
+				</tr>
+			</tfoot>
+			
+			
+		</table>
+		<hr >
+		<table border="1" cellspacing="0" cellpadding="" width="300" height="300">
+			<tr>
+				<td colspan="2"></td>
+				<td colspan="2"></td>
+			</tr>
+			<tr>
+				<!-- rowspan 合并单元格横跨两行 -->
+				<td rowspan="2"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<!-- colspan 合并单元格横跨两列 -->
+				<td colspan="2"></td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#d1{
+				/* 添加边框 */
+				border: solid 2px red;
+				/* 颜色名定义 */
+				color: red;
+				/* 十六进制数定义 */
+				color: #FF0000;
+				/* rgb函数定义 */
+				color: rgb(255, 0, 0);
+				/* 透明(使用较少) */
+				color: transparent;
+				/* 是否继承父控件(使用较少) */
+				color: inherit;
+				/* 右对齐 */
+				direction: rtl;
+				/* 字间距增加+10像素 */
+				letter-spacing: 10px;
+			}
+			.p1{
+				/* 定义行高 */
+				line-height: 1.5;
+				line-height: 15px;
+				line-height: 200%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			这是一段文字(div)
+		</div>
+		<p>这是第一段文字(p)</p>
+		<!-- 相对于body居中 -->
+		<p style="text-align: center;">这是第二段文字(p)</p>
+		<p class="p1">这是第三段文字(p)</p>
+		<!-- 相对于body右对齐 -->
+		<p style="text-align: right;">这是第四段文字(p)</p>
+		<!-- 添加上框线 -->
+		<p style="text-decoration: overline;">这是第五段文字(p)</p>
+		<!-- 添加下框线 -->
+		<p style="text-decoration: underline;">这是第六段文字(p)</p>
+		<!-- 添加删除线 -->
+		<p style="text-decoration: line-through;">这是第七段文字(p)</p>
+		<!-- 添加闪烁效果(浏览器兼容性较差,一般不支持显示) -->
+		<p style="text-decoration: blink;">这是第八段文字(p)</p>
+		<!-- 缩进30个像素/20% -->
+		<p style="text-indent: 30px;">这是第九段文字(p)</p>
+		<p style="text-indent: 20%;">这是第十段文字(p)</p>
+		<!-- 定义阴影 x轴5px y轴5px 3px模糊度 颜色为#55aa7f -->
+		<p style="font-size: 20px;color: green;text-shadow: 5px 5px 3px #55aa7f;">这是第十一段文字(p)</p>
+		<!-- 所有单词首字母大写 -->
+		<p style="text-transform: capitalize;">This is the twelfth paragraph(p)</p>
+		<!-- 所有字母大写 -->
+		<p style="text-transform: uppercase;">This is the thirteenth paragraph(p)</p>
+		<!-- 所有字母小写 -->
+		<p style="text-transform: lowercase;">This is the fourteenth paragraph(p)</p>
+		<hr >
+		<!-- 保留原格式 -->
+		<p style="white-space: pre;">
+			这是第十五段文字(p)
+			  12345 , 67890;
+			  09876 , 54321.
+		</p>
+		<hr >
+		<!-- 不会随浏览器窗口大小自动换行 -->
+		<p style="white-space: nowrap;">这是第十六段长文字(p),to_long_to_long_to_long_long_to_long_to_long_to_long_long_to_long_to_long_to_long_long</p>
+		<!-- 定义单词之间的间距(通常只对西文有效,且是单词间隔) -->
+		<p style="word-spacing: 10px;">这是第十七段文字(p) | This is the seventeenth paragraph(p)</p>
+		<p style="word-spacing: -10px;">这是第十八段文字(p) This is the eighteenth paragraph(p)</p>
+		<!-- 定义字符之间的间距(对所有字符有效) -->
+		<p style="letter-spacing: 10px;">这是第十九段文字(p) | This is the nineteenth paragraph(p)</p>
+		<p style="letter-spacing: -10px;">这是第二十段文字(p) | This is the twentieth paragraph(p)</p>
+	</body>
+</html>

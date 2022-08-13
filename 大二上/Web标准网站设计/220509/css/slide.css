@@ -1,0 +1,70 @@
+#full-screen-slider {
+	width: 100%;
+	height: 500px;
+	position: relative;
+	top: 5px;
+	float: left;
+	background: #c7edcc;
+}
+#slides {
+	width: 100%;
+	height: 500px;
+	list-style: none;
+	padding: 0px;
+	margin: 0px auto;
+	display: block;
+	position: relative;
+}
+#slides li {
+	width: 100%;
+	height: 100%;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	/* z-index的前提是absolute */
+	z-index: 1;
+	background: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+}
+#slides li a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	/* text-index:首行缩进 -9999让超链接文本看不见 */
+	text-indent: -9999px;
+}
+
+#pagination {
+	display: block;
+	list-style: none;
+	position: absolute;
+	z-index: 9999;
+	left: 50%;
+	top: 340px;
+	padding: 5px 15px 5px 0px;
+	margin: 0px;
+}
+#pagination li {
+	display: block;
+	list-style: none;
+	width: 10px;
+	height: 10px;
+	float: left;
+	/* 外左边距 拉开之间的距离 */
+	margin-left: 15px;
+	border-radius: 5px;
+	background: #fff;
+}
+#pagination li a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-indent: -9999px;
+	padding: 0px;
+	margin: 0px;
+}
+#pagination li.current {
+	background-color: #c7edcc;
+}

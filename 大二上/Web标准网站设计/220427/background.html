@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				padding: 20px;
+				border: 5px dotted salmon;
+				float: left;
+				margin: 5px;
+				background-color: #87CEEB;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- background-clip -->
+		<div id="">
+		</div>
+		<!-- style="background-clip: border-box;":背景显示区域到边框(缺省值) -->
+		<div id="" style="background-clip: border-box;">
+			正文
+		</div>
+		<!-- style="background-clip: padding-box;":背景显示区域到内边距框 -->
+		<div id="" style="background-clip: padding-box;">
+			正文
+		</div>
+		<!-- style="background-clip: content-box;":背景显示区域到内容框 -->
+		<div id="" style="background-clip: content-box;">
+			正文
+		</div>
+		<br />
+		
+		<!-- background-origin -->
+		<!-- -webkit-background-origin: border-box;":背景起点在边框左上角 -->
+		<div id="" style="background-image: url(https://img.mole9630.top/blog-logo.png);-webkit-background-origin: border-box;">
+			正文
+		</div>
+		<!-- -webkit-background-origin: padding-box;":背景起点在内边距框的左上角(缺省值) -->
+		<div id="" style="background-image: url(https://img.mole9630.top/blog-logo.png);-webkit-background-origin: padding-box;">
+			正文
+		</div>
+		<!-- -webkit-background-origin: content-box;:背景起点在内容框的左上角 -->
+		<div id="" style="background-image: url(https://img.mole9630.top/blog-logo.png);-webkit-background-origin: content-box;">
+			正文
+		</div>
+		<br />
+		
+		<!-- background-size -->
+		<!-- -webkit-background-size: 30px;:宽度设置30px 高度自动 -->
+		<div id="" style="background-image: url(https://img.mole9630.top/blog-logo.png);-webkit-background-size: 30px;">
+			正文
+		</div>
+		<!-- -webkit-background-size: 30px 60px;:宽度设置30px 高度设置60px -->
+		<div id="" style="background-image: url(https://img.mole9630.top/blog-logo.png);-webkit-background-size: 30px 60px;">
+			正文
+		</div>
+		<!-- -webkit-background-size: cover;:图形拉伸到最大完全覆盖区域,可能会有一部分显示不全 -->
+		<div id="" style="background-image: url(https://img.mole9630.top/blog-logo.png);-webkit-background-size: cover;">
+			正文
+		</div>
+		<!-- -webkit-background-size: contain;:图片扩展至最大尺寸,以使其宽度和高度完全适应内容区域 -->
+		<div id="" style="background-image: url(https://img.mole9630.top/blog-logo.png);-webkit-background-size: contain;">
+			正文
+		</div>
+		
+		<!-- 多背景图片 -->
+		<div id="" style="
+			height: 400px;
+			width: 400px;
+			background-image: url(https://img.mole9630.top/blog-logo.png),url(https://img.mole9630.top/blog-logo.png),url(https://img.mole9630.top/blog-logo.png),url(https://img.mole9630.top/blog-logo.png);
+			background-repeat: no-repeat,no-repeat,no-repeat,no-repeat;
+			background-position: left top,right top,right bottom,left bottom;
+			background-size: auto,50px,100px,150px;
+			">
+			正文
+		</div>
+	</body>
+</html>

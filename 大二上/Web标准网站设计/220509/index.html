@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/slide.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+		<script type="text/javascript" src="js/jquery.jslides.js"></script>
+	</head>
+	<body>
+		<header>
+			<!-- 导航栏 -->
+			<div id="top">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li>
+						<a href="">新闻公告</a>
+						<ul>
+							<li><a href="">企业新闻</a></li>
+							<li><a href="">企业公告</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">协议规则</a>
+						<ul>
+							<li><a href="">个人信息保护</a></li>
+							<li><a href="">消费权益保护</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">下载APP</a>
+						<ul>
+							<li><a href="">Android</a></li>
+							<li><a href="">AppStore</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">个人中心</a>
+						<ul>
+							<li><a href="Reg.html">注册</a></li>
+							<li><a href="Login.html">登录</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">联系我们</a>
+						<ul>
+							<li><a href="">在线客服</a></li>
+							<li><a href="">工单留言</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="full-screen-slider">
+				<ul id="slides">
+					<li style="background-image: url(img/e1a326a1a5db9d8be9c5767aab1b08c6.webp);"><a href="#" target="_blank"></a></li>
+					<li style="background-image: url(img/b717c9c84e44409496e993ed6b526c05.webp);"><a href="#" target="_blank"></a></li>
+				</ul>
+			</div>
+		</header>
+		
+		<article>
+			<!-- 主体窗体 -->
+			<div class="container">
+				<!-- 新闻动态 -->
+				<div class="news">
+					<div class="n_top">
+						<div class="cat_title">新闻动态</div>
+						<div class="more"><a href="#">更多</a></div>
+					</div>
+					<div class="n_center">
+						<img src="https://img.mole9630.top/blog-logo.png" width="90" height="90" />
+						<div>
+							<span style="font-weight: bold;">这是一个新闻标题</span><br />
+							这是一个新闻的详细摘要部...[<a href="#">详细</a>]
+						</div>
+					</div>
+					<div class="n_bottom">
+						<a href="#">这是一个新闻标题1</a>
+						<a href="#">这是一个新闻标题2</a>
+						<a href="#">这是一个新闻标题3</a>
+						<a href="#">这是一个新闻标题4</a>
+					</div>
+				</div>
+				<!-- 关于我们 -->
+				<div class="about">
+					<div class="a_top">
+						<div class="cat_title">关于我们</div>
+					</div>
+					<div class="a_center">
+						<img src="img/club_base.png" width="181" height="148">
+					</div>
+					<div class="a_bottom">
+						<p>小米公司正式成立于2010年4月，是一家以智能手机、智能硬件和 IoT 平台为核心的消费电子及智能制造公司。创业仅7年时间，小米的年收入就突破了千亿元人民币。截止2018年，小米的业务遍及全球80多个国家和地区。[<a href="#">详细</a>]</p>
+					</div>
+				</div>
+				<!-- 最新产品 -->
+				<div class="produce">
+					<div class="p_top">
+						<div class="cat_title">最新产品</div>
+					</div>
+					<div class="p_bottom">
+						<div id="slideBox" class="slideBox">
+							<div class="bd">
+								<ul>
+									<li><a href="#" target="_blank"><img src="img/0b271a074e087848357aa61ae665b214.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/18d2099cb0b05bbd23cb1915dfc9d0d6.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/28c14106b688ac7ae88e761564789b37.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/28febc579eaea6b07c96c0ec48b89f7a.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/63e15f377e87212d460592b4a1369ccd.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/b8259e8fb355acf168c66f75d375c6af.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/d764150a470174741d8b0b04515f7a78.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/e870129c5c374088bf7cc46be0b7ace2.webp" width="270" height="270" /></a></li>
+									<li><a href="#" target="_blank"><img src="img/f84503dbf5adbdf17111c61d4a7cf893.webp" width="270" height="270" /></a></li>
+								</ul>
+							</div>
+						</div>
+						<script type="text/javascript">
+							jQuery(".slideBox").slide({
+								mainCell: ".bd ul",
+								effect: "left",
+								autoPlay: true
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+		</article>
+		
+		<footer>
+			<!-- 底部 -->
+			<div id="bottom">
+				<a href="#top">回到顶部</a>
+				<p>*本页面的制作仅用于学习目的，与小米公司没有任何联系，mi 以及本页面出现的小米公司 Logo 及图片是小米公司的商标及版权所有。</p>
+			</div>
+		</footer>
+	</body>
+</html>

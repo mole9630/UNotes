@@ -1,0 +1,24 @@
+<!-- <span>和<div>标签都是无语义运算,唯一区别就是一个不换行,一个换行 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!-- div结束会换行 -->
+		<div id="">
+			text_div
+			<div id="">
+				<!-- span并不会换行 -->
+				<span>taxt_span</span>: text_span2
+			</div>
+			<div id="">
+				<span>taxt_span</span>: text_span2
+			</div>
+			<div id="">
+				<span>taxt_span</span>: text_span2
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#d1 {
+				position: relative;
+				width: 150px;
+				height: 150px;
+				margin: 10px;
+				padding: 10px;
+				border: 1px solid blue;
+				background-color: lightcoral;
+			}
+			#d2 {
+				position: absolute;
+				padding: 40px;
+				border: 1px dashed green;
+				background-color: lightsteelblue;
+			}
+			#d3 {
+				width: 150px;
+				height: 150px;
+				border: 1px solid blue;
+				background-color: lightsteelblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+			</div>
+		</div>
+		<hr>
+		<!-- perspective:设置成透视效果,透视效果为近大远小 -->
+		<div id="d1" style="float: left;-webkit-perspective: 200;">
+			<div id="d2" style="transform: rotateX(50deg);">
+			</div>
+		</div>
+		<hr style="clear: both;">
+		<!-- perspective-origin: left top:设置3D元素所基于的x轴和y轴,改变3D元素的底部位置 -->
+		<div id="d1" style="float: left;-webkit-perspective: 200;-webkit-perspective-origin: left top;">
+			<div id="d2" style="transform: rotateX(50deg);">
+			</div>
+		</div>
+<!-- 		<br style="clear: both;" /> -->
+		<div id="d1" style="float: left;transform: rotateY(50deg);transform-style: preserve-3d;">
+			<div id="d2" style="transform: rotateX(50deg);">
+			</div>
+		</div>
+	<!-- 	<br style="clear: both;" /> -->
+		<div>
+	<!-- 	<br style="clear: both;" /> -->
+		<div id="d1" style="float: left;transform: rotateY(50deg);-webkit-perspective: 600;transform-style: preserve-3d;">
+			<div id="d2" style="transform: rotateX(50deg);">
+			</div>
+		</div>
+		
+		<hr style="clear: both;">
+		<div id="d3" style="">
+			蓝色
+		</div>
+		<div id="d3" style="transform: rotateX(180deg);">
+			蓝色
+		</div>
+		<!-- backface-visibility: hidden:设置当元素背面面向屏幕时是否可见 -->
+		<div id="d3" style="transform: rotateX(180deg);backface-visibility: hidden;">
+			蓝色
+		</div>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.document.write(window.location.hostname);
+			document.write("<br \>");
+			//获取浏览器宽高
+			var w = window.innerWidth || window.document.clientWidth || document.body.clientWidth;
+			var h = window.innerHeight || window.document.clientHeight || document.body.clientHeight;
+			document.write("浏览器宽:" + w + ",高:" + h)；
+			document.write("<br \>");
+			var op = function() {
+				window.open('https://www.mole9630.top/');
+			}
+			window.onload = function() {
+			document.bgColor = '#c7edcc';
+			document.fgColor = 'blueviolet';
+			document.write(location.port); //输出本地端口
+			document.write("<br \>");
+			document.write(location.href); //输出当前路径
+			document.write("<br \>");
+			document.write(navigator.appName); //Netscape
+			document.write("<br \>");
+			document.write(navigator.cookieEnabled); //是否启用cookie
+			document.write("<br \>");
+			document.write(navigator.platform); //Win32
+
+			document.write(screen.availWidth + "<br \>"); //浏览器屏幕宽度
+			document.write(screen.availHeight + "<br \>"); //浏览器屏幕高度
+			document.write(screen.width + "<br \>"); //显示器屏幕宽度
+			document.write(screen.height + "<br \>"); //显示器屏幕高度
+			}
+
+			var back = function() {
+				history.go(-1); //返回上个网页
+			}
+
+			var myid,myname,myclass,mytag;
+			window.onload = function(){
+				myid = document.getElementById('mdiv'); //返回单个变量
+				myname = document.getElementsByName('myinput'); //返回数组
+				myclass = document.getElementsByClassName('mdiv'); //返回数组
+				mytag = document.getElementsByTagName('div'); //返回数组
+			}
+
+			window.onload = function() {
+				mytable = document.getElementById('mytable');
+				trs = document.getElementsByTagName('tr');
+				len = trs.length;
+				flag = true;
+				for (i = 0; i < len; i++) {
+					if (flag) {
+						trs[i].setAttribute('bgcolor', '#c7edcc')
+						flag = false;
+					} else {
+						flag = true;
+					}
+				}
+				mywidth = mytable.getAttribute('width');
+				document.write(mywidth);
+			}
+		</script>
+		
+		<input type="button" name="" id="" value="打开" onclick="op()" />
+		<input type="button" name="" id="" value="返回" onclick="back()" />
+		<div id="">
+			这是一段文本
+		</div>
+		<div id="mdiv" class="mdiv">
+			<input type="" name="myinput" id="" value="" />
+		</div>
+
+		<table border="1" id="mytable" align="center" width="80%">
+			<tr bgcolor="#cccccc">
+				<td>这是一段文本</td>
+				<td>这是一段文本</td>
+				<td>这是一段文本</td>
+			</tr>
+			<tr>
+				<td>这是一段文本</td>
+				<td>这是一段文本</td>
+				<td>这是一段文本</td>
+			</tr>
+			<tr>
+				<td>这是一段文本</td>
+				<td>这是一段文本</td>
+				<td>这是一段文本</td>
+			</tr>
+		</table>
+	</body>
+</html>

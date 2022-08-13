@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.d1{
+				/* inline行内元素没有换行符,不能设置内外布局,但img是内联元素,可以设置宽高 */
+				width: 50px;
+				height: 50px;
+				border: solid 2px seagreen;
+				display: inline-block;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- position: absolute:位置为绝对(裁剪的前提) -->
+		<!-- clip裁剪 rect(右上角y,右上角x,左下角y,左下角x) -->
+		<img src="https://img.mole9630.top/blog-logo.png" style="width:200px; height: 200px; position: absolute; clip: rect(0px 100px 90px 0px);">
+		<div id="" style="border: solid 2px seagreen;">
+			这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_
+		</div>
+		<div id="" style="border: solid 2px seagreen; overflow: scroll;">
+			这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_
+		</div>
+		<!-- 文字会溢出 -->
+		<div id="" style="border: solid 2px seagreen; width: 100px; height: 100px;">
+			这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_
+		</div>
+		<hr >
+		<!-- overflow: auto/hidden/scroll 添加一个auto滚动条/溢出文字会隐藏并空出位置/添加一个上下左右的滚动条 -->
+		<div id="" style="border: solid 2px seagreen; width: 100px; height: 100px; overflow: hidden;">
+			这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_这是一段长文字_
+		</div>
+		<p style="">这是一段文字1</p>
+		<p style="">这是一段文字2</p>
+		<p style="">这是一段文字3</p>
+		<hr >
+		<p style="">这是一段文字1</p>
+		<p style="display: none;">这是一段文字2</p>
+		<p style="">这是一段文字3</p>
+		<hr >
+		<!-- display: block:更改为块级元素,会自动换行 -->
+		<p>这是第一段文字<span style="display: block;">这是第二段文字</span>这是第三段文字</p>
+		<hr >
+		<div class="d1">
+			这是一段文字
+		</div>
+		<!-- visibility: hidden:隐藏但不会空出位置 -->
+		<div class="d1" style="visibility: hidden;">
+			这是一段文字
+		</div>
+		<div class="d1">
+			这是一段文字
+		</div>
+		<div class="d1">
+			这是一段文字
+		</div>
+		
+		<div id="" style="width: 100px; height: 100px; border: solid 2px seagreen;">
+			这是一段文字1
+		</div>
+		<!-- position: absolute:位置为绝对,位置会空出来 -->
+		<!-- top: 50px; left: 50px:上边向下移动50px 左边向右移动50px -->
+		<div id="" style="width: 100px; height: 100px;border: solid 2px lightseagreen; position: absolute; top: 50px; left: 50px;">
+			这是一段文字2
+		</div>
+		<!-- position: relative:位置为相对,位置不会被空出来 -->
+		<div id="" style="width: 100px; height: 100px;border: solid 2px lightseagreen; position: relative; top: 50px; left: 50px;">
+			这是一段文字3
+		</div>
+		<div id="" style="width: 100px; height: 100px;border: solid 2px sandybrown; position: absolute; top: 0px; left: 0px;">
+			这是一段文字4
+		</div>
+		<div id="" style="width: 100px; height: 100px;border: solid 2px slateblue; position: absolute; top: 50px; left: 50px;">
+			这是一段文字5
+		</div>
+		<!-- z-index:层数越大,图层越靠前 -->
+		<div id="" style="width: 100px; height: 100px;border: solid 2px skyblue; position: absolute; top: 80px; left: 80px; z-index: 1;">
+			这是一段文字6
+		</div>
+		<div id="" style="width: 100px; height: 100px;border: solid 2px indianred; position: absolute; top: 100px; left: 100px; z-index: 2;">
+			这是一段文字6
+		</div>
+	</body>
+</html>

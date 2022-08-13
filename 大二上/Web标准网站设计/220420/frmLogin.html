@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!-- novalidate="novalidate":全表单不进行验证(将影响下面的required,pattern属性) -->
+		<form id="frmLogin" action="" method="" novalidate="novalidate">
+			<!-- placeholder="":添加文本框内文字提示(实用性强) -->
+			<!-- autocomplete="":设置自动补全功能(即历史输入记录),缺省值为:on -->
+			<!-- autofocus="autofocus":打开页面后,自动获取焦点(实用性强) -->
+			<!-- required="required":设置必填项 -->
+			<label for="username">用户名:</label><input type="text" id="username" name="username" placeholder="请输入用户名" autocomplete="off" autofocus="autofocus" required="required" /><br />
+			<label for="pwd">密码:</label><input type="password" id="pwd" name="pwd" placeholder="请输入密码" required="required" /><br />
+			<label for="address">户口所在地:</label><input type="text" list="location" id="address" /><br />
+			<label for="tel">手机号(+86):</label><input type="tel" id="tel" name="tel" pattern="^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$" /><br />
+			<!-- maxlength="30":规定最大字符数 -->
+			<!-- wrap="":规定提交时,提交的文本包不包含换行符,缺省值为:soft(不换行),换行为软换行(自动换行),并非键盘的回车换行 -->
+			<textarea name="tta" rows="5" cols="20" maxlength="30" wrap="soft"></textarea><br />
+		</form>
+		<!-- form="frmLogin":与上方form表单建立关联 -->
+		<!-- formaction="frmPassA.html":分别链接不同的地址 -->
+		<!-- formmethod="":为不同的按钮设置不同的数据传输方式 -->
+		<!-- formenctype="multipart/form-data":如有上传文件控件,按钮需要添加该属性 -->
+		<!-- formtarget="":设置跳转打开方式 _blank:在新标签页打开 _self:在当前标签页打开 -->
+		<input type="submit" form="frmLogin" formaction="frmPassA.html" formmethod="get" formtarget="_blank" />
+		<input type="submit" form="frmLogin" formaction="frmPassB.html" formmethod="post" formenctype="multipart/form-data" formtarget="_self" />
+		
+		<!-- 与户口所在地的list(location)建立关联 -->
+		<datalist id="location">
+			<option>北京市</option>
+			<option>上海市</option>
+			<option>天津市</option>
+			<option>重庆市</option>
+		</datalist>
+	</body>
+</html>

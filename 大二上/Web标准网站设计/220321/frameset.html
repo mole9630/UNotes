@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	
+	<!-- frameset 框架集 -->
+	<!--  rows表示行数 cols表示列数,可用百分比代替,或用*号(代表剩余的比例) -->
+	<frameset rows="6%,22%,72%">
+		<!-- scrolling是否显示滚动条 noresize定义框架不能调整大小 -->
+		<frame src="list.html" scrolling="no" noresize="noresize">
+		<frameset cols="50%,*">
+			<frame src="https://www.mole9630.top" >
+			<frame src="https://github.com/mole9630" >
+		</frameset>
+		<!-- 默认显示的页面 -->
+		<frame src="https://mole9630.top" scrolling="no" noresize="noresize" name="showframe">
+	</frameset>
+	
+	<!-- 不支持框架集时显示的内容,noframes或放置在frameset内也可以 -->
+	<noframes>
+		<body>
+			您的浏览器暂不支持该网页,请尝试更换浏览器!
+		</body>
+	</noframes>
+</html>

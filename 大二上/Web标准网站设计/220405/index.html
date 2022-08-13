@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.hh{
+				background-color: aqua;
+			}
+			#hh{
+				background-color: red;
+				/* 内边距 */
+				/* padding-top: 20px;
+				padding-right: 15px;
+				padding-bottom: 10px;
+				padding-left: 5px; */
+				/* 外边距 */
+				margin-top: 40px;
+				margin-right: 25px;
+				margin-bottom: 15px;
+				margin-left: 5px;
+			}
+			.hh1{ /*复制值原则*/
+				background-color: darkred;
+				padding: 10px;
+				/* 上对应下 左对应右 */
+				/* 等价于↓
+				padding-top: 10px;
+				padding-right: 10px;
+				padding-bottom: 10px;
+				padding-left: 10px; */
+				padding: 10px 5px;
+				/* 等价于↓
+				padding-top: 10px;
+				padding-right: 5px;
+				padding-bottom: 10px;
+				padding-left: 5px; */
+				padding: 10px 5px 15px;
+				/* 等价于↓
+				padding-top: 10px;
+				padding-right: 5px;
+				padding-bottom: 15px;
+				padding-left: 5px; */
+			}
+			.hh2{
+				/* 定义线型的四种情况 */
+				border-top-style: dotted;
+				border-right-style: solid;
+				border-bottom-style: dashed;
+				border-left-style: double;
+				border-style: dotted solid dashed double; /*等同于↑*/
+				/* 定义边框的颜色 */
+				border-top-color: red;
+				border-right-color: blue;
+				border-bottom-color: green;
+				border-left-color: darkcyan;
+				border-color: red blue green darkcyan; /*等同于↑*/
+				/* 定义边框的线宽 */
+				border-top-width: 20px;
+				border-right-width: 15px;
+				border-bottom-width: 10px;
+				border-left-width: 5px;
+				border-width: 20px 15px 10px 5px; /*等同于↑*/
+				/* 同时定义线型 宽度 颜色 */
+				border-top: dotted 20px red;
+				border-right: solid 15px blue;
+				border-bottom: dashed 10px green;
+				border-left: double 5px darkcyan;
+				/* 综合写法 */
+				border: dashed 5px green;
+				/* 定义盒子模型外边框线型 线宽 线色 (不计入盒模型的实际宽度)*/
+				outline: solid 10px red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- h标签 属于块级元素 独占一行 -->
+		<h1 class="hh">这是第一个标题一</h1>
+		<h1 id="hh">这是第二个标题一</h1>
+		<h1 class="hh1">这是第三个标题一</h1>
+		<h1 id="hh">这是第四个标题一</h1>
+		<h1 class="hh2">这是第五个标题一</h1>
+		<h1 id="hh">这是第六个标题一</h1>
+		<p><img src="https://img.mole9630.top/blog-logo.png" style="50px; height=50px; float: left;">这是一段长文本to_long_to_long_to_long_long_to_long_to_long_to_long_long_to_long_to_long_to_long_long_to_long_to_long_to_long_long_</p>
+		<p><img src="https://img.mole9630.top/blog-logo.png" style="50px; height=50px; float: left;">这是一段长文本to_long_to_long_to_long_long_to_long_to_long_to_long_long_to_long_to_long_to_long_long_to_long_to_long_to_long_long_</p>
+		<!-- span标签 属于行内元素 不会自动换行 -->
+		<span>
+			这是一段文字1
+		</span>
+		<span>
+			这是一段文字2
+		</span>
+		<span>
+			这是一段文字3
+		</span>
+	</body>
+</html>

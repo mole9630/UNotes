@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- 方式1:引入外部样式(推荐) -->
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<!-- 方式2:导入外部样式文件 -->
+		<style type="text/css">
+			@import url("css/css.css");
+		</style>
+		<!-- 方式3:使用内部样式 -->
+		<style type="text/css">
+			/* .的权重比#低,故#优先级高,.不执行 */
+			/* #div1与.div1统称为选择器,决定对哪个标签起作用 */
+			/* {}内的值称之为属性与属性值 */
+			#div1 {
+				font-weight: 700;
+				font-family: "微软雅黑";
+			}
+			.div1 {
+				font-weight: 100;
+			}
+			/* 并列方式实现,用逗号隔开 */
+			#div1,
+			.sp1 {
+				font-family: "等线";
+			}
+
+			/* 元素选择器 */
+			div {
+				color: cornflowerblue;
+			}
+			cite {
+				color: #c7edcc;
+			}
+			
+			/* 通配符选择器 */
+			* {
+				font-family: "微软雅黑";
+			}
+			
+			/* 属性选择器 */
+			/* 通过标签+属性(带有lang属性的所有td元素) */
+			td[lang] {
+				color: red;
+			}
+			/* title属性值为"a"的所有td元素 */
+			td[title="a"] {
+				color: #6495ED;
+			}
+			/* 属性中包含完整独立的单词"c",且前后可有空格的所有td元素 */
+			td[title~="c"] {
+				color: yellowgreen;
+			}
+			/* 属性值以"h"为开头的独立单词,后面口语跟连字符"-"的所有td元素 */
+			td[title|="h"] {
+				color: gold;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 方式4:使用内联样式(只对单个标签起作用) -->
+		<div id="div1" style="font-size: large;">
+			这是一段文字
+		</div>
+		<div id="">
+			这是一段文字
+		</div>
+		<!-- 子标签会继承父标签的样式 -->
+		<span style="font-size: 30px;">这是第一段文字<cite>这是第二段文字</cite>这是第三段文字</span><br />
+		<span class="sp1">这是第一段文字<cite>这是第二段文字</cite>这是第三段文字</span>
+		
+		<table border="1" cellspacing="" cellpadding="">
+			<tr>
+				<td>td[lang]</td>
+				<td>无属性</td>
+				<td lang="">lang=""</td>
+				<td lang="en">lang="en"</td>
+				<td lang="cn">lang="cn"</td>
+			</tr>
+		</table>
+		
+		<hr>
+		<table border="1" cellspacing="" cellpadding="">
+			<tr>
+				<td>[title="a"]</td>
+				<td>无属性</td>
+				<td title="">title=""</td>
+				<td title="en">title="en"</td>
+				<td title="a">title="a"</td>
+			</tr>
+		</table>
+		
+		<hr>
+		<table border="1" cellspacing="" cellpadding="">
+			<tr>
+				<td>[title~="c"]</td>
+				<td>无属性</td>
+				<td title="c">title="c"</td>
+				<td title="c p">title="c p"</td>
+				<td title="c-p">title="c-p"</td>
+				<td title="cp">title="cp"</td>
+				<td title="p c">title="p c"</td>
+				<td title="pc">title="pc"</td>
+			</tr>
+		</table>
+		
+		<hr>
+		<table border="1" cellspacing="" cellpadding="">
+			<tr>
+				<td>[title|="h"]</td>
+				<td>无属性</td>
+				<td title="h">title="h"</td>
+				<td title="h p">title="h p"</td>
+				<td title="h-p">title="h-p"</td>
+				<td title="hp">title="hp"</td>
+				<td title="p h">title="p h"</td>
+				<td title="ph">title="ph"</td>
+			</tr>
+		</table>
+	</body>
+</html>

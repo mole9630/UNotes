@@ -1,0 +1,69 @@
+@keyframes myAnimation {
+	0% {transform: rotate(0deg);}
+	25% {transform: rotate(90deg);}
+	50% {transform: rotate(180deg);}
+	75% {transform: rotate(270deg);}
+	100% {transform: rotate(360deg);}
+}
+@-webkit-keyframes myAnimation {
+	0% {transform: rotate(0deg);}
+	25% {transform: rotate(90deg);}
+	50% {transform: rotate(180deg);}
+	75% {transform: rotate(270deg);}
+	100% {transform: rotate(360deg);}
+}
+@-moz-keyframes myAnimation {
+	0% {transform: rotate(0deg);}
+	25% {transform: rotate(90deg);}
+	50% {transform: rotate(180deg);}
+	75% {transform: rotate(270deg);}
+	100% {transform: rotate(360deg);}
+}
+@-o-keyframes myAnimation {
+	0% {transform: rotate(0deg);}
+	25% {transform: rotate(90deg);}
+	50% {transform: rotate(180deg);}
+	75% {transform: rotate(270deg);}
+	100% {transform: rotate(360deg);}
+}
+@font-face {
+	font-family: myFont;
+	src: url(../font/fontname.ttf);
+}
+
+body {
+	font-size: 18px;
+}
+ul,li {
+	list-style: none;
+}
+ul {
+	display: flex;
+}
+li {
+	flex-grow: 1;
+	border: 1px solid lightblue;
+	text-align: center;
+	border-radius: 10px;
+}
+li p {
+	text-align: center;
+}
+li img {
+	width: 60px;
+	height: 60px;
+}
+li:first-child {
+	background: mediumaquamarine;
+}
+li:first-child img:hover {
+	animation: myAnimation 10s infinite;
+}
+li:first-child p {
+	font-family: myFont;
+}
+
+#d1 {
+	column-count: 3;
+	column-gap: 80px;
+}

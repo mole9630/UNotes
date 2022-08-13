@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#transform {
+				width: 100px;
+				height: 100px;
+				border: 2px solid blue;
+				background: red;
+			}
+			#transform1
+			{
+				width: 50px;
+				height: 50px;
+				border: 2px solid blue;
+				margin: 10px;
+				background-image: url('https://img.mole9630.top/blog-logo.png');
+			}
+			#transform2
+			{
+				width: 50px;
+				height: 50px;
+				border: 2px solid lightcoral;
+				margin: 10px;
+				background-image: url('https://img.mole9630.top/blog-logo.png');
+			}
+			#transform3
+			{
+				width: 50px;
+				height: 50px;
+				border: 2px solid lightpink;
+				margin: 10px;
+				background-image: url('https://img.mole9630.top/blog-logo.png');
+			}
+			#transform4 {
+				width: 50px;
+				height: 50px;
+				border: 2px solid lightgreen;
+				margin: 10px;
+				background-image: url('https://img.mole9630.top/blog-logo.png');
+			}
+			.d1 {
+				position: relative;
+				width: 250px;
+				height: 250px;
+				top: 550px;
+				margin: 10px;
+				border: 1px solid black;
+			}
+			.d2 {
+				position: absolute;
+				border: 1px solid blueviolet;
+				background-color: red;
+				padding: 50px;
+			}
+			.d3 {
+				position: absolute;
+				border: 1px solid blue;
+				background-color: yellow;
+				padding: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- transform: skewX(30deg):沿x轴方向旋转30° -->
+		<!-- transform-origin: left; top:旋转中心点为左上角 -->
+		<div id="transform" style="transform: skewX(30deg);transform-origin: left top;position: absolute;">
+		</div>
+		<div id="transform" style="position: absolute;background-color: transparent;">
+		</div>
+		
+		<div id="transform" style="transform: skewY(30deg);transform-origin: left top;position: absolute;top: 150px;">
+		</div>
+		<div id="transform" style="position: absolute;background-color: transparent;position: absolute;top: 150px;">
+		</div>
+		
+		<!-- transform: skew(30deg,30deg):沿x轴方向旋转30°,再沿y轴方法旋转30° -->
+		<div id="transform" style="transform: skew(30deg,30deg);transform-origin: left top;position: absolute;top: 350px;">
+		</div>
+		<div id="transform" style="position: absolute;background-color: transparent;position: absolute;top: 350px;">
+		</div>
+		
+		<div id="transform2" style="float: left;">
+		</div>
+		<div id="transform2" style="float: left;">
+		</div>
+		<!-- transform: rotate(30deg):顺时针旋转30° -->
+		<div id="transform2" style="float: left;transform: rotate(30deg);">
+		</div>
+		<div id="transform2" style="float: left;">
+		</div>
+		<!-- transform: translate(30px,20px):向x轴平移30px,向y轴平移20px -->
+		<div id="transform2" style="float: left;transform: translate(30px,20px);">
+		</div>
+		<!-- transform: translateX(-30px) translateY(-20px):向左平移30px,向上平移20px -->
+		<div id="transform2" style="float: left;transform: translateX(-30px) translateY(-20px);">
+		</div>
+		
+		<!-- transform: scale(2,0.5):x轴方向缩放原来的2倍,y轴方向缩放原来的0.5倍 -->
+		<div id="transform2" style="float: left;transform: scale(2,0.5);">
+		</div>
+		
+		<!-- position: relative;left: 90px:选择中心点为图像中心点 -->
+		<div id="transform3" style="float: left;">
+		</div>
+		<div id="transform3" style="float: left;transform: rotate(45deg);position: relative;left: -73px;">
+		</div>
+		<!-- transform-origin: left top:选择中心点为左上角 -->
+		<div id="transform3" style="float: left;">
+		</div>
+		<div id="transform3" style="float: left;transform: rotate(45deg);position: relative;left: -73px;transform-origin: left top;">
+		</div>
+		<!-- transform-origin: 35px 60%:值也可以是百分比的形式 -->
+		<div id="transform3" style="float: left;">
+		</div>
+		<div id="transform3" style="float: left;transform: rotate(45deg);position: relative;left: -73px;transform-origin: 35px 60%;">
+		</div>
+		
+		<!-- transform: rotate(180deg):选择180°即垂直翻转 -->
+		<div id="transform4" style="float: left;">
+		</div>
+		<div id="transform4" style="float: left;transform: rotateX(180deg);">
+		</div>
+		<div id="transform4" style="float: left;transform: rotateY(180deg);">
+		</div>
+		<div id="transform4" style="float: left;transform: rotateZ(180deg);">
+		</div>
+		<div id="transform4" style="float: left;transform: rotateX(60deg) rotateY(80deg) rotateZ(60deg);">
+		</div>
+		
+		<div class="d1">
+			<div class="d2">
+				红色
+				<div class="d3">
+					黄色
+				</div>
+			</div>
+		</div>
+		<!-- 缺省情况下,子控件随父控件一起旋转 -->
+		<div class="d1" style="float: left;">
+			<div class="d2" style="transform: rotateX(30deg);">
+				红色
+				<div class="d3">
+					黄色
+				</div>
+			</div>
+		</div>
+		<!-- transform-style: flat:不保留3D效果,以2D的形式呈现 -->
+		<div class="d1" style="float: left;">
+			<div class="d2" style="transform: rotateX(30deg);transform-style: flat;">
+				红色
+				<div class="d3" style="transform: rotateY(30deg);">
+					黄色
+				</div>
+			</div>
+		</div>
+		<!-- transform-style: preserve-3d:保留3D效果 -->
+		<div class="d1" style="float: left;">
+			<div class="d2" style="transform: rotateX(30deg);transform-style: preserve-3d;">
+				红色
+				<div class="d3" style="transform: rotateY(30deg);">
+					黄色
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

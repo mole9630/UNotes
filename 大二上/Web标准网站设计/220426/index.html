@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			/* 新增兄弟选择器*/
+			/* 修改了h2之后所有的p标签的文字颜色 */
+			h2~p {
+				color: red;
+			}
+			
+			/* 新增属性选择器 */
+			/* 以指定对象开头的元素 */
+			td[lang^='e'] {
+				color: brown;
+			}
+			/* 以指定对象结尾的元素 */
+			td[lang$='e'] {
+				color: deeppink;
+			}
+			/* 所有带有指定对象的元素 */
+			td[lang*='e'] {
+				font-weight: bolder;
+			}
+			
+			/* 新增伪类选择器 */
+			/* 根标签(html)下所有的样式 */
+			:root {
+				font-size: 17px;
+			}
+			/* 修改父元素的最后一个子元素 */
+			li:last-child {
+				color: red;
+			}
+			/* 修改父元素正数第n个子元素 */
+			li:nth-child(2) {
+				color: crimson;
+			}
+			/* 修改父元素倒数第n个子元素 */
+			li:nth-last-child(3) {
+				color: royalblue;
+			}
+			/* 只给父元素的唯一子元素添加样式 */
+			li:only-child {
+				color: green;
+			}
+			/* 修改父元素的第一个元素 */
+			li:first-of-type {
+				font-size: 30px;
+			}
+			/* 修改父元素同级同类型的正数第n个元素 */
+			li:nth-of-type(3) {
+				font-style: italic;
+			}
+			/* 修改父元素同级同类型的倒数第n个元素 */
+			li:nth-last-of-type(3) {
+				outline: 1px solid green;
+			}
+			/* 修改父元素同级同类型中的唯一的元素 */
+			div:only-of-type {
+				color: lightcoral;
+			}
+			/* 修改没有子元素的元素 */
+			div:empty {
+				width: 20px;
+				height: 20px;
+				border: 1px solid lightblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>这是一段文字</h1>
+			<p>这是另一段文字</p>
+			<h2>这是一段文字</h2>
+			<p>这是另一段文字</p>
+			<h3>这是一段文字</h3>
+			<p>这是另一段文字</p>
+			<div>
+				<p>这是一段文字</p>
+			</div>
+		</div>
+		
+		<table border="1">
+			<tr>
+				<td lang="">lang=""</td>
+				<td lang="en">lang="en"</td>
+				<td lang="e n">lang="e n"</td>
+				<td lang="y">lang="y"</td>
+				<td lang="e-n">lang="e-n"</td>
+				<td lang="ne">lang="ne"</td>
+				<td lang="n e">lang="n e"</td>
+				<td lang="hu">lang="hu"</td>
+			</tr>
+		</table>
+		
+		<ul>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+		</ul>
+		<hr>
+		<ul>
+			<li>这是一段文字</li>
+		</ul>
+		<hr>
+		<ul>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+			<li>这是一段文字</li>
+		</ul>
+		
+		<div>
+			<div>
+				这是一段文字(divdiv)
+			</div>
+		</div>
+		<article>
+			<div>
+				这是一段文字(article|div)
+			</div>
+		</article>
+		
+		<div></div>
+	</body>
+</html>

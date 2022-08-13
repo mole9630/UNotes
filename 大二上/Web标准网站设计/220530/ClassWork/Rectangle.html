@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var rectangleArea = function(topBottom,bottomBottom,height) {
+				//定义对象及属性
+				var obj = {};
+				obj.topBottom = topBottom;
+				obj.bottomBottom = bottomBottom;
+				obj.height = height;
+				obj.calculate = function() {
+					document.write("矩形面积为:" + (topBottom+bottomBottom)*height/2)
+				}
+				return obj;
+			}
+			//创建对象
+			var one = new rectangleArea(10,12,5);
+			one.calculate();
+			document.write("<br \>");
+		</script>
+	</body>
+</html>

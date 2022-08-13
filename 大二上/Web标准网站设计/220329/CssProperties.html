@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="">
+			<tr>
+				<!-- 定义背景颜色 颜色可以用英文单词,#十六进制,rgb来定义 -->
+				<td style="background-color: aquamarine;">这是第一个表格</td>
+				<td style="background-color: #c7edcc;">这是第二个表格</td>
+				<td style="background-color: rgb(245,125,200);">这是第三个表格</td>
+			</tr>
+		</table>
+		<table border="" cellspacing="" cellpadding="">
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);">
+			</div>
+			<hr >
+			<!-- background-repeat: repeat-x:沿x轴方向平铺 -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: repeat-x;">
+			</div>
+			<hr >
+			<!-- background-repeat: repeat-y:沿y轴方向平铺 -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: repeat-y;">
+			</div>
+			<hr >
+			<!-- background-repeat: no-repeat:背景图片不重复 -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: no-repeat;">
+			</div>
+			<hr >
+			<!-- background-position: center center:将图片固定在中间  -->
+			<!-- border: solid 2px red:设置一个像素为2的红色边框 -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: no-repeat;background-position: center center;border: solid 2px red;">
+			</div>
+			<hr >
+			<!-- background-position: left bottom:将图片固定在左下角  -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: no-repeat;background-position: left bottom;border: solid 2px red;">
+			</div>
+			<hr >
+			<!-- background-position: 20% 45%:将图片固定在约x轴20%,y轴45%的位置  -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: no-repeat;background-position: 20% 45%;border: solid 2px red;">
+			</div>
+			<hr >
+			<!-- background-position: 85px 158px:将图片固定在x轴85px,y轴158px的位置  -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: no-repeat;background-position: 85px 158px;border: solid 2px red;">
+			</div>
+			<hr >
+			<!-- background-position: 500px 500px:超出div范围,无法显示  -->
+			<div id="" style="width: 200px;height: 200px;background-image: url(img/cpm.gif);background-repeat: no-repeat;background-position: 500px 500px;border: solid 2px red;">
+			</div>
+			<hr >
+			<!-- background: gray url(img/cpm.gif) no-repeat scroll center center:简写,分别顺序对应颜色 图片 重复 是否固定 位置  -->
+			<div id="" style="width: 200px;height: 200px;border: solid 2px red;background: gray url(img/cpm.gif) no-repeat scroll center center;">
+			</div>
+		</table>
+	</body>
+</html>

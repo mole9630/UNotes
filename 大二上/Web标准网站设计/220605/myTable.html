@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.bgcolor {
+				background: #c7edcc;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				mytable = document.getElementById('mytable');
+				flag = true; //用于修改表格背景
+				//外循环创建行
+				for (i = 0; i < 3; i++) {
+					tr = document.createElement('tr');
+					//内循环创建列
+					for (j = 0; j < 3; j++) {
+						td = document.createElement('td');
+						text = document.createTextNode('文本' + i + '|' + j);
+						if (flag) {
+							class1 = document.createAttribute('class');
+							class1.value = 'bgcolor';
+							td.setAttributeNode(class1);
+							flag = false;
+						} else {
+							flag = true;
+						}
+						//添加节点内容到td单元格
+						td.appendChild(text);
+						//将td添加到行对象tr
+						tr.appendChild(td);
+					}
+					//添加行对象tr到表对象(mytable)
+					mytable.appendChild(tr);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table id="mytable" border="1" align="center" width="80%">
+		</table>
+	</body>
+</html>

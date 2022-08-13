@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = ['xx', 'yy', 'zz'];
+			var str = ['aa', 'bb']
+			var num = [56, 12, 34]
+			var str1 = arr.join('*');
+			arr.unshift('qq'); //首部插入'qq'
+			document.write(arr); //qq,xx,yy,zz
+			document.write('<br \>');
+
+			arr.splice(2, 0, 'ii', 'tt'); //qq,xx,ii,tt,yy,zz 从索引为2的位置删除0个元素,并插入'ii','tt' 2为插入或删除的索引位置,0为删除的个数
+			document.write(arr);
+			document.write('<br \>');
+			arr.splice(2, 2, str);
+			document.write(arr); //qq,xx,aa,bb,yy,zz 也可直接插入定义好的数组
+			document.write('<br \>');
+
+			var a = arr.concat(str, num); //三个数组合并,并成为一个新的数组
+			document.write(a);
+			document.write('<br \>');
+
+			var str1 = num.join('*'); //用'*'连接各个元素
+			document.write(str1);
+			document.write('<br \>');
+
+			num.reverse(); //令num倒叙
+			document.write(num); //56,34,12
+			document.write('<br \>');
+
+			num.sort(); //排序num
+			document.write(num);
+			document.write('<br \>');
+
+			var arr1 = new Array(); //定义二维数组并赋值
+			for (i = 0; i < 3; i++) {
+				arr1[i] = new Array();
+				for (j = 0; j < 2; j++) {
+					arr1[i][j] = 'arr:' + i + j;
+				}
+			}
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 2; j++) {
+					document.write(arr1[i][j] + ' ');
+				}
+				document.write('<br \>');
+			}
+
+			var str2 = '这是一段文字:Hello World'
+			document.write(str2.length); //18
+			document.write('<br \>');
+
+			var str3 = "Hello";
+			var str4 = "World";
+			var str5 = str3 + ':' + str4; //连接字符串,用':'分割
+			document.write(str5);
+			document.write('<br \>');
+			var str6 = str3.concat(":", str4);
+			document.write(str6);
+			document.write('<br \>');
+
+			var str7 = "This is a Phone"
+			var returnStr = str7.indexOf('is', 0); //搜索'is',从索引为0的位置开始查找 等价于:indexOf('is')
+			document.write(returnStr); //2 返回从前往后首次找到的索引值,找不到则返回-1
+			document.write('<br \>');
+			var returnStrl = str7.lastIndexOf('is');
+			document.write(returnStrl); //5 返回从后往前首次找到的索引值,找不到则返回-1
+			document.write('<br \>');
+
+			var str8 = "abcdABCD";
+			document.write(str8.search('c')); //2 返回从前往后首次搜索到的索引值,找不到为-1
+			document.write('<br \>');
+			document.write(str8.search(/b/)); //1 /b/:正则表达式 搜索一个字符
+			document.write('<br \>');
+
+			var str9 = "1a2b3c4d5eb";
+			document.write(str9.match('h')) //null 找不到则返回null
+			document.write('<br \>');
+			document.write(str9.match('b')) //找不到则返回本身
+			document.write('<br \>');
+			console.log(str9.match(/b/)); //{"0":"b","index":3,"input":"1a2b3c4d5eb","length":1}
+			console.log(str9.match(/b/g)); //{"0":"b","1":"b","length":2} g表示全局模式,匹配多次
+			
+			document.write(str9.substring(4,7))//b3c4 字符串的截取 从索引值4开始,截取到索引值7以前
+			document.write('<br \>');
+			document.write(str9.substring(4))//3c4d5eb 从索引值4开始,截取到最后 负数则从头(0)开始 等价于:substring(4,'∞')
+			document.write('<br \>');
+			
+			document.write(str9.slice(3,4)); //b
+			document.write('<br \>');
+			document.write(str9.slice(4,3)) //截取从左向右,无法截取故无输出,起始位置一定要在左边,结束位置在右边
+			document.write(str9.slice(-3,-1)); //5e 负表示从后往前数第一个索引
+			document.write('<br \>');
+			
+			document.write(str9.substr(2,5)); //2b3c4 从索引值为2的位置截取5个字符
+			document.write('<br \>');
+			document.write(str9.substr(2)); //2b3c4d5eb 从索引值为2的位置截取到最后
+			document.write('<br \>');
+			document.write(str9.substr(-5,3)); //4d5 从倒数第5个字符的位置截取到3个字符
+			document.write('<br \>');
+			document.write('<br \>');
+			
+			//字符串的替换
+			document.write(str9.replace('b','B')) //1a2B3c4d5eb 把'b'替换为'B'(只替换首次查找到的)
+			document.write('<br \>');
+			document.write(str9.replace(/b/,'B')) //1a2B3c4d5eb 把'b'替换为'B'(只替换首次查找到的)
+			document.write('<br \>');
+			document.write(str9.replace(/b/g,'B')) //1a2B3c4d5eB 把全局'b'替换为'B'
+			document.write('<br \>');
+			
+			//字符串的分割
+			var str10 = "This is a Phone";
+			document.write(str10.split(' ')); //This,is,a,Phone 以' '为分隔符
+			document.write('<br \>');
+			document.write(str10.split(' ',3)); //This,is,a 以' '为分隔符,且仅返回前3个
+			document.write('<br \>');
+		</script>
+	</body>
+</html>

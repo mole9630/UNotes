@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1 直接定义函数
+			function fun1() {
+				document.write("hello");
+				document.write("<br \>");
+			}
+			//以语句方式调用
+			fun1();
+
+			//2 定义匿名函数赋值给一个变量
+			var fun2 = function(a, b) {
+				if (a > b) {
+					return a;
+				} else {
+					return b;
+				}
+			}
+			//以表达式或函数参数形式调用
+			document.write(fun2(12, 5));
+			document.write("<br \>");
+
+			//3 以对象的方式定义函数
+			var fun3 = new Function(
+				document.write("Hello World!"),
+				document.write("<br \>");
+			); //内部为参数,无需加';'
+
+			//定义可变参数函数
+			var fun4 = function(...param) {
+				var len = param.length;
+				var arr = [];
+				for (i = 0; i < len; i++) {
+					arr.push(param[i]);
+				}
+				return arr; //返回数组
+			}
+			//调用可变参数函数
+			document.write(fun4(1001, '张三', 18));
+			document.write("<br \>");
+
+			var fun5 = function(id, name) {
+				var obj = {};
+				obj.id = id;
+				obj.name = name;
+				return obj
+			}
+			var f5 = new fun5(1001, '张三')
+			document.write(f5);
+			document.write("<br \>");
+			document.write(f5.name);
+
+			//闭包函数及应用
+			function myf1(i) {
+				return function() {
+					return ++i;
+				}
+			}
+			var f1 = myf1(3);
+			var f2 = myf1(10);
+			for (i = 0; i < 3; i++) {
+				document.write(f1());
+				document.write("<br \>");
+			}
+			document.write("<br \>");
+			for (i = 0; i < 3; i++) {
+				document.write(f2());
+				document.write("<br \>");
+			}
+
+			document.write(Math.ceil(3.6)); //4 大于等于最小的整数,不做四舍五入
+			document.write("<br \>");
+			document.write(Math.ceil(-3.2)); //-3
+			document.write("<br \>");
+			document.write(Math.floor(3.6)); //3 小于等于最大的整数
+			document.write("<br \>");
+			document.write(Math.floor(-3.2)); //-4
+			document.write("<br \>");
+			document.write(Math.min(51, 98, 51, 45, 89, 10, 56)); //10 求最小值
+			document.write("<br \>");
+			document.write(Math.max(51, 98, 51, 45, 89, 10, 56)); //98 求最大值
+			document.write("<br \>");
+			document.write(Math.min()); //Infinity
+			document.write("<br \>");
+			document.write(Math.max()); //-Infinity
+			document.write("<br \>");
+			document.write(Math.pow(3, 2)); //9 返回x的y次方
+			document.write("<br \>");
+			document.write(Math.random()); //生成0-1之间的随机数
+			document.write("<br \>");
+			document.write(Math.round(3.6)); //4 四舍五入
+			document.write("<br \>");
+			document.write(Math.sqrt(9)); //3 求开平方
+			document.write("<br \>");
+			document.write(Math.sqrt(-2)); //NaN 开平方需大于等于0
+			document.write("<br \>");
+			document.write(Math.PI); //3.141592653589793 获取圆周率
+			document.write("<br \>");
+
+			//1 以系统当前时间作为初始值
+			var dt = new Date();
+			document.write(dt.getFullYear()); //2022
+			document.write("<br \>");
+			document.write(dt.getMonth()); //4 真实的月份需要在此基础上+1
+			document.write("<br \>");
+			document.write(dt.toLocaleString()); //获取系统当前时间
+			document.write("<br \>");
+
+			//2 以给定日期与时间初始化日期对象
+			var dt1 = new Date('1970-01-01 00:00:00');
+			document.write(dt1.getFullYear()); //1970
+			document.write("<br \>");
+			document.write(dt1.getMonth() + 1); //1
+			document.write("<br \>");
+
+			//定时器实现时间的刷新
+			var fyear, fmonth, fday, ftime;
+			window.onload = function() {
+				//获取四个标签元素
+				fyear = document.getElementById('fyear');
+				fmonth = document.getElementById('fmonth');
+				fday = document.getElementById('fday');
+				ftime = document.getElementById('ftime');
+				timeMove();
+			}
+
+			function timeMove() {
+				td2 = new Date();
+				fyear.innerHTML = td2.getFullYear() + "年";
+				fmonth.innerHTML = td2.getMonth() + 1 + "月";
+				fday.innerHTML = td2.getDate() + "日";
+				ftime.innerHTML = td2.getHours() + ":" + td2.getMinutes() + ":" + td2.getSeconds();
+				setTimeout(timeMove,1000);
+			}
+			// setInterval(timeMove,1000);
+		</script>
+		<font id="fyear"></font>
+		<font id="fmonth"></font>
+		<font id="fday"></font>
+		<font id="ftime"></font>
+	</body>
+</html>

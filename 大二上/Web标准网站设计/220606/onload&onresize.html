@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+
+		<script type="text/javascript">
+			//窗体加载事件
+			window.onload = function() {
+				mydiv = document.getElementById('mydiv');
+				document.write("祝大家:" + mydiv.innerText);
+			}
+
+			function imgload() {
+				myimg = document.getElementById('myimg')
+				myimg.style.border = '3px solid #c7edcc'
+			}
+
+			function winresize() {
+				winWidth = document.body.clientWidth;
+				winHeight = document.body.clientHeight;
+				document.write('宽度:' + winWidth + ',高度:' + winHeight);
+			}
+		</script>
+	</head>
+	<!-- <body onresize="winresize()"> -->
+	<!-- 滚动事件 -->
+	<body onresize="winresize()">
+		<div id="mydiv">
+			高考大捷,逢考必过!
+		</div>
+		<img id="myimg" src="https://img.mole9630.top/blog-logo.png" onload="imgload()">
+	</body>
+</html>

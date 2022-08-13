@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			@keyframes myAnimation{
+				/* from{} == 0%{}
+				to{}  == 100%{} */
+				0%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+				25%{
+					top: 0px;
+					left: 100px;
+					background: goldenrod;
+				}
+				50%{
+					top: 100px;
+					left: 100px;
+					background: lightblue;
+				}
+				70%{
+					top: 100px;
+					left: 0px;
+					background: burlywood;
+				}
+				100%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+			}
+			@-webkit-keyframes myAnimation{
+				/* from{} == 0%{}
+				to{}  == 100%{} */
+				0%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+				25%{
+					top: 0px;
+					left: 100px;
+					background: goldenrod;
+				}
+				50%{
+					top: 100px;
+					left: 100px;
+					background: lightblue;
+				}
+				70%{
+					top: 100px;
+					left: 0px;
+					background: burlywood;
+				}
+				100%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+			}
+			@-moz-keyframes myAnimation{
+				/* from{} == 0%{}
+				to{}  == 100%{} */
+				0%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+				25%{
+					top: 0px;
+					left: 100px;
+					background: goldenrod;
+				}
+				50%{
+					top: 100px;
+					left: 100px;
+					background: lightblue;
+				}
+				70%{
+					top: 100px;
+					left: 0px;
+					background: burlywood;
+				}
+				100%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+			}
+			@-o-keyframes myAnimation{
+				/* from{} == 0%{}
+				to{}  == 100%{} */
+				0%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+				25%{
+					top: 0px;
+					left: 100px;
+					background: goldenrod;
+				}
+				50%{
+					top: 100px;
+					left: 100px;
+					background: lightblue;
+				}
+				70%{
+					top: 100px;
+					left: 0px;
+					background: burlywood;
+				}
+				100%{
+					top: 0px;
+					left: 0px;
+					background: indianred;
+				}
+			}
+			div {
+				width: 100px;
+				height: 100px;
+				background: indianred;
+				position: relative;
+				/* 调用自定义动画 */
+				animation: myAnimation 5s infinite;
+				-webkit-animation: myAnimation 5s infinite;
+				-moz-animation: myAnimation 5s infinite;
+				-o-animation: myAnimation 5s infinite;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+	</body>
+</html>

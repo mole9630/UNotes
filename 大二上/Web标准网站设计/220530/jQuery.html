@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//方法1 使用类模板创建对象
+			var Stu = function(id, name, age) {
+				//定义对象及属性
+				var obj = {};
+				obj.id = id;
+				obj.name = name;
+				obj.age = age;
+				obj.search = function() {
+					document.write("调用'查询成绩'的方法成功!")
+				}
+				return obj;
+			}
+			//创建对象
+			var zhangsan = new Stu(1001, "张三", 19);
+			var lisi = new Stu(1002, "李四", 19);
+			//利用对象访问对象成员(属性成员的和成员方法)
+			zhangsan.search();
+			document.write("<br \>");
+			lisi.search();
+			document.write("<br \>");
+			document.write(zhangsan.name);
+			document.write("<br \>");
+			document.write(lisi['name']);
+			document.write("<br \>");
+			lisi.id = 1003;
+			document.write(lisi.id);
+			document.write("<br \>");
+
+			//方法2 直接声明
+			var wangwu = {
+				id: 1004,
+				name: "王五",
+				age: 19
+			};
+			document.write(wangwu.name);
+			document.write("<br \>");
+			document.write(wangwu['name']);
+			document.write("<br \>");
+			var qianliu = Object.create({
+				id: 1005,
+				name: "钱六",
+				age: 18
+			})
+			document.write(qianliu.name);
+			document.write("<br \>");
+			//添加属性
+			wangwu.tel = "13800000000";
+			wangwu.addr = "上海市黄浦区";
+			document.write(wangwu.tel + "  " + wangwu.addr)
+			document.write("<br \>");
+			qianliu.tel = "13500000000";
+			qianliu.addr = "北京市海淀区";
+			document.write(qianliu.tel + "  " + qianliu.addr)
+			document.write("<br \>");
+			//删除属性
+			delete wangwu.tel;
+			document.write(wangwu.tel + "  " + wangwu.addr) //undefined 上海市黄浦区 执行删除操作后,将显示undefined(未定义)
+			document.write("<br \>");
+			//检测属性
+			if ('tel' in wangwu) {
+				document.write("'tel'属性在'wangwu'对象中")
+				document.write("<br \>");
+			} else {
+				document.write("'tel'属性不在'wangwu'对象中")
+				document.write("<br \>");
+			}
+			//方法的创建
+			wangwu.courses = [];
+			wangwu.selectCourse = function(courseName) {
+				wangwu.courses.push(courseName);
+			}
+			//方法的调用
+			wangwu.selectCourse('HTML');
+			wangwu.selectCourse('jQuery');
+			wangwu.selectCourse('CSS');
+			document.write(wangwu.courses);
+			document.write("<br \>");
+			//对象的遍历
+			for(key in wangwu)
+			{
+				document.write(key + ":" + wangwu[key]);
+				document.write("<br \>");
+			}
+		</script>
+	</body>
+</html>

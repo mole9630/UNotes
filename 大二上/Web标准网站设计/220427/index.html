@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		/* 伪元素选择器 */
+			/* 修改当前可用状态的元素样式 */
+			:enabled {
+				color: red;
+			}
+			/* 修改当前不可用状态的元素样式 */
+			:disabled {
+				color: blue;
+			}
+			/* 修改被选中对象的元素样式 */
+			:checked {
+				outline: 3px solid green;
+			}
+			/* 修改除括号内属性的其他元素的样式 */
+			p:not(.black) {
+				font-size: 20px;
+			}
+			/* 修改正在访问的锚点目标元素的样式 */
+			:target {
+				border: 2px solid blue;
+			}
+			/* 修改用户当前选取内容所在元素的样式 */
+			p::selection {
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<p><a href="#content1">跳转到内容1</a></p>
+		<p><a href="#content2">跳转到内容2</a></p>
+		<h1 id="content1">内容1</h1>
+		<input type="button" value="可用按钮" />
+		<input type="button" value="不可用按钮" disabled="disabled" />
+		<br />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<h2 id="content2">内容2</h2>
+		<p class="black">这是一段文本(class="black")</p>
+		<p>这是一段文本</p>
+		<p>这是一段文本</p>
+		<p class="black">这是一段文本(class="black")</p>
+	</body>
+</html>

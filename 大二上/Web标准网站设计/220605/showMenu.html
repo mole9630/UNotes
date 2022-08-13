@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.menu {
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			function show(thisa){
+				//返回当前对象的下一个同级元素
+				nextNode = thisa.nextElementSibling;
+				if (nextNode.style.display == 'none') {
+					nextNode.style.display = 'block'
+				} else {
+					nextNode.style.display == 'none';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li class="menu" onclick="show(this)">导航1</li>
+			<li style="display: none;">
+				<a href="javascript:void();">菜单1</a>
+				<a href="javascript:void();">菜单2</a>
+				<a href="javascript:void();">菜单3</a>
+				<a href="javascript:void();">菜单4</a>
+			</li>
+			<li class="menu" onclick="show(this)">导航2</li>
+			<li style="display: none;">
+				<a href="javascript:void();">菜单5</a>
+				<a href="javascript:void();">菜单6</a>
+				<a href="javascript:void();">菜单7</a>
+				<a href="javascript:void();">菜单8</a>
+			</li>
+			<li class="menu" onclick="show(this)">导航3</li>
+			<li style="display: none;">
+				<a href="javascript:void();">菜单9</a>
+				<a href="javascript:void();">菜单10</a>
+				<a href="javascript:void();">菜单11</a>
+				<a href="javascript:void();">菜单12</a>
+			</li>
+		</ul>
+	</body>
+</html>

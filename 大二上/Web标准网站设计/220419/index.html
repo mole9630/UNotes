@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!-- enctype:指定表单内容编码使用的字符集 -->
+		<form action="fromLogin" method="get" enctype="multipart/form-data">
+			<!-- label标签的for属性和文本框id属性建立联系,单击label控件时,将自动将焦点放到文本框 -->
+			<label for="username">用户名:</label>
+			<!-- maxlength="12":设置输入最大长度 -->
+			<input type="text" id="username" maxlength="12" /><br />
+			<label for="password">密码:</label>
+			<input type="password" /><br />
+			<!-- 如果使用文件上传控件 必须设置enctype="multipart/form-data" -->
+			<input type="file" /><br />
+			<!-- readonly="readonly":设置不可修改 -->
+			<textarea rows="5" cols="30" readonly="readonly"></textarea><br />
+			<!-- size="10":大小为10 multiple="multiple":允许多选 -->
+			<select size="10" multiple="multiple">
+				<!-- 列表分组 -->
+				<optgroup label="上海">
+					<option value ="闵行区">闵行区</option>
+					<option value ="徐汇区">徐汇区</option>
+					<option value ="浦东区">浦东区</option>
+				</optgroup>
+				<optgroup label="北京">
+					<option value ="东城区">东城区</option>
+					<option value ="西城区">西城区</option>
+					<option value ="朝阳区">朝阳区</option>
+				</optgroup>
+			</select><br />
+			<input type="color" name="color" value="#c7edcc" /><br />
+			<!-- 只能设置小时和分钟 -->
+			<input type="time" name="tm" value="" /><br />
+			<!-- datetime:类似于普通文本框 -->
+			<input type="datetime" name="dt" value="" /><br />
+			<input type="date" name="dte" value="" min="1900-01-01" max="2200-12-31" /><br />
+			<input type="datetime-local" name="dtl" value="" min="1900-01-01T00:00" max="2200-12-31T23:59" /><br />
+			<input type="month" name="mo" min="1900-01" max="2200-12" /><br />
+			<input type="week" name="wk" min="1900-W1" max="2200-W52" /><br />
+			<!-- email属性会自身做一个校验,是否为邮箱地址 -->
+			<!-- multiple="multiple":允许输入多个邮箱,用逗号分隔 -->
+			<input type="email" name="em" multiple="multiple" /><br />
+			<!-- number:类似于普通文本框,但只能输入和选择数字,缺省值为0 -->
+			<!-- step:定义步长为:1 -->
+			<input type="number" name="num" min="0" max="9999" step="1" /><br />
+			<!-- searc:搜索框 类似于普通文本框,手机输入法右下角显示为'搜索' -->
+			<input type="search" name="se" /><br />
+			<!-- tel:输入电话的文本框,类似于普通文本框,手机输入法默认打开数字键盘 -->
+			<input type="tel" name="tel" /><br />
+			<!-- url:url输入框,会自动校验是否符合url格式 -->
+			<input type="url" name="url" /><br />
+			
+			<!-- range:滚动条滑块 -->
+			
+			<input type="range" name="rg" step="1" list="flag" /><br />
+			<!-- 配合list添加刻度 -->
+			<datalist id="flag">
+				<option value="0">
+				<option value="10">
+				<option value="20">
+				<option value="30">
+				<option value="40">
+				<option value="50">
+				<option value="60">
+				<option value="70">
+				<option value="80">
+				<option value="90">
+				<option value="100">
+			</datalist>
+			<hr >
+			<input type="reset" /><br />
+			<!-- disabled="disabled":设置按钮不可用 -->
+			<input type="submit" disabled="disabled" /><br />
+			<button type="submit" >提交(button)</button><br />
+			<button type="reset">重置(button)</button><br />
+		</form>
+		
+		<!-- output:输出用户操作的结果 -->
+		<form action="" method="get" oninput="x.value=ra.value">
+			0 <input type="range" id="ra" name="rg" min="0" max="100" /> 100<br />
+			当前值为:<output name="x" for="ra"></output>
+		</form>
+	</body>
+</html>

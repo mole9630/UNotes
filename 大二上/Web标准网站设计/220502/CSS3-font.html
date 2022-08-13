@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			@font-face {
+				font-family: 'indexFont';
+				/* 可以从url引用字体,也可以从本地引用字符 */
+				src: url('fonts/锦鲤本鲤.ttf'),local('微软雅黑');
+			}
+			#font {
+				font-family: 'indexFont';
+				font-size: 25px;
+			}
+			#p1 {
+				width: 200px;
+				height: 30px;
+				border: 1px solid red;
+				/* 前提1 ↓ */
+				overflow: hidden;
+				/* 前提2 ↓ */
+				white-space: nowrap;
+				/* 设置当文本溢出元素框时的处理方式 */
+				/* 设置完两个前提,才能使用text-overflow */
+				text-overflow: clip;
+			}
+			#p2 {
+				width: 200px;
+				height: 30px;
+				border: 1px solid red;
+				/* 前提1 ↓ */
+				overflow: hidden;
+				/* 前提2 ↓ */
+				white-space: nowrap;
+				/* 设置当文本溢出元素框时的处理方式 */
+				/* 设置完两个前提,才能使用text-overflow */
+				text-overflow: ellipsis;
+			}
+			#p3 {
+				width: 11em;
+				border: 1px solid red;
+				/* normal:缺省值 浏览器默认换行规则 */
+				word-break: normal;
+			}
+			#p4 {
+				width: 11em;
+				border: 1px solid red;
+				/* word-break:规定自动换行的方式 */
+				/* break-all:允许单词行内换行 */
+				word-break: break-all;
+			}
+			#p5 {
+				width: 11em;
+				border: 1px solid red;
+				/* word-break:规定自动换行的方式 */
+				/* keep-all:只能在半角空格或连字符处换行 */
+				word-break: keep-all;
+			}
+			#p6 {
+				width: 11em;
+				border: 1px solid red;
+				/* word-wrap:规定单词的换行方式(设置长单词是否允许换行显示到下一行) */
+				/* break-word:可在长单词或URL中间换行 */
+				word-wrap: break-word;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p id="font">这是一段文字</p>
+			<p id="p1">这是一段长文字这是一段长文字这是一段长文字</p>
+			<p id="p2">这是一段长文字这是一段长文字这是一段长文字</p>
+			<p id="p3">This is a veryveryveryveryveryveryveryveryveryvery long paragraph</p>
+			<p id="p4">This is a veryveryveryveryveryveryveryveryveryvery long paragraph</p>
+			<p id="p5">This is a veryveryveryveryveryveryveryveryveryvery long paragraph</p>
+			<p id="p6">This is a veryveryveryveryveryveryveryveryveryvery long paragraph</p>
+		</div>
+	</body>
+</html>

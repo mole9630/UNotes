@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var tel = "13800000000";
+			var reg = /[^0-9]/; //除了数字
+			document.write(tel.search(reg)); //-1表示合法
+			document.write("<br \>");
+			if (tel.search(reg) >= 0) {
+				alert("您输入的电话号码不合法,请重新输入!")
+			}
+
+			var reg1 = /[\d]{11}/; //判断是否为11位
+			document.write(tel.search(reg1)); //0表示合法
+			document.write("<br \>");
+
+			var dt = "2022-05-25";
+			var reg2 = /^[\d]{4}-[\d]{1,2}-[\d]{1,2}$/; //判断是否为"0000-00-00"或"0000-0-0"格式的日期
+			document.write(reg2.test(dt)); //true表示合法
+			document.write("<br \>");
+
+			var str = "15+25=45";
+			var reg3 = /[\+]/; //判断是否存在加号
+			document.write(reg3.test(str)); //true表示合法
+			document.write("<br \>");
+
+			var reg4 = /[0-9]+/g; //出现大于等于一次
+			document.write(str.match(reg4)); //第一个满足条件的值 (表达式加g表示全局匹配,非只输出第一项)
+			document.write("<br \>");
+			console.log(str.match(reg4)); //{"0":"15","1":"25","2":"45","length":3} 分别对于下表,值,匹配到的项数
+
+			var str1 = "aBcdAbCD";
+			var reg5 = /[b]/i; //判断是b的元素 (表达式加i表示不区分大小写)
+			document.write(str1.match(reg5));
+		</script>
+	</body>
+</html>

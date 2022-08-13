@@ -1,0 +1,79 @@
+<!-- <span>和<div>标签都是无语义运算,唯一区别就是一个不换行,一个换行 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- 样式写在head标签内 -->
+		<style type="text/css">
+			#header{
+				/* 背景为黑色,文字为白色,文本居中,内边距为5个像素点*/
+				background-color: black;
+				color: white;
+				text-align: center;
+				padding: 5px;
+			}
+			#nav{
+				/* 行高为30,背景色为#c7edcc,高度:300px,宽度:100px,浮动靠左,内边距5px */
+				line-height: 30px;
+				background-color: #c7edcc;
+				height: 300px;
+				width: 100px;
+				float: left;
+				padding: 5px;
+			}
+			#section{
+				/* 宽度500px,浮动靠左,内边距10px */
+				width: 500px;
+				float: left;
+				padding: 10px;
+			}
+			#footer{
+				/* 背景色:黑色,前景色:白色,清除左右浮动,文本居中,内边距5px */
+				background-color: black;
+				color: white;
+				clear: both;
+				text-align: center;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h1>首页</h1>
+		</div>
+		
+		<!-- 导航栏 -->
+		<div id="nav">
+			HTML<br />CSS<br />Javascript<br />
+		</div>
+		
+		<div id="section">
+			<h2>HTML</h2>
+			<!-- 回车会自动转换成空格,把多个空格解释为一个空格,换行只能使用br标签 -->
+			<p>HTML的全称为超文本标记语言，是一种标记语言。
+			它包括一系列标签．通过这些标签可以将网络上的文档格式统一，使分散的Internet资源连接为一个逻辑整体。
+			HTML文本是由HTML命令组成的描述性文本，HTML命令可以说明文字，图形、动画、声音、表格、链接等。</p>
+			<!-- 可定义预格式化的文本标签 保留输入源文档的原本格式 -->
+			<pre>
+				超文本是一种组织信息的方式，它通过超级链接方法将文本中的文字、图表与其他信息媒体相关联。
+				这些相互关联的信息媒体可能在同一文本中，也可能是其他文件，或是地理位置相距遥远的某台计算机上的文件。
+				这种组织信息方式将分布在不同位置的信息资源用随机方式进行连接，为人们查找，检索信息提供方便。
+			</pre>
+			<!-- 如果图片加载失败会显示alt标签内的文字 width设置图片宽度 height设置图片高度 -->
+			<img src="https://img.mole9630.top/blog-logo.png" alt="图片加载失败" width="100px" height="100px" />
+			<img src="https://img.mole9630.top/example.png" alt="图片加载失败" />
+		</div>
+		
+		<div id="footer">
+			<!-- 超链接 -->
+			<!-- _self直接在所在框架或窗口打开目标页面 -->
+			Author:
+			<a href="https://mole9630.top/" target="_self">mole9630</a>
+			 | 
+			<!-- _self直接在新框架或窗口打开目标页面 -->
+			<a href="https://github.com/mole9630" target="_blank">Github</a>
+			<!-- _parent在含有该链接框架的弗框架集或父窗口中打卡 -->
+		</div>
+	</body>
+</html>
