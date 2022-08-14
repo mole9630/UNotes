@@ -1,3 +1,5 @@
+import os
+import signal
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QPixmap, QImage
@@ -25,11 +27,19 @@ class Qt_Window(QWidget):  # 定义一个类,继承于QWidget QWidget类是所�
         self.toolbar = self.win.addToolBar('Exit')
         self.toolbar.addAction(exitAction)
 
-        # 添加按钮
+        # 添加关闭按钮
         self.button = QPushButton(self.win)
         self.button.move(200, 300)  # 设置文本位置
         self.button.resize(200, 40)  # 设置控件宽高
-        self.button.setText("这是一个按钮")  # 设置按钮缺省文本
+        self.button.setText("这是一个关闭按钮")  # 设置按钮缺省文本
+        self.button.clicked.connect(self.exit_ui)
+
+        # 添加切换窗口按钮
+        self.button2 = QPushButton(self.win)
+        self.button2.move(200, 400)  # 设置文本位置
+        self.button2.resize(200, 40)  # 设置控件宽高
+        self.button2.setText("切换到对话窗口")  # 设置按钮缺省文本
+        self.button2.clicked.connect(self.jump_ui)
 
         # 添加标签
         self.textlabel = QLabel(self.win)
@@ -41,6 +51,7 @@ class Qt_Window(QWidget):  # 定义一个类,继承于QWidget QWidget类是所�
         self.comboBox = QComboBox(self.win)
         self.comboBox.setGeometry(450, 300, 200, 40)  # 设置控件的x,y,宽,高 即结合move和resize方法
         self.comboBox.addItems(["选项1", "选项2", "选项3"])  # 给下拉框添加元素
+        self.comboBox.activated.connect(self.show_ui)  # 下拉框显示值的函数
 
         # 添加图片
         self.img = QLabel(self.win)
@@ -58,6 +69,28 @@ class Qt_Window(QWidget):  # 定义一个类,继承于QWidget QWidget类是所�
         self.win.showFullScreen()  # 窗口全屏显示,不带标题栏和边框
         sys.exit(self._app.exec_())  # app.exec()的作用是运行主循环,开始进行事件处理,直到结束 sys.exit()退出程序机制
 
+    # 按钮绑定的函数
+    def exit_ui(self):
+        self.win.close()  # 关闭界面
+        os.kill(os.getpid(), signal.SIGKILL)  # 关闭所有进程 os.getpid()获取当前进程ID
+
+    # 下拉框显示值的函数
+    def show_ui(self):
+        print("下拉框当前选项:", self.comboBox.currentText())  # 获取下拉框的值并显示
+
+    # 切换窗口按钮的函数
+    def jump_ui(self):
+        self.win.hide()  # 隐藏主窗口
+        ui = second_Window()
+        ui.init_ui()
+        ui.win2.show()
+        print("[info]已打开话窗口")
+        ui.win2.exec_()  # 等待主窗口关闭
+        print("[info]主窗口已关闭")
+        self.win.show()
+        print("[info]已打开主窗口")
+
+
     # 将 Ndarray 转换为 QImage 格式加载图像并显示
     def NdarraytoQimage(self, img):
         """
@@ -73,9 +106,25 @@ class Qt_Window(QWidget):  # 定义一个类,继承于QWidget QWidget类是所�
         return qImg
 
 
+class second_Window(object):
+    def __init__(self):  # 构造方法
+        super(second_Window, self).__init__()
+
+    def init_ui(self):
+        self.win2 = QDialog
+        self.win2.setWindowTitle("对话窗口")
+
+        # 添加切换窗口按钮
+        self.button = QPushButton(self.win)
+        self.button.move(200, 400)  # 设置文本位置
+        self.button.resize(200, 40)  # 设置控件宽高
+        self.button.setText("切换到对话窗口")  # 设置按钮缺省文本
+        self.button.clicked.connect(self.jump_ui)
+
+
 class Dialog(QWidget):
     def __init__(self):
-        self._app = QtWidgets.QApplication([])
+        # self._app = QtWidgets.QApplication([])
         super(Dialog, self).__init__()
 
     def init_ui(self):
