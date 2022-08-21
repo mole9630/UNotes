@@ -1,10 +1,10 @@
 import os
 import signal
 import sys
+import cv2
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtWidgets import *
-import cv2
 
 
 class Qt_Window(QWidget):  # 定义一个类,继承于QWidget QWidget类是所有用户界面对象的基类
