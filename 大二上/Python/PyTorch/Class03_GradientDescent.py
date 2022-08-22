@@ -1,20 +1,16 @@
 import matplotlib.pyplot as plt
 
-# prepare the training set
-x_data = [1.0, 2.0, 3.0]
-y_data = [2.0, 4.0, 6.0]
+x_data = [1.0, 2.0, 3.0]  # 一般指输入的样本
+y_data = [2.0, 4.0, 6.0]  # 一般指输出的样本 相同的索引一般对应同一组样本
 
-# initial guess of weight
-w = 1.0
+w = 1.0  # 初始权重猜测值
 
 
-# define the model linear model y = w*x
-def forward(x):
+def forward(x):  # 定义计算 y = w*x
     return x * w
 
 
-# define the cost function MSE
-def cost(xs, ys):
+def cost(xs, ys):  # 计算MSE的目标函数
     cost = 0
     for x, y in zip(xs, ys):
         y_pred = forward(x)
@@ -22,8 +18,7 @@ def cost(xs, ys):
     return cost / len(xs)
 
 
-# define the gradient function  gd
-def gradient(xs, ys):
+def gradient(xs, ys):  # 计算梯度的目标函数
     grad = 0
     for x, y in zip(xs, ys):
         grad += 2 * x * (x * w - y)
@@ -33,11 +28,11 @@ def gradient(xs, ys):
 epoch_list = []
 cost_list = []
 print('predict (before training)', 4, forward(4))
-for epoch in range(100):
-    cost_val = cost(x_data, y_data)
-    grad_val = gradient(x_data, y_data)
-    w -= 0.01 * grad_val  # 0.01 learning rate
-    print('epoch:', epoch, 'w=', w, 'loss=', cost_val)
+for epoch in range(100):  # 训练过程 目前设置进行100轮训练
+    cost_val = cost(x_data, y_data)  # 求当前损失值
+    grad_val = gradient(x_data, y_data)  # 求当前梯度
+    w -= 0.01 * grad_val  # 0.01 为学习率
+    print('epoch:', epoch, 'w=', w, 'loss=', cost_val)  # 输出训练日志
     epoch_list.append(epoch)
     cost_list.append(cost_val)
 
