@@ -46,3 +46,82 @@ while open:
             break
 vc.release()
 cv.destroyAllWindows()
+
+# 截图图片的部分图像数据
+img = cv.imread("material/imgExample.png")  # 读取指定路径下的图像
+intercept = img[0:50, 0:200]  # 指定一个切片 高50 宽200
+cv_show("intercept", intercept)
+
+# 颜色通道提取
+img = cv.imread("material/imgExample.png")  # 读取指定路径下的图像
+b, g, r = cv.split(img)
+img = cv.merge((b, g, r))
+print(img.shape)  # (256, 256, 3)
+
+# 只保留R
+cur_img = img.copy()
+cur_img[:, :, 0] = 0  # [第几行:第几行, 第几列:第几列 ,通道]
+cur_img[:, :, 1] = 0
+cv_show(' R', cur_img)
+
+# 只保留G
+cur_img = img.copy()
+cur_img[:, :, 0] = 0
+cur_img[:, :, 2] = 0
+cv_show(' G', cur_img)
+
+# 只保留B
+cur_img = img.copy()
+cur_img[:, :, 1] = 0
+cur_img[:, :, 2] = 0
+cv_show(' B', cur_img)
+
+# 边界填充
+'''
+1.边界填充就是对图像进行一些变换，让原始图像进行扩大。
+2.边界填充的入口参数:
+    BORDER_REPLICATE:复制法，也就是复制最边缘像素。
+    BORDER_REFLECT:反射法，对感兴趣的图像中的像素在两边进行复制例如:fedcba|abcdefgh|hgfedcb
+    BORDER_REFLECT_101:反射法，也就是以最边缘像素为轴，对称，gfedcb|abcdefgh|gfedcba
+    BORDER_WRAP:外包装法cdefgh|abcdefgh|abcdefg
+    BORDER_CONSTANT:常量法，常数值填充。
+'''
+top_size, bottom_size, left_size, right_size = (50, 50, 50, 50)  # 填充多少区域
+
+# 最后一个入口参数为填充方式
+replicate = cv.copyMakeBorder(img, top_size, bottom_size, left_size, right_size,
+                              borderType=cv.BORDER_REPLICATE)  # 方式一:复制法
+reflect = cv.copyMakeBorder(img, top_size, bottom_size, left_size, right_size, cv.BORDER_REFLECT)  # 方式二:反射法
+reflect101 = cv.copyMakeBorder(img, top_size, bottom_size, left_size, right_size,
+                               cv.BORDER_REFLECT_101)  # 方式三:反射法二(不要最边缘的像素)
+wrap = cv.copyMakeBorder(img, top_size, bottom_size, left_size, right_size, borderType=cv.BORDER_WRAP)  # 方式四:外包装法
+constant = cv.copyMakeBorder(img, top_size, bottom_size, left_size, right_size, cv.BORDER_CONSTANT, value=0)  # 方式五:常量法
+
+plt.subplot(231), plt.imshow(img, 'gray'), plt.title('ORIGINAL')
+plt.subplot(232), plt.imshow(replicate, 'gray'), plt.title('REPLICATE')
+plt.subplot(233), plt.imshow(reflect, 'gray'), plt.title('REPLECT')
+plt.subplot(234), plt.imshow(wrap, 'gray'), plt.title('REFLECT_101')
+plt.subplot(235), plt.imshow(wrap, 'gray'), plt.title('WRAP')
+plt.subplot(236), plt.imshow(constant, 'gray'), plt.title('CONSTAVI')
+plt.show()
+
+# 数值计算
+img_logo = cv.imread("material/imgExample.png")  # 读取指定路径下的图像
+img_logo2 = img_logo + 10  # 将 img_cat 矩阵中每一个值都加 10
+print("img_logo[:5, :, 0]:", img_logo[:5, :, 0])
+print("img_logo2[:5, :, 0]:", img_logo2[:5, :, 0])
+print("(img_logo + img_logo2)[:5, :, 0]:", (img_logo + img_logo2)[:5, :, 0])  # 0-255 若相加越界,如 294 用 294%256 获得余数 38
+
+# 图像融合
+img = cv.imread("material/imgExample.png")  # 读取指定路径下的图像
+img_reversal = cv.imread("material/reversalImgExample.png")  # 读取指定路径下的图像
+
+print("img.shape", img.shape)
+print("img_reversal.shape", img_reversal.shape)
+# img + img_reversal  # 不同数据大小不能执行数值计算操作
+img_reversal = cv.resize(img_reversal, (256, 256))
+print("img.shape", img.shape)
+print("(resize)img_reversal.shape:", img_reversal.shape)
+
+res = cv.addWeighted(img, 0.4, img_reversal, 0.6, 0)  # img 的权重为 0.4，img_reversal 的权重为 0.6
+plt.imshow(res)
