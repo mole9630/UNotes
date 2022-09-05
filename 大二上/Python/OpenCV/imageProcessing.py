@@ -146,3 +146,110 @@ res = np.hstack((dilate_1, dilate_2, dilate_3))
 cv2.imshow('res', res)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# 开运算与闭运算
+# 开：先腐蚀，再膨胀
+print('[info]开运算')
+img = cv2.imread('material/imgExample.png')
+
+kernel = np.ones((5, 5), np.uint8)
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+
+cv2.imshow('opening', opening)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 闭：先膨胀，再腐蚀
+print('[info]闭运算')
+img = cv2.imread('material/imgExample.png')
+
+kernel = np.ones((5, 5), np.uint8)
+closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+
+cv2.imshow('closing', closing)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 梯度运算
+# 梯度 = 腐蚀-膨胀
+print('[info]梯度运算')
+pie = cv2.imread('material/06_pie.png')
+
+kernel = np.ones((7, 7), np.uint8)
+dilate = cv2.dilate(pie, kernel, iterations=5)  # iterations=5 表示进行5次腐蚀
+erosion = cv2.erode(pie, kernel, iterations=5)  # iterations=5 表示进行5次膨胀
+
+res = np.hstack((dilate, erosion))
+
+cv2.imshow('res', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+gradient = cv2.morphologyEx(pie, cv2.MORPH_GRADIENT, kernel)  # MORPH_GRADIENT 梯度运算
+cv2.imshow('gradient', gradient)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 礼帽与黑帽
+# 礼帽 = 原始输入-开运算
+# 原始带刺，开运算不带刺，原始输入-开运算 = 刺
+img = cv2.imread('material/imgExample.png')
+kernel = np.ones((5, 5), np.uint8)
+tophat = cv2.morphologyEx(img, cv2.MORPH_TOPHAT, kernel)
+cv2.imshow('tophat', tophat)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 黑帽 = 闭运算-原始输入
+# 原始带刺，闭运算带刺并且比原始边界胖一点，闭运算-原始输入 = 原始整体
+# 黑帽相当于突出显示之前用closing填坑用的地方 opening用来去毛刺，closing用来填坑，都是平滑边缘的方法
+img = img = cv2.imread('material/imgExample.png')
+kernel = np.ones((5, 5), np.uint8)
+blackhat = cv2.morphologyEx(img, cv2.MORPH_BLACKHAT, kernel)
+cv2.imshow('blackhat', blackhat)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+# Sobel算子
+'''
+① Sobel算子函数：cv2.Sobel(src, ddepth, dx, dy, ksize)，返回值为Sobel算子处理后的图像。
+ddepth：图像的深度
+dx 和 dy 分别表示水平和竖直方向
+ksize 是 Sobel 算子的大小
+② 靠近最近点的左右和上下的权重最高，所以为±2。
+    img:material/001_pie.png
+'''
+pie = cv2.imread('material/06_pie.png')  # 读取图像
+cv2.imshow('img', pie)
+cv2.waitKey()
+cv2.destroyAllWindows()
+'''
+dst = cv2.Sobel(src,ddepth,dx,dy,ksize)  # ddepth 通常指定为-1
+ddepth:图像的深度
+dx和dy分别表示水平和竖直方向
+ksize是Sobel算子的大小,即核的大小,一般是3*3或5*5
+'''
+# 梯度就是边界点，左边右边不一样
+def cv_show(img, name):
+    cv2.imshow(name, img)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
+
+
+# 白到黑是整数，黑到白是负数了，所有的负数会被截断成 0，所以要取绝对值
+sobelx = cv2.Sobel(pie, cv2.CV_64F, 1, 0, ksize=3)  # 1,0 表示只算水平方向梯度
+cv_show(sobelx, 'sobelx')
+sobelx = cv2.Sobel(pie, cv2.CV_64F, 1, 0, ksize=3)
+sobelx = cv2.convertScaleAbs(sobelx)  # 取负数时，取绝对值
+cv_show(sobelx, 'sobelx')
+
+sobely = cv2.Sobel(pie, cv2.CV_64F, 0, 1, ksize=3)  # 1,0 只算 y 方向梯度
+sobely = cv2.convertScaleAbs(sobely)  # 取负数时，取绝对值
+cv_show(sobely, 'sobely')
+# 计算 x 和 y 后，再求和
+sobelxy = cv2.addWeighted(sobelx, 0.5, sobely, 0.5, 0)  # 0是偏置项
+cv_show(sobelxy, 'sobelxy')
+# 不建议直接计算,还有重影
+sobelxy = cv2.Sobel(pie, cv2.CV_64F, 1, 1, ksize=3)
+sobelxy = cv2.convertScaleAbs(sobelxy)
+cv_show(sobelxy, 'sobelxy')
