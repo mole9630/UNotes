@@ -5,16 +5,16 @@ import numpy as np  # 基本的数值计算数据包
 # 图像阈值
 '''
 ① ret, dst = cv2.threshold(src, thresh, maxval, type)
-    src： 输入图，只能输入单通道图像，通常来说为灰度图
+    src： 输入图,只能输入单通道图像,通常来说为灰度图
     thresh： 阈值
     dst： 输出图
     ret： 阈值
-    maxval： 当像素值超过了阈值 ( 或者小于阈值，根据 type 来决定 )，所赋予的值
-    type：二值化操作的类型，包含以下5种类型：
-    cv2.THRESH_BINARY           超过阈值部分取maxval ( 最大值 )，否则取0
+    maxval： 当像素值超过了阈值 ( 或者小于阈值,根据 type 来决定 ),所赋予的值
+    type：二值化操作的类型,包含以下5种类型：
+    cv2.THRESH_BINARY           超过阈值部分取maxval ( 最大值 ),否则取0
     cv2.THRESH_BINARY_INV       THRESH_BINARY的反转
-    cv2.THRESH_TRUNC            大于阈值部分设为阈值，否则不变
-    cv2.THRESH_TOZERO           大于阈值部分不改变，否则设为0
+    cv2.THRESH_TRUNC            大于阈值部分设为阈值,否则不变
+    cv2.THRESH_TOZERO           大于阈值部分不改变,否则设为0
     cv2.THRESH_TOZERO_INV       THRESH_TOZERO的反转
 '''
 img = cv2.imread('material/imgExample.png', cv2.IMREAD_COLOR)
@@ -22,7 +22,7 @@ img_gray = cv2.imread('material/imgExample.png', cv2.IMREAD_GRAYSCALE)
 ret, thresh1 = cv2.threshold(img_gray, 127, 255, cv2.THRESH_BINARY)  # 所有大于127的全变为白色,相反变成纯黑
 print(ret)
 ret, thresh2 = cv2.threshold(img_gray, 127, 255,
-                             cv2.THRESH_BINARY_INV)  # THRESH_BINARY_INV 相对 THRESH_BINARY 黑的变成白的，白的变成黑的
+                             cv2.THRESH_BINARY_INV)  # THRESH_BINARY_INV 相对 THRESH_BINARY 黑的变成白的,白的变成黑的
 print(ret)
 ret, thresh3 = cv2.threshold(img_gray, 127, 255, cv2.THRESH_TRUNC)  # >127的部分将等于127,小于127的部分不变
 print(ret)
@@ -46,20 +46,20 @@ cv2.imshow('img', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 # 均值滤波
-# 简单的平均卷积操作，方框中的值相加，取平均，替换掉中心204的值
-blur = cv2.blur(img, (3, 3))  # (3,3) 为核的大小，通常情况核都是奇数 3、5、7
+# 简单的平均卷积操作,方框中的值相加,取平均,替换掉中心204的值
+blur = cv2.blur(img, (3, 3))  # (3,3) 为核的大小,通常情况核都是奇数 3、5、7
 cv2.imshow('blur', blur)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 # 方框滤波
-# 基本和均值一样，可以选择归一化
-# 在 Python 中 -1 表示自适应填充对应的值，这里的 -1 表示与颜色通道数自适应一样
+# 基本和均值一样,可以选择归一化
+# 在 Python 中 -1 表示自适应填充对应的值,这里的 -1 表示与颜色通道数自适应一样
 box = cv2.boxFilter(img, -1, (3, 3), normalize=True)  # 方框滤波如果做归一化,得到的结果和均值滤波一模一样
 cv2.imshow('box', box)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 # 方框滤波
-# 基本和均值一样，可以选择归一化，容易越界
+# 基本和均值一样,可以选择归一化,容易越界
 box = cv2.boxFilter(img, -1, (3, 3), normalize=False)  # 若一旦发生越界,越界的值全取255
 cv2.imshow('box', box)
 cv2.waitKey(0)
@@ -67,7 +67,7 @@ cv2.destroyAllWindows()
 
 # 高斯滤波
 # 越接近均值时,它的概率越大
-# 离中心值越近的，它的权重越大，离中心值越远的，它的权重越小。
+# 离中心值越近的,它的权重越大,离中心值越远的,它的权重越小。
 aussian = cv2.GaussianBlur(img, (5, 5), 1)
 cv2.imshow('aussian', aussian)
 cv2.waitKey(0)
@@ -83,5 +83,66 @@ res = np.hstack((blur, aussian, median))  # 矩阵横着拼接
 # res = np.vstack((blur,aussian,median)) # 矩阵竖着拼接
 print(res)
 cv2.imshow('median vs average', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 腐蚀操作
+# 腐蚀操作通常是拿二值图像做腐蚀操作
+# 腐蚀和膨胀的操作都不可逆,会导致图片丢失像素点信息
+img = cv2.imread('material/imgExample.png')
+cv2.imshow('img', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+# 只要框里有黑色,中心点的值就变为黑色,即原来的白色被黑色腐蚀掉
+kernel = np.ones((5, 5), np.uint8)
+erosion = cv2.erode(img, kernel, iterations=1)  # kernel为核,iterations=1 指定迭代次数为1
+
+cv2.imshow('erosion', erosion)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 圆形腐蚀(例)
+pie = cv2.imread('material/06_pie.png')
+cv2.imshow('pie', pie)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+kernel = np.ones((30, 30), np.uint8)
+erosion_1 = cv2.erode(pie, kernel, iterations=1)
+erosion_2 = cv2.erode(pie, kernel, iterations=2)
+erosion_3 = cv2.erode(pie, kernel, iterations=3)
+res = np.hstack((erosion_1, erosion_2, erosion_3))
+cv2.imshow('res', res)  # 因为腐蚀的判定是方的,一个正方形的刮刀绕着一个圆滚一圈,剩下的图形就是这个样子
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 膨胀操作
+# 腐蚀和膨胀的操作都不可逆,会导致图片丢失像素点信息
+img = cv2.imread('material/imgExample.png')
+cv2.imshow('img', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+# 先腐蚀 后膨胀,抵消腐蚀造成的损害
+kernel = np.ones((3, 3), np.uint8)
+dige_erosion = cv2.erode(img, kernel, iterations=1)  # kernel核矩阵越小,越近园
+cv2.imshow('erosion', dige_erosion)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+kernel = np.ones((3, 3), np.uint8)
+dige_dilate = cv2.dilate(dige_erosion, kernel, iterations=1)
+cv2.imshow('dilate', dige_dilate)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# 圆形膨胀
+pie = cv2.imread('material/06_pie.png')
+
+kernel = np.ones((30, 30), np.uint8)
+dilate_1 = cv2.dilate(pie, kernel, iterations=1)
+dilate_2 = cv2.dilate(pie, kernel, iterations=2)
+dilate_3 = cv2.dilate(pie, kernel, iterations=3)
+res = np.hstack((dilate_1, dilate_2, dilate_3))
+cv2.imshow('res', res)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
