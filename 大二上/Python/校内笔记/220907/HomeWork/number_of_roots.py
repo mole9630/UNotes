@@ -11,5 +11,5 @@ if delta > 0:
 elif delta < 0:
     print("该方程有 0 个解")
 else:  # == 0
-    print("该方程有 0 个解")
+    print("该方程有 1 个解")
     result = (-b - math.sqrt(delta)) / (2 * a)
