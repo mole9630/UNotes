@@ -209,7 +209,6 @@ cv2.imshow('blackhat', blackhat)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-
 # Sobel算子
 '''
 ① Sobel算子函数：cv2.Sobel(src, ddepth, dx, dy, ksize)，返回值为Sobel算子处理后的图像。
@@ -229,6 +228,8 @@ ddepth:图像的深度
 dx和dy分别表示水平和竖直方向
 ksize是Sobel算子的大小,即核的大小,一般是3*3或5*5
 '''
+
+
 # 梯度就是边界点，左边右边不一样
 def cv_show(img, name):
     cv2.imshow(name, img)
@@ -253,3 +254,25 @@ cv_show(sobelxy, 'sobelxy')
 sobelxy = cv2.Sobel(pie, cv2.CV_64F, 1, 1, ksize=3)
 sobelxy = cv2.convertScaleAbs(sobelxy)
 cv_show(sobelxy, 'sobelxy')
+
+# 各个算子间的差异
+img = cv2.imread('material/imgExample.png', cv2.IMREAD_GRAYSCALE)
+cv_show(img, 'img')
+img = cv2.imread('material/imgExample.png', cv2.IMREAD_GRAYSCALE)
+sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
+sobelx = cv2.convertScaleAbs(sobelx)
+sobely = cv2.convertScaleAbs(sobely)
+sobelxy = cv2.addWeighted(sobelx, 0.5, sobely, 0.5, 0)
+
+scharrx = cv2.Scharr(img, cv2.CV_64F, 1, 0)
+scharry = cv2.Scharr(img, cv2.CV_64F, 0, 1)
+scharrx = cv2.convertScaleAbs(scharrx)
+scharry = cv2.convertScaleAbs(scharry)
+scharrxy = cv2.addWeighted(scharrx, 0.5, scharry, 0.5, 0)
+
+laplacian = cv2.Laplacian(img, cv2.CV_64F)  # 没有 x、y，因为是求周围点的比较
+laplacian = cv2.convertScaleAbs(laplacian)
+
+res = np.hstack((sobelxy, scharrxy, laplacian)) # 拉普拉斯效果不是很好，需要和其他算子联合使用
+cv_show(res, 'res')
