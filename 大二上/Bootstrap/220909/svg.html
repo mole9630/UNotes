@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg</title>
+    <style>
+        svg{
+            border: 3px solid #83d18b;
+        }
+    </style>
+</head>
+<body>
+    <svg width="500" height="500">
+        <!-- 矩形:x,y为矩形起始点坐标,width为矩形的长度,height为矩形的宽度,fill为填充色,stroke为描边颜色,stroke-width为描边粗细 -->
+        <rect x="100" y="8" width="200" height="100" fill="#c7edcc" stroke="#7fb80e" stroke-width="3"></rect>
+        <!-- 圆形:cx,cy为圆心坐标,r为半径,fill-opacity设置填充色的透明度(0-1) -->
+        <circle cx="240" cy="240" r="40" fill="#c7edcc" fill-opacity="0.5"></circle>
+        <!-- 椭圆形:cx,cy为圆心坐标,rx为水平半径,ry为垂直半径 -->
+        <ellipse cx="100" cy="100" rx="100" ry="50" fill="#c7edcc" stroke="#7fb80e" stroke-width="3"></ellipse>
+        <!-- 线段:x1,y1为线段起点,x2,y2为线段终点 -->
+        <line x1="400" y1="200" x2="500" y2="400" stroke="#c7edcc" stroke-width="3"></line>
+    </svg>
+</body>
+</html>

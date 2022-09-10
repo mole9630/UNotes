@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>更改盒子尺寸border-box</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <style>
+        a{
+            -webkit-tap-highlight-color: transparent;
+        }
+        input{
+            -webkit-appearance: none;
+        }
+        img{
+            -webkit-touch-callout: none;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            background-color: #c7edcc;
+        }
+        div:nth-child(1){
+            border: 10px solid #999;
+            box-sizing: content-box; /*传统方式计算的盒子*/
+        }
+        div:nth-child(2){
+           border: 10px solid #999;
+           box-sizing: border-box; /*更改盒子尺寸border-box设置盒子实际大小*/
+        }
+    </style>
+<body>
+    <div>
+        <a herf='#'>content-box</a>
+    </div>
+    <div>
+        border-box
+    </div>
+    <input type="text">
+</body>
