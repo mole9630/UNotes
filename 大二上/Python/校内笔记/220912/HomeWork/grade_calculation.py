@@ -1,0 +1,5 @@
+sno = input("请输入学号:")
+chinese = float(input("请输入语文成绩:"))
+math = float(input("请输入数学成绩:"))
+english = float(input("请输入英语成绩:"))
+print("学号:%s的平均成绩为:%.2f,语文成绩的百分比为:%.2f" % (sno, (chinese + math + english) / 3, chinese / (chinese + math + english)))
