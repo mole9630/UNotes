@@ -50,8 +50,8 @@ sin = math.sin(radian)
 cos = math.cos(radian)
 print(reg, "度角的", "弧度:", radian, "正弦:", sin, "余弦:", cos)
 if sin > cos:
-    print("sin%d° > cos%d°")
+    print("sin%d° > cos%d°" % (reg, reg))
 elif sin < cos:
-    print("sin%d° < cos%d°")
+    print("sin%d° < cos%d°" % (reg, reg))
 else:
-    print("sin%d° = cos%d°")
+    print("sin%d° = cos%d°" % (reg, reg))
