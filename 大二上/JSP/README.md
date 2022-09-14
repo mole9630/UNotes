@@ -6,4 +6,5 @@
 * 220902 | 制作登录注册页
 * 220907 | JSP基本语法,JSP脚本/声明块,静/动态注释
 * 220909 | 制作学校官网网站头部导航栏
-* 220914 | include,param,forward元素
+* 220913 | include,param,forward元素
+* 220914 | request,response内置对象
