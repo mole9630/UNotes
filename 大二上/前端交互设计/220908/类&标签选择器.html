@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="d1">这是一段文本</div>
+		<div class="d2">这是一段文本</div>
+		<p class="p1">p1这是一段文本</p>
+		<p class="p2">p2这是一段文本</p>
+		<p class="p3">p3这是一段文本</p>
+		<p class="p4">p4这是一段文本</p>
+		<p class="p5">p5这是一段文本</p>
+		<p class="p5">p5这是一段文本</p>
+		<div class="p5">这是一段文本</div>
+	</body>
+	<!-- 使用原生JS -->
+	<script type="text/javascript">
+		// 使用类选择器
+		var p2=document.getElementsByClassName('p2');
+		p2[0].style.border="3px solid #c7bbbbbbedcc";
+		var p5=document.getElementsByClassName('p5');
+		p5[0].style.border="3px solid #2add9c";
+		p5[1].style.border="3px solid #ff3300";
+		p5[2].style.border="3px solid #cb3a56";
+		
+		// 使用标签选择器
+		var p=document.getElementsByTagName('p')
+		p[1].style.border="3px solid #74787a"
+	</script>
+	<!-- 使用Jquery -->
+	<script type="text/javascript">
+		// 使用类选择器
+		$(".p3").css("border","3px solid #ff4777")
+		$(".p5").css("border","3px solid #1ba784")
+		// 使用标签选择器
+		$("p").css("border","3px solid #1781b5")
+		$("div").css("border","3px solid #61649f")
+	</script>
+</html>

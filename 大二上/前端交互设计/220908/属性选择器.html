@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>属性选择器</title>
+		<script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="d1">这是一段文本</div>
+		<div id="d2">这是一段文本</div>
+		<p i="p1">p1这是一段文本</p>
+		<p id="p2">p2这是一段文本</p>
+		<p id="p3">p3这是一段文本</p>
+		<p id="p4">p4这是一段文本</p>
+		<p id="p5">p5这是一段文本</p>
+		<p id="p6">p6这是一段文本</p>
+		<div id="d3">这是一段文本</div>
+	</body>
+
+	<!-- 使用Jquery -->
+	<script type="text/javascript">
+		// 使用属性选择器
+		$("[id]").css("border","3px solid #ff4777") // 设置所有带有id属性标签的样式
+		$("[id='p3']").css("border","3px solid #61649f") // 设置所有id带有指定值(p3)属性标签的样式
+		$("[id!='p3']").css("border","3px solid #c7edcc") // 设置id属性除指定值(p3)外的属性标签的样式
+		$("[id^='p']").css("border","3px solid #c06f98") // 设置以某个指定值(p)开头的属性样式
+		$("[id$='3']").css("border","3px solid #ed556a") // 设置以某个指定值(3)结尾的属性样式
+		$("div[id$='3']").css("border","3px solid #1781b5") // 设置以某个指定值(3)结尾的div标签的属性样式
+		$("[id*='p']").css("border","3px solid #ff9900") // 设置以某个通配指定值(p)的属性样式
+	</script>
+</html>

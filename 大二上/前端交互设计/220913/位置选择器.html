@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<div class="div">
+			<p>这是一段文本:first</p>
+			<p>这是一段文本:even</p>
+		</div>
+		<div class="div">
+			<p>这是一段文本:odd</p>
+		</div>
+		<div class="div1">
+			<p>这是一段文本:even</p>
+		</div>
+		<div class="div">
+			<p>这是一段文本:odd</p>
+		</div>
+		<div class="div">
+			<p>这是一段文本:even</p>
+		</div>
+		<div class="div">
+			<p>这是一段文本:last</p>
+			<p>这是一段文本:odd</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(".div:first").css("color","#00e079")
+		$(".div:last").css("color","#44cef6")
+		$(".div:odd").css("color","#4b5cc4")
+		$(".div:even").css("color","#56004f")
+		$(".div:eq(3)").css("color","#4c8dae") //选择的是索引下标为3的
+		$(".div:gt(3)").css("color","#4aba6e") //选择的是索引下标大于3的(不包含3)
+		$(".div:lt(3)").css("color","#67acba") //选择的是索引下标小于3的(不包含3)
+	</script>
+</html>
