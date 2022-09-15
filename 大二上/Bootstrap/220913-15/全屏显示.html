@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全屏显示</title>
+    <style>
+        div:-webkit-full-screen{        /*webkit 谷歌浏览器前缀*/
+            background-color: pink;
+        }
+        div:-webkit-full-screen{        /*moz 火狐浏览器前缀*/
+            background-color: pink;
+        }
+        div:-ms-full-screen{            /*ms IE浏览器前缀*/
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <img src="pic1.png" alt="">
+
+        <button id="full">全屏显示</button>
+        <button id="cancelfull">取消全屏</button>
+        <button id="isfull">是否全屏</button>
+
+    </div>
+    <script>
+        var div=document.querySelector('div');  //querySelector返回文档中匹配指定css选择器的一个元素
+        // 全屏显示
+        document.querySelector('#full').onclick=function(){
+            if(div.requestFullscreen){
+                div.requestFullscreen(); //requestFullscreen()全屏操作
+            }
+            else if(div.webkitRequestFullScreen){
+                div.webkitRequestFullscreen(); //webkit浏览器方法
+            }
+            else if(div.mozRequestFullScreen){
+                div.mozRequestFullscreen(); //moz浏览器方法
+            }
+            else if(div.msRequestFullScreen){
+                div.msRequestFullscreen(); //微软浏览器方法
+            }
+            else if(div.oRequestFullScreen){
+                div.oRequestFullscreen(); //Operai浏览器方法
+            }
+            else{
+                alert("您的浏览器似乎不支持该功能")
+            }
+        }
+        /*document.querySelector('#full').onclick=function(){
+            div.requestFullscreen();
+        }*/
+
+        // 取消全屏
+        document.querySelector('#cancelfull').onclick=function(){
+            if(document.exitFullscreen){
+                document.exitFullscreen();
+            }
+            else if(document.webkitCancelFullScreen){
+                document.webkitCancelFullscreen(); //webkit浏览器方法
+            }
+            else if(div.mozCancelFullScreen){
+                div.mozCancelFullscreen(); //moz浏览器方法
+            }
+            else if(div.msCancelFullScreen){
+                div.msCancelFullscreen(); //微软浏览器方法
+            }
+            else if(div.oCancelFullScreen){
+                div.oCancelFullscreen(); //Operai浏览器方法
+            }
+            else{
+                alert("您的浏览器似乎不支持该功能")
+            }
+        }
+
+        // 检测是否全屏
+        document.querySelector('#isfull').onclick=function(){
+            if(document.webkitIsFullScreen){
+                alert("当前是全屏状态")
+            }
+            else{
+                alert("当前是非全屏状态")
+            }
+        }
+    </script>
+</body>
+</html>
