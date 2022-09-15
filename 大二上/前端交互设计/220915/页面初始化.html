@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			//页面初始化:一定会在页面加载完成后执行
+			$(document).ready(function() {
+				$("#text li").each(
+					function(index) {
+						this.title = "这是更改后的title" + (index + 1) + "!"
+					}
+				);
+			});
+		</script>
+	</head>
+	<body>
+		<ul id="text">
+			<li title="这里是title1">记录1</li>
+			<li title="这里是title2">记录2</li>
+			<li title="这里是title3">记录3</li>
+			<li title="这里是title4">记录4</li>
+			<li title="这里是title5">记录5</li>
+		</ul>
+	</body>
+	<!-- <script type="text/javascript">
+		$("#text li").each(
+			function(index){
+				this.title="这是更改后的title" + (index+1) + "!"
+			}
+		);
+	</script> -->
+</html>

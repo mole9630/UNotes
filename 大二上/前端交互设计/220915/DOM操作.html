@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				//执行操作的代码
+				$("#btn").click(function(){
+					alert($("#text").text()); //节点访问
+					alert($("#text").attr("id")); //属性访问
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p id="text">这是一段文本</p>
+		<button id="btn">单击显示</button>
+	</body>
+</html>
