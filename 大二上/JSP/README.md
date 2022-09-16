@@ -8,3 +8,4 @@
 * 220909 | 制作学校官网网站头部导航栏
 * 220913 | include,param,forward元素
 * 220914 | request,response内置对象
+* 220916 | out内置对象

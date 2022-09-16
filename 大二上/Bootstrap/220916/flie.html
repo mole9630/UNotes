@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file</title>
+</head>
+<body>
+	<input type="file" multiple>
+	<div width="500"></div>
+	<script>
+		var file=document.querySelector('input');
+		var div=document.querySelector('div');
+
+		file.onchange=function(){
+            var files=this.files; //返回结果为FileList对象
+			// console.log(this.files); //查看FileList对象
+            console.log(files); //FileList返回的是文件列表,类似数值
+			
+            for(i=0;i<files.length;i++){
+                div.innerHTML += "<p>" + files[i].name + "<p>";
+            }
+		}
+	</script>
+</body>
+</html>

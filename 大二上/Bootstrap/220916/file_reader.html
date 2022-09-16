@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file</title>
+</head>
+<body>
+	<input type="file" multiple>
+	<div width="500"></div>
+	<img width="500">
+	<script>
+		var file=document.querySelector('input');
+		var div=document.querySelector('div');
+		var img=document.querySelector('img');
+				
+		file.onchange = function(){
+			var reader = new FileReader(); //初始化reader对象
+			reader.readAsText(this.files[0]); //调用reader对象方法,读取文件内容(读取文本)
+			// reader.readAsDataURL(this.files[0]); //读取图片
+			reader.onload = function(){ //将读取的内容显示(读取成功触发)
+				div.innerHTML = this.result;
+				// img.src = this.result;
+			}
+		}
+	</script>
+</body>
+</html>
