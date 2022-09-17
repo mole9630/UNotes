@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全屏视频</title>
+</head>
+<body>
+    <div>
+         <!-- <video> 调用视频  controls视频播放 -->
+        <video controls src="video/video.mp4" width="100%" height="98%"></video>  
+        <button id = "full">全屏显示</button>  
+        <button id = "cancelfull">取消全屏</button>
+    </div>
+    <script>
+        var div=document.querySelector('div');
+        // 全屏显示
+        document.querySelector('#full').onclick=function(){
+            div.requestFullscreen
+            div.requestFullscreen(); //requestFullscreen()全屏操作
+        }
+        // 取消全屏
+        document.querySelector('#cancelfull').onclick=function(){
+            document.exitFullscreen
+            document.exitFullscreen();
+        }
+        var video = document.querySelector('video');
+        file.onchange = function(){
+            var reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+            reader.onload = function(){
+                video.src = this.result;
+            }
+        }
+    </script>
+</body>
+</html>
