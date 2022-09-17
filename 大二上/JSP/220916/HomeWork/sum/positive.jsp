@@ -9,9 +9,9 @@
         String data1 = request.getParameter("data1");
         String data2 = request.getParameter("data2");
 
-        double num1 = Double.parseDouble(data1);//方法1
-        double num2 = Double.valueOf(data2); //方法2
-        double sum = num1 + num2;
+        int num1 = Integer.parseInt(data1);//方法1
+        int num2 = Integer.valueOf(data2); //方法2
+        int sum = num1 + num2;
 
         out.print(sum);
     %>
