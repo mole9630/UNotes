@@ -1,4 +1,4 @@
-open_file = open("text.txt")  # 打开txt文件
+open_file = open("material/task2_1.txt")  # 打开txt文件
 message = open_file.read()  # 读取txt文件内容并赋值到message
 message = message.lower().replace(',', ' ').replace('.', ' ').replace('!',
                                                                       ' ')  # 先用lower函数将所有字母转换为小写,在用replace函数替换所有特殊字符转为空格
