@@ -45,13 +45,16 @@ WindDirDegrees_mean = float(sum/count)
 print("WindDirDegrees的均值是:", WindDirDegrees_mean)
 
 # 求WindDirDegrees的方差
-i = 5
+i = 9
 sum = 0
 count = 0
 while(i <= 39):
     sum += math.pow(int(list_massage[i]) - WindDirDegrees_mean, 2)
     count += 1
     i += 5
-print(sum)
 WindDirDegrees_variance = sum * (1 / count)
 print("MaxWindSpeedMPH的方差是:", WindDirDegrees_variance)
+
+
+# 求MeanWindSpeedMPHF标准化后的均值
+#
