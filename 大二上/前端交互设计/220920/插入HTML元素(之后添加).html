@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 绑定按钮单击事件
+				$("button").click(function(){
+					$("#p2").after("<h1>这是通过jQuery创建的h1标题</h1>")
+					$("<h1>这是通过jQuery创建的h1标题</h1>").insertAfter("#p2")					
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<div>
+			<p id="p0">这是一段文本0</p>
+			<p id="p1">这是一段文本1</p>
+			<p id="p2">这是一段文本2</p>
+			<p id="p3">这是一段文本3</p>
+		</div>
+		<button type="button">单击显示</button>
+	</body>
+</html>

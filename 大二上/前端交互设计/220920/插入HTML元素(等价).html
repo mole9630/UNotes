@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 绑定按钮单击事件
+				$("button").click(function(){
+					// 向父元素(ul)添加后代元素(li)
+					$("<li>这是通过jQuery创建的文本1</li>").appendTo("ul");
+					$("<li>这是通过jQuery创建的文本2</li>").append("ul");
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>这是一段文本</li>
+			<li>这是一段文本</li>
+		</ul>
+		<button type="button">单击显示</button>
+	</body>
+</html>
