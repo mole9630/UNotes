@@ -25,7 +25,7 @@
             <input type="reset" value="重置" />
         </form>
         <hr>
-        <form action="showMassage.jsp" method="post">
+        <form action="showMessage.jsp" method="post">
             <input type="submit" value="查看留言">
         </form>
     </div>

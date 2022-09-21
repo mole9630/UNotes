@@ -7,13 +7,13 @@
 </head>
 <body>
     <%
-        Object obj = application.getAttribute("massage");
+        Object obj = application.getAttribute("message");
         if (obj == null){
             out.print("暂无留言内容,换个时间再来看看吧");
         }
         else {
             Vector<String> obt = (Vector<String>) obj;
-            for (int i=obt.size()-1; i<=0; i--){
+            for (int i=obt.size()-1; i>=0; i--){
                 StringTokenizer st = new StringTokenizer(obt.get(i), ".");
                 while (st.hasMoreElements()){
                     out.print(st.nextToken() + "<br>");

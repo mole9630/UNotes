@@ -1,3 +1,7 @@
+<%@ page import="java.util.Vector" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -37,8 +41,8 @@
         // 结果输出
         String str = "第" + i + "楼.用户名:" + username + ".标题:" + title +".内容:" + content + ".日期:" + datetime + "<br>";
         v.add(str); // 添加到向量空间
-        application.setAttribute("massage", v);
+        application.setAttribute("message", v);
     %>
-    留言成功 <a href="messageBoard.jsp">返回留言板</a> | <a href="showMassage.jsp">查看留言板</a>
+    留言成功 <a href="messageBoard.jsp">返回留言板</a> | <a href="showMessage.jsp">查看留言板</a>
 </body>
 </html>
