@@ -9,5 +9,5 @@
 * 220913 | include,param,forward元素
 * 220914 | request,response内置对象
 * 220916 | out内置对象
-* 220920 | response内置对象(自动刷新,刷新重定向,登录信息判断),out内置对象(输出换行问题,缓冲区),session内置对象(会话计数器),ClassWork(购物车)
+* 220920 | response内置对象(自动刷新,刷新重定向,登录信息判断),out内置对象(输出换行问题,缓冲区),session内置对象(会话计数器),ClassWork(购物车),HomeWork(网页访问计数器 会话计数器 访问网站计数器)
 * 220921 | application内置对象(实现留言板功能)
