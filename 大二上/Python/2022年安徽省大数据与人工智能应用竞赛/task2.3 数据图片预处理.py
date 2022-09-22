@@ -12,7 +12,7 @@ def read_directory(directory_name):
         list_img.append(img)
 
 
-read_directory('material/task3_1/')
+read_directory('material/task2_3/')
 while i < 5:
     resize_img[i] = cv2.resize(list_img[i], (128, 128))
     resize_img[i] = cv2.blur(resize_img[i], (5, 5))
