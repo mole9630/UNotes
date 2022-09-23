@@ -1,9 +1,9 @@
 import math
 
-open_file = open("material/task2_2.txt")
-massage = open_file.read()
+open_file = open("material/task2_2.txt")  # 创建文件对象
+massage = open_file.read()  # 读取数据文件
 
-list_massage = massage.split()
+list_massage = massage.split()  # 数据内容用空格分隔
 # print("[debug]", list_massage)
 # print("[debug]", len(list_massage))
 
@@ -51,7 +51,7 @@ while i <= 39:
     count += 1
     i += 5
 WindDirDegrees_variance = sum * (1 / count)
-print("MaxWindSpeedMPH的方差是:", WindDirDegrees_variance)
+print("WindDirDegrees的方差是:", WindDirDegrees_variance)
 
 
 # 求MeanWindSpeedMPHF标准化的值
@@ -72,7 +72,7 @@ list_MeanWindSpeedMPHF_sort = list(map(int, list_MeanWindSpeedMPHF))
 #     list_MeanWindSpeedMPHF_sort.append(int(i))
 list_MeanWindSpeedMPHF_sort.sort()  # 将数据进行排序
 while i <= 6:
-    list_MeanWindSpeedMPHF_standardization.append((list_MeanWindSpeedMPHF_sort[i] - min(list_MeanWindSpeedMPHF_sort)) / (max(list_MeanWindSpeedMPHF_sort) - min(list_MeanWindSpeedMPHF_sort)))
+    list_MeanWindSpeedMPHF_standardization.append((list_MeanWindSpeedMPHF_sort[i] - min(list_MeanWindSpeedMPHF_sort)) / (max(list_MeanWindSpeedMPHF_sort) - min(list_MeanWindSpeedMPHF_sort)))  # 求每个数据标准化的值
     i += 1
 
 # print("[debug] list_MeanWindSpeedMPHF_sort:", list_MeanWindSpeedMPHF_sort)
@@ -82,7 +82,7 @@ while i <= 6:
 i = 0
 sum = 0
 while i <= 6:
-    sum += list_MeanWindSpeedMPHF_standardization[i]
+    sum += list_MeanWindSpeedMPHF_standardization[i]  # 求累加后的和
     i += 1
-list_MeanWindSpeedMPHF_standardization_mean = float(sum / len(list_MeanWindSpeedMPHF_standardization))
+list_MeanWindSpeedMPHF_standardization_mean = float(sum / len(list_MeanWindSpeedMPHF_standardization))  # 求均值
 print("MeanWindSpeedMPHF标准化后的均值是:", list_MeanWindSpeedMPHF_standardization_mean)

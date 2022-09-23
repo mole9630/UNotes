@@ -4,10 +4,15 @@ from sklearn.datasets import load_iris
 
 # 加载鸢尾花数据
 data = load_iris()  # 以字典形式加载数据
-y = data.target  # 使用y表示数据集中的标签
+y = data.target  # 使用y表示数据集中标的签
 x = data.data  # 使用x表示数据集的属性数据
+# print(data)
+# print(y)
+print(x)
+
 pca = PCA(n_components=2)  # 加载PCA算法，设置降维后的维度为2
 reduced_x = pca.fit_transform(x)  # 对原始数据进行降维，保存在reduced_x中
+# print(reduced_x)
 red_x, red_y = [], []
 blue_x, blue_y = [], []
 green_x, green_y = [], []
