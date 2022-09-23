@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=3HOcE9j7BI5GZKwKa2pRFaUKBTCMG4jy"></script>
+	<title>添加信息窗口</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMapGL.Map("allmap");
+	var point = new BMapGL.Point(117.601466,32.658359);
+	map.centerAndZoom(point, 15);
+	
+	var marker = new BMapGL.Marker(point);  // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	var opts = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "凤阳狼巷迷谷" , // 信息窗口标题
+	    message:"欢迎来到凤阳狼巷迷谷"
+	}
+	var infoWindow = new BMapGL.InfoWindow("地址：滁州市凤阳县城东南35公里处<br>电话：(0550)6356029 ", opts);  // 创建信息窗口对象 
+	marker.addEventListener("click", function(){          
+		map.openInfoWindow(infoWindow, point); //开启信息窗口
+	}); 
+
+    var opts = {
+	  position : point,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(20, -30)    //设置文本偏移量
+	}
+	var label = new BMapGL.Label("欢迎来到凤阳狼巷迷谷", opts);  // 创建文本标注对象
+	label.setStyle({
+		color : 'red',
+		fontSize : '15px',
+		height : '16px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+	map.addOverlay(label);   
+</script>
