@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+<body>
+    <input type="text" id="username">
+    <button id="setdata">设置数据</button>
+    <button id="getdata">获取数据</button>
+    <button id="deldata">删除数据</button>
+    <script>
+        var username=document.querySelector('input');
+
+        //单击“设置属性”按钮，设置数据
+        document.getElementById('setdata').onclick=function(){
+            var val=username.value; //获取username里面的值
+            window.localStorage.setItem('username',val);
+            window.localStorage.setItem('password',val);
+        }
+
+        //单击“获取数据”按钮，获取数据
+        document.getElementById('getdata').onclick=function(){
+            alert(window.localStorage.getItem('username'));
+        }
+
+        //单击“删除数据”按钮，删除数据
+        document.getElementById('deldata').onclick=function(){
+            window.localStorage.removeItem('username');
+        }
+    </script>
+</body>
+</html>
