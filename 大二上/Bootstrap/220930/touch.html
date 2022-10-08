@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #c7edcc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        window.onload=function(){
+            // 获取DOM元素
+            var box=document.querySelector(".box");
+            // 为元素添加事件
+            // 添加开始触摸事件
+            box.addEventListener("touchstart",function(event){
+                console.log("手指触摸屏幕:" , "(" , event.targetTouches[0].clientX , "," , event.targetTouches[0].clientY , ")");
+            })
+            // 添加手指在屏幕上移动时触发事件
+            box.addEventListener("touchmove",function(){
+                console.log("手指在屏幕上移动:" , "(" , event.touches[0].clientX , "," , event.touches[0].clientY , ")");
+            })
+            // 添加手指离开屏幕时触发事件
+            box.addEventListener("touchend",function(){
+                console.log("手指离开屏幕:" , "(" , event.changedTouches[0].clientX , "," , event.changedTouches[0].clientY , ")");
+            })
+        }
+    </script>
+</body>
+</html>

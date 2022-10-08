@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #c7edcc;
+            border-radius: 50px 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var div=document.querySelector(".box");
+        var startTime,startX,startY;
+        // 触发屏幕的时间差异必须小于某一个值,且不能用长距离的活动
+        startTime=Date.now();
+        startX=event.targetTouches[0].clientX;
+        startY=event.targetTouches[0].clientY;
+
+        div.addEventListener("touchstart",function(event){
+            if(event.targetTouches>1){
+                return;
+            }
+        
+        // 判断时间差
+        console.log(Date.now()-startTime);
+        if(Date.now-startTime>100){
+            return;
+        }
+        var endX=event.changedTouches[0].clientX;
+        var endY=event.changedTouches[0].clientY;
+        if(Math.abs(endX-startX)<5 && Math.abs(endY-startY)<5){
+            console.log("此次为单击操作")
+        }
+        })
+
+        // 确保没有滑动操作,如果有抖动必须保证抖动在指定范围内
+        
+    </script>
+</body>
+</html>

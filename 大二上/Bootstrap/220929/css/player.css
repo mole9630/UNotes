@@ -1,0 +1,116 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'microsoft yahei', 'Helvetica', simhei, simsun, sans-serif;
+    background-color: #F7F7F7;
+}
+a {
+    text-decoration: none;
+}
+figcaption {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px;
+}
+.player {
+    width: 720px;
+    height: 360px;
+    margin: 0 auto;
+    border-radius: 4px;
+    background: #000 url(../images/loading.gif) center/300px no-repeat;
+    position: relative;
+    text-align: center;
+}
+video {
+    display: none;
+    height: 100%;
+    margin: 0 auto;
+}
+/*全屏操作后  自带的控制栏会显示  在显示的时候隐藏*/
+video::-webkit-media-controls {
+    display: none !important;
+}
+.controls {
+    width: 700px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    margin-left: -350px;
+    bottom: 5px;
+    /*比全屏的状态下的视频元素高*/
+    z-index: 100000000000;
+    opacity: 1;
+}
+.player:hover .controls {
+    opacity: 1;
+}
+/*播放/暂停*/
+.controls .switch {
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    color: #FFF;
+    position: absolute;
+    top: 11px;
+    left: 11px;
+}
+/*全屏按钮*/
+.controls .expand {
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    color: #FFF;
+    position: absolute;
+    right: 11px;
+    top: 11px;
+}
+/*进度条*/
+.progress {
+    width: 430px;
+    height: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #555;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    left: 45px;
+}
+/*下载进度*/
+.progress .loaded {
+    width: 0;
+    height: 100%;
+    background-color: #999;
+}
+/*播放进度*/
+.progress .line {
+    width: 0;
+    height: 100%;
+    background-color: #FFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.progress .bar {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+/*时间*/
+.timer {
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    left: 490px;
+    top: 11px;
+    color: #FFF;
+    font-size: 14px;
+}

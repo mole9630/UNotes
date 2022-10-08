@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fastclick</title>
+    <script src="js/fastclick.js"></script>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: #f7f7ff;
+        }
+        .box{
+            width: 320px;
+            height: 320px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .tap{
+            width: 200px;
+            height: 200px;
+            background-color: #c7edcc;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0px 0px -100px;
+            font-size: 30px;
+        }
+        .click{
+            width: 300px;
+            height: 300px;
+            background-color: #c7d6ed;
+            text-align: center;
+            line-height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -150px 0px 0px -150px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="click">click</div>
+        <div class="tap">tap</div>
+    </div>
+</body>
+<script>
+    var tap=document.querySelector('.tap'); //找到类为tap的元素
+    tap.addEventListener('touchstart',function(){
+        console.log("touch");
+        tap.style.visibility="hidden";
+    })
+    // tap.ontouchstart=function(){
+    //     console.log("touch");
+    //     tap.style.visibility="hidden";
+    // }
+    if('addEventListener' in document){
+        document.addEventListener("DOMContentLoaded",function(){
+            FastClick.attach(document.body)
+        },false)
+    }
+</script>
+</html>

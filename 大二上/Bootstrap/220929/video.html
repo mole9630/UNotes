@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/player.css">
+</head>
+<body>
+    <figure>
+        <figcaption>视频播放器</figcaption>
+        <div class="player">
+            <video src="https://img.mole9630.top/video/%E3%80%90%E9%9B%AA%E8%90%BD%E3%80%91%E9%9D%99%E6%82%84%E6%82%84.mp4">
+                您的浏览器不支持该功能
+                <!-- <source src="videoExample.ogg" type="video/mpeg"> -->
+                <!-- <source src="videoExample.webm" type="video/webm"> -->
+            </video>
+
+            <div class="controls">
+                <!-- 播放/暂停 -->
+                <a href="#" class="switch fa fa-play"></a>
+                <!-- 播放进度 -->
+                <div class="progress">
+                    <div class="line"></div>
+                    <div class="bar"></div>
+                </div>
+                <!-- 当前播放时间 -->
+                <div class="timer">
+                    <span class="current">00:00:00</span> / <span class="total">00:00:00</span>
+                </div>
+                <!-- 全屏/取消全屏 -->
+                <a href="#" class="expand fa fa-arrows-alt"></a>
+            </div>
+        </div>
+    </figure>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+    // 获取视频对象
+    var video = $("video").get(0); //将JQuery对象转换为DOM对象
+
+    // 播放/暂停功能
+    $(".switch").on("click",function(){
+        if($(this).hasClass("fa-play")){
+            video.play(); //实现播放
+            $(this).addClass("fa-pause").removeClass("fa-play"); //切换图标
+        }
+        else{
+            video.pause(); //实现暂停
+            $(this).addClass("fa-play").removeClass("fa-pause"); //切换图标
+        }
+    })
+
+    //加载视频后显示视频内容
+    function formatTime(time){
+        var h = Math.floor(time/3600); //时
+        var m = Math.floor(time%3600/60); //分
+        var s = Math.floor(time%60); //秒
+        return(h<10?"0"+h:h) + ":" + (m<10?"0"+m:m) + ":" + (s<10?"0"+s:s)
+    }
+
+    // 当前浏览器可以播放视频时 让video显示视频内容 同时显示视频时长
+    video.oncanplay=function(){
+            //oncanplay事件会在浏览器播放视频时触发
+            $("video").show(); //显示视频
+            var totalTime=formatTime(video.duration); //获取视频总时长
+            $(".total").html(totalTime); //把计算出来的总时长放入页面中
+    }
+
+    // 实现进度条动态更新
+    video.ontimeupdate=function(){
+        // 实现进度条动态滚动(进度条长度=当前视频播放时长/视频总长度*100+"%")
+        var w=video.currentTime/video.duration*100+"%";
+        $(".line").css("width", w);
+        //显示当前时间
+        var currentTime=formatTime(video.currentTime); //获取当前时间
+        $(".current").html(currentTime); //显示当前时间
+    }
+
+    // 实现单击进度条视频跳转功能
+    $(".bar").on("click",function(event){
+        // 获取单击的位置
+        var offset=event.offsetX;
+        // 根据单击视频的播放位置计算要切换的时间(当前视频的播放位置=单击的位置/.bar盒子的长度*视频总长)
+        var current=offset/$(this).width()*video.duration;
+        // 把计算后的时间赋值给
+        video.currentTime=current;
+    })
+
+    // 视频播放结束后的重置操作
+    video.onload=function(){
+        // 当前视频时长清零
+        video.currentTime=0;
+        // 同时把播放按钮换成fa-play
+        $(".switch").addClass("fa-play").removeClass("fa-pause");
+    }
+
+    // 实现视频全屏/取消全屏功能
+        var div=document.querySelector('div');  //querySelector返回文档中匹配指定css选择器的一个元素
+        // 全屏显示
+        $(".expand").on("click",function(){
+        if($(this).hasClass("fa-arrows-alt")){
+            if(div.requestFullscreen){
+                div.requestFullscreen(); //requestFullscreen()全屏操作
+            }
+            else if(div.webkitRequestFullScreen){
+                div.webkitRequestFullscreen(); //webkit浏览器方法
+            }
+            else if(div.mozRequestFullScreen){
+                div.mozRequestFullscreen(); //moz浏览器方法
+            }
+            else if(div.msRequestFullScreen){
+                div.msRequestFullscreen(); //微软浏览器方法
+            }
+            else if(div.oRequestFullScreen){
+                div.oRequestFullscreen(); //Operai浏览器方法
+            }
+            else{
+                alert("您的浏览器似乎不支持该功能")
+            }
+        }
+        })
+</script>
+</html>

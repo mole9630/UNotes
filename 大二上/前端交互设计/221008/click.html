@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<button class="b1">单击</button>
+		<button class="b2">单击</button>
+	</body>
+	<script type="text/javascript">
+		// 简写绑定事件
+		$(function() {
+			$(".b1").click(function() {
+				alert("Hello");
+			});
+		});
+		// $(document).ready(function(){}); //两种书写方法
+
+		// 按事件绑定的语法格式书写
+		$(document).ready(function() {
+			$(".b2").bind("click", function() {
+				alert("Hello2");
+			});
+		});
+	</script>
+</html>
