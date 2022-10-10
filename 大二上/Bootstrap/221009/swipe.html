@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swipe轮播图</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .swiper-container{
+            width: 100%;
+        }
+        .swiper-slide img{
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <a href="javacript:">
+                    <img src="banner/1.jpg" alt="">
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="javacript:">
+                    <img src="banner/2.jpg" alt="">
+                </a>
+            </li>
+            <li class="swiper-slide">
+                <a href="javacript:">
+                    <img src="banner/3.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var mysiwper = new Swiper(".swiper-container",{
+            loop: true,
+            autoplay: 2000
+        })
+    </script>
+</body>
+</html>
