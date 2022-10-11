@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性盒子实现导航栏</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul,li{
+            list-style: none;
+			margin: 5px;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+			text-align: right;
+        }
+        .navigation{
+            display: flex;
+            flex-grow: row wrap;
+            justify-content: flex-end;
+            background-color: deepskyblue;
+        }
+        .navigation a{
+            display: block;
+            font-size: 14px;
+        }
+		/* 当小于800px时 内容为居中 */
+		@media screen and (max-width: 800px) {
+			.navigation{
+				justify-content: center;
+			}
+		}
+		/* 当小于400px时 内容纵向排列 从上到下 */
+		@media screen and (max-width: 400px) {
+			.navigation{
+				flex-direction: column;
+			}
+			li a{
+			    text-align: center;
+			}
+		}
+    </style>
+</head>
+<body>
+    <ul class="navigation">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">学院概况</a></li>
+        <li><a href="#">院系设置</a></li>
+        <li><a href="#">教育教学</a></li>
+        <li><a href="#">科学研究</a></li>
+        <li><a href="#">招生就业</a></li>
+        <li><a href="#">合作交流</a></li>
+        <li><a href="#">走进学校</a></li>
+    </ul>
+</body>
+</html>
