@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>轮播图</title>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+		html,body {
+			position: relative;
+			height: 100%;
+		}
+		body {
+			background: #eee;
+			font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color: #000;
+			margin: 0;
+			padding: 0;
+		}
+
+		 .swiper {
+			width: 100%;
+			height: 100%;
+		 }
+
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #fff;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+		.swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+		}
+    </style>
+  </head>
+
+  <body>
+	  <!-- 图片版权归小米官方所有,图片仅用于学习为目的 -->
+    <div class="swiper mySwiper">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <a href="javascript:"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/053d963a35ffe0654dfc2ac3d20466ee.jpg?w=2452&h=920" alt=""></a>
+            </li>
+            <li class="swiper-slide">
+                <a href="javascript:"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/50063de30b7f02f678e9da976ecb70ac.jpg?thumb=1&w=1520&h=570&f=webp&q=90" alt=""></a>
+            </li>
+            <li class="swiper-slide">
+                <a href="javascript:"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9e320fa9285445a60c8e908117fc9be9.jpg?thumb=1&w=1520&h=570&f=webp&q=90" alt=""></a>
+            </li>
+			<li class="swiper-slide">
+			    <a href="javascript:"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cf63f6314d3e842cfc80e9a2e44e2773.jpg?thumb=1&w=1520&h=570&f=webp&q=90" alt=""></a>
+			</li>
+			<li class="swiper-slide">
+				<a href="javascript:"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fb9e3201ac236e7d93d98d80cd56f185.jpg?thumb=1&w=1520&h=570&f=webp&q=90" alt=""></a>
+			</li>
+        </ul>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
