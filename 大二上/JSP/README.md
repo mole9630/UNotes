@@ -15,3 +15,4 @@
 * 220928 | PreparedStatement(注册与登录页面操作)
 * 220930 | 批量处理数据
 * 221009 | JavaBean基础知识
+* 221011 | JavaBean的应用

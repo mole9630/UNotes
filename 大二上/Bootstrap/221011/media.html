@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media</title>
+    <style>
+        .container{
+            margin: 0 auto;
+            background-color: #ddd;
+            text-align: center;
+        }
+        /* 超小设备(手机)(<=575px)的布局容器效果 */
+        @media screen and (max-width: 575px) {
+            .container{
+                width: 100%;
+                background-color: red;
+            }
+        }
+        /* 平板(>=576px)的布局容器效果 */
+        @media screen and (min-width: 575px) {
+            .container{
+                width: 540px;
+                background-color: burlywood;
+            }
+        }
+        /* 桌面显示器(>=768px)的布局容器效果 */
+        @media screen and (min-width: 768px) {
+            .container{
+                width: 720px;
+                background-color: royalblue;
+            }
+        }
+        /* 大桌面显示器(>=992px)的布局容器效果 */
+        @media screen and (min-width: 992px) {
+            .container{
+                width: 960px;
+                background-color: pink;
+            }
+        }
+        /* 超大桌面显示器(>=1200px)的布局容器效果 */
+        @media screen and (min-width: 1200px) {
+            .container{
+                width: 1140px;
+                background-color: aqua;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">container</div>
+</body>
+</html>

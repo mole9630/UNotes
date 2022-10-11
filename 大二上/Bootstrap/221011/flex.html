@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .box{
+            display: flex; /* 用于指定弹性盒子的容器 */
+            border: 3px solid #000;
+            background-color: #999;
+            padding: 4px;
+            height: 60px;
+            flex-direction: row; /* 缺省为行显示(row) */
+            flex-wrap: nowrap; /* 缺省为不换行(nowrap) */
+            flex-flow: row nowrap; /* 综合属性表示15及16行内容 */
+            justify-content: flex-start;
+
+        }
+        .box>div{
+            margin: 2px;
+            padding: 2px;
+            border: 3px solid #999;
+            background-color: #fff;
+        }
+        .a{
+            order: 2;
+            flex-grow: 1;
+        }
+        .b{
+            order: 3;
+        }
+        .c{
+            order: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="a">a</div>
+        <div class="b">b</div>
+        <div class="c">c</div>
+    </div>
+</body>
+</html>
