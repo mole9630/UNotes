@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>产品图</title>
+		<script src="js/jquery-3.6.1.js"></script>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#box{
+				width: 420px;
+				height: 335px;
+				border: 1px solid #c7edcc;
+				margin: 10px;
+			}
+			#box img{
+				width: 416px;
+				height: 295px;
+				margin: 2px 0 0 2px;
+			}
+			ul{
+				list-style: none;
+				width: 178px;
+				height: 32px;
+				line-height: 40px;
+				position: relative;
+				top: -52px;
+				background: rgba(0, 0, 0, 0.5);
+				padding: 8px 0 0 240px;
+				margin-left: 12px;
+			}
+			ul li{
+				float: left;
+				width: 25px;
+				height: 25px;
+				line-height: 25px;
+				text-align: center;
+				margin-right: 5px;
+				border-radius: 25px;
+				background-color: #ffffff;
+			}
+			ul li:hover{
+				background: burlywood;
+				color: #ffffff;
+				cursor: pointer;
+			}
+			span{
+				position: relative;
+				top: -80px;
+				left: 20px;
+				color: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/1.webp" >
+		</div>
+		<ul>
+			<li title="产品1">1</li>
+			<li title="产品2">2</li>
+			<li title="产品3">3</li>
+			<li title="产品4">4</li>
+			<li title="产品5">5</li>
+		</ul>
+		<span id="text">
+			产品图片
+		</span>
+	</body>
+	<script>
+		$(function(){
+			// 绑定鼠标事件
+			$("li").mouseover(function(){
+				// 获取当前对象的文本信息
+				$index=$(this).text();
+				// 构建img的src属性值
+				$srcUrl="./img/"+$index+".webp";
+				// 动态赋值给img标签
+				$("#box img").attr("src",$srcUrl);
+				// 读取当前li的title值
+				$strTitle=$(this).attr("title");
+				// 构建新的span标签
+				$sp=$("<span id='text'>"+$strTitle+"</span>");
+				// 以新span替换旧span
+				$("#text").replaceWith($sp);
+			});
+		});
+	</script>
+</html>
