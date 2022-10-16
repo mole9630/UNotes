@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bootstrap</title>
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+	<!-- <script src="js/bootstrap.min.js"></script> -->
+	<style>
+		.row{
+			width: 100%;
+		}
+		/* 通过伪元素设置清除浮动 */
+		.row:after{
+			clear: both;
+			content: "";
+			display: table; /* 该元素会作为块级表格来显示 */
+		}
+		[class^="col"]{
+			float: left;
+			background-color: #e0e0e0;
+		}
+		.col1{
+			width: 25%;
+		}
+		.col2{
+			width: 50%;
+		}
+		@media screen and (max-width: 768px) { /* <=768px */
+			.row{
+				width: 100%;
+			}
+			[class^="col"]{
+			float: none;
+			width: 100%;
+		}
+		}
+	</style>
+</head>
+<body>
+	<div class="row">
+		<header>页首</header>
+	</div>
+	<div class="row">
+		<section>
+			<nav class="col1">导航</nav>
+			<div class="col2">主要内容</div>
+			<aside class="col1">侧边栏</aside>
+		</section>
+	</div>
+	<div class="row">
+		<footer>页尾</footer>
+	</div>
+</body>
+</html>
