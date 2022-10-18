@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>keyboard事件</title>
+		<script src="js/jquery-3.6.1.js"></script>
+		<script>
+			$(function(){
+				// 绑定事件(键盘按下)
+				$("input").keydown(function(){
+					// 功能实现
+					$("input").css("color","#ab41ed")
+					$("span").text("键盘被按下")
+				});
+				
+				// 绑定事件(键盘弹起)
+				$("input").keyup(function(){
+					// 功能实现
+					$("input").css("color","#3082ed")
+					$("span").text("键盘弹起")
+				});
+				
+				// 绑定事件(键盘按下(类似于down))
+				$("input").keypress(function(){
+					// 功能实现
+					$("input").css("background-color","#c7edcc")
+					$("span").text("键盘被按下")
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<label for="">账号:</label>
+		<input type="text"><br />
+		目前操作:<span>-</span>
+		<p>请在上面的文本框输入完成账号后,并观察键盘按下后字体颜色的改变</p>
+	</body>
+</html>
