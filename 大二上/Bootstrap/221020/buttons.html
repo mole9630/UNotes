@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>按钮组件</title>
+	<link rel="stylesheet" href="bootstrap-4.6.1-dist/css/bootstrap.min.css">
+	<style>
+		.btn {
+			/* width: 100px; */
+		}
+		.nav {
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button class="btn btn-primary">主按钮</button>
+		<button class="btn btn-secondary">secondary</button>
+		<button class="btn btn-success">success</button>
+		<button class="btn btn-danger" disabled="disabled">danger</button>
+		<button class="btn btn-warning">warning</button>
+		<button class="btn btn-info">info</button>
+		<button class="btn btn-primary">主按钮(不换行))</button>
+		<button class="btn btn-primary text-nowrap">主按钮(不换行))</button>
+	</div>
+	<hr>
+	<nav>
+		<a class="btn btn-block disabled" href="#">首页</a>
+		<a class="btn btn-primary btn-lg btn-block" href="#">用户中心(大按钮)</a>
+		<a class="btn btn-outline-primary btm-sm btn-block" href="#">关于我们(小按钮)</a>	
+	</nav>
+	<hr>
+	<div>
+		用户名:<input class="btn" type="text">
+	</div>
+	<hr>
+</body>
+</html>
