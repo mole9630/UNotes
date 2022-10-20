@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			#d1 {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #c7edcc;
+			}
+		</style>
+		<script>
+			$(function() {
+				// span的单击事件
+				$("#sp").click(function() {
+					var txt = $("#msg").html()+"<p>[span]内部span被单击</p>";
+					$("#msg").html(txt);
+					// 停止冒泡事件
+					event.stopPropagation();
+				});
+				// div的单击事件
+				$("#d1").click(function() {
+					var txt = $("#msg").html()+"<p>[div]外部div被单击</p>";
+					$("#msg").html(txt);
+					// 停止冒泡事件
+					return false; // 等同于:event.stopPropagation()
+				});
+				// body的单击事件
+				$("body").click(function() {
+					var txt = $("#msg").html()+"<p>[body]body被单击</p>";
+					$("#msg").html(txt);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="d1">
+			<span id="sp">内部span</span>
+		</div>
+		<div id="msg">
+		</div>
+	</body>
+</html>

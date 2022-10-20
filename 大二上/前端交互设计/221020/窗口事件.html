@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			#d1 {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #c7edcc;
+				overflow: scroll;
+			}
+		</style>
+		<script>
+			i = 0;
+			j = 0;
+			$(function() {
+				// 滚动条事件
+				$("#d1").scroll(function() {
+					$("#d1s").text("滚动条事件:" + (i += 1));
+				});
+				// 窗口大小事件
+				$(window).resize(function(e) {
+					$("#winds").text("窗口大小事件:" + (j += 1));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="d1">
+			这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字
+			这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字
+			这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字
+			这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字这是一段长文字
+		</div>
+		<p><span id="d1s">滚动条事件:-</span></p>
+		<p><span id="winds">窗口大小事件:-</span></p>
+	</body>
+</html>
