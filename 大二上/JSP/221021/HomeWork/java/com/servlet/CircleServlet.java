@@ -11,6 +11,11 @@ import java.io.IOException;
 public class CircleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         double r = Double.parseDouble(request.getParameter("r"));
         Circle circle = new Circle(r);
 
@@ -36,10 +41,5 @@ public class CircleServlet extends HttpServlet {
         request.setAttribute("message", result);
 
         request.getRequestDispatcher("showCircle.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
     }
 }
