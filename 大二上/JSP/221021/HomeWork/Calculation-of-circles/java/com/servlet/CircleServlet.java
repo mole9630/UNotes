@@ -26,13 +26,13 @@ public class CircleServlet extends HttpServlet {
             result = "半径为非法参数,请重试";
         }
         else if (oper.equals("all")) {
-            result = "半径为:" + r + "\n圆的周长为:" + circle.circumference(r) + "\n圆的面积为:" + circle.area(r);
+            result = "半径为:" + r + "<br>圆的周长为:" + String.format("%.2f", circle.circumference(r)) + "<br>圆的面积为:" + String.format("%.2f", circle.area(r));
         }
         else if (oper.equals("circumference")) {
-            result = "半径为:" + r + "\n圆的周长为:" + circle.circumference(r);
+            result = "半径为:" + r + "<br>圆的周长为:" + String.format("%.2f", circle.circumference(r));
         }
         else if (oper.equals("area")) {
-            result = "半径为:" + r + "\n圆的面积为:" + circle.area(r);
+            result = "半径为:" + r + "<br>圆的面积为:" + String.format("%.2f", circle.area(r));
         }
         else {
             result = "非法参数,请重试";
