@@ -16,23 +16,23 @@ public class CircleServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        double r = Double.parseDouble(request.getParameter("r"));
+        double r = 0;
+        r = Double.parseDouble(request.getParameter("r"));
         Circle circle = new Circle(r);
 
         String oper = request.getParameter("oper");
         String result = "";
-        if (oper.equals("all")) {
-            Circle circleCircumference = circle.circumference(r);
-            Circle circleArea = circle.area(r);
-            result = "半径为:" + r + "\n圆的周长为:" + circleCircumference + "\n圆的面积为:" + circleArea;
+        if (r <= 0) {
+            result = "半径为非法参数,请重试";
+        }
+        else if (oper.equals("all")) {
+            result = "半径为:" + r + "\n圆的周长为:" + circle.circumference(r) + "\n圆的面积为:" + circle.area(r);
         }
         else if (oper.equals("circumference")) {
-            Circle circleCircumference = circle.circumference(r);
-            result = "半径为:" + r + "\n圆的周长为:" + circleCircumference;
+            result = "半径为:" + r + "\n圆的周长为:" + circle.circumference(r);
         }
         else if (oper.equals("area")) {
-            Circle circleArea = circle.area(r);
-            result = "半径为:" + r + "\n圆的面积为:" + circleArea;
+            result = "半径为:" + r + "\n圆的面积为:" + circle.area(r);
         }
         else {
             result = "非法参数,请重试";

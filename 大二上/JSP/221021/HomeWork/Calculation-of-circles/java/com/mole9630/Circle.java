@@ -12,15 +12,13 @@ public class Circle {
     }
 
     // 圆的周长
-    public Circle circumference(Double r) {
-        double circumference = 2 * this.PI * this.r;
-        return new Circle(circumference);
+    public Double circumference(Double r) {
+        return 2 * this.PI * this.r;
     }
 
     // 圆的面积
-    public Circle area(Double r) {
-        double area = PI * Math.pow(this.r, 2);
-        return new Circle(area);
+    public Double area(Double r) {
+        return PI * Math.pow(this.r, 2);
     }
 
     // Getter & Setter
