@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<script>
+			$(function() {
+				// one 仅可被触发一次
+				$("#btn").one("click", f1 = function() {
+					$("#d1").append("<p>单击被触发1!</p>");
+				}).bind("click", f2 = function() {
+					$("#d1").append("<p>单击被触发2!</p>");
+				}).one("click", f3 = function() {
+					$("#d1").append("<p>单击被触发3!</p>");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">单击</button>
+		<div id="d1">
+		</div>
+	</body>
+</html>

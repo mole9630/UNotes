@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../bootstrap-4.6.1-dist/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 0px;
+            padding-bottom: 300px;
+            background-color: #F6F6F6;
+        }
+        .all {
+            text-align: center;
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .form-text {
+            text-align: left;
+        }
+        #logo {
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <form>
+            <img class="mb-4" id="logo" src="img/timg.jpg" alt="logo">
+            <h1 class="h3 mb-3">请登录</h1>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="电子邮件">
+              <small id="emailHelp" class="form-text text-muted">我们永远不会与其他人分享您的电子邮件。</small>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="密码">
+                <small id="passwordHelp" class="form-text text-muted">密码必须8位以上字母、数字及特殊字符组合,且同时密码必须同时包含有数字、字母和特殊字符。</small>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">检查是不是机器人?</label>
+              </div>
+              <button class="btn btn-primary btn-lg btn-block" type="submit">登录</button>
+          </form>
+    </div>
+</body>
+</html>

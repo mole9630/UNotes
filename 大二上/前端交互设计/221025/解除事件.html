@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<script>
+			// 绑定多个事件
+			$(function(){
+				$().bind("click dblclick change",function(){
+					// 功能性代码(多个事件共用同一段代码)
+				});
+				
+				// 绑定同一个事件 但调用不同的核心函数
+				$("#btn").bind("click",f1 = function(){
+					$("#d1").append("<p>单击被触发1!</p>");
+				}).bind("dblclick",f2 = function(){
+					$("#d1").append("<p>单击被触发2!</p>");
+				}).bind("click",f3 = function(){
+					$("#d1").append("<p>单击被触发3!</p>");
+				});
+				
+				// 解除事件
+				$("#unBtn").click(function(){
+					$("#btn").unbind(); // 全部事件均不触发
+				});
+				
+				// 仅解除指定事件
+				$("#unBtnZ").click(function(){
+					$("#btn").unbind("click",f3); // 单击事件的f3方法不触发
+					// $("#btn").unbind("click"); // 单击事件不触发
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">单击</button>
+		<button id="unBtn">解除事件</button>
+		<button id="unBtnZ">仅解除指定事件</button>
+		<div id="d1">
+		</div>
+	</body>
+</html>
