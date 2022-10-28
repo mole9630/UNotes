@@ -7,8 +7,8 @@ public class DBConnection {
     public static String sqlUserName = "root";
     public static String sqlUserPassword = "root";
     public static String dbName = "student";
-    public static String sqlUrl = "jdbc:mysql://127.0.0.1:3308/" + dbName + "?user=" + sqlUserName + "&password=" + sqlUserPassword + "&useUnicode=true&characterEncoding=utf8";
-    public static String sqlUrlExp = "jdbc:mysql://127.0.0.1:3308/" + dbName; // 方法2
+    public static String sqlUrl = "jdbc:mysql://127.0.0.1:3306/" + dbName + "?user=" + sqlUserName + "&password=" + sqlUserPassword + "&useUnicode=true&characterEncoding=utf8";
+    public static String sqlUrlExp = "jdbc:mysql://127.0.0.1:3306/" + dbName; // 方法2
 
 
     public Connection getDBConnection() {

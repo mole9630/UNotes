@@ -33,8 +33,11 @@
         </div>
         <div class="content-right">
             <div class="d0">0</div>
-            <div class="d1">1</div>
-            <div class="d2">2</div>
+            <div class="d1">1
+                <jsp:include page="studentShow.jsp"></jsp:include></div>
+            <div class="d2">
+                <jsp:include page="studentInsert.jsp"></jsp:include>
+            </div>
             <div class="d3">3</div>
             <div class="d4">4</div>
         </div>

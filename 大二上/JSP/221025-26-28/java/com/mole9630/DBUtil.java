@@ -42,13 +42,12 @@ public class DBUtil {
 
 
 
-    public static void main(String[] args) {
-        String sql = "select * from student_info";
-        DBUtil dbu = new DBUtil();
-        rs = dbu.querySql(sql);
-        if (rs != null){
-            System.out.println("查询成功!");
-        }
-        // 输出所有记录
-    }
+//    public static void main(String[] args) {
+//        String sql = "select * from student_info";
+//        DBUtil dbu = new DBUtil();
+//        rs = dbu.querySql(sql);
+//        if (rs != null){
+//            System.out.println("查询成功!");
+//        }
+//    }
 }
