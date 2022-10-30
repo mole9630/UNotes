@@ -39,7 +39,9 @@
                 <jsp:include page="studentInsert.jsp"></jsp:include>
             </div>
             <div class="d3">3</div>
-            <div class="d4">4</div>
+            <div class="d4">
+                <jsp:include page="studentDelete.jsp"></jsp:include>
+            </div>
         </div>
         <div class="clear"></div>
     </div>
