@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播</title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<script>
+			// 创建存放图片的数组
+			var arr = ['img/1.webp', 'img/2.webp', 'img/3.webp']
+			var k = 0;
+			var t;
+			
+			// 自定义函数
+			function changeSrc() {
+				k++;
+				if (k > 2) {
+					k = 0;
+				}
+				var path = arr[k];
+				$("#img1 img").attr("src", path);
+				$("#img1 div").css("background", "");
+				$("#img1 div:eq(" + k + ")").css("background", "orange");
+				t = setTimeout(changeSrc, 1000);
+			}
+			
+			// 在入口函数调用上面自定义函数
+			$(function(){
+				t = setTimeout(changeSrc, 1000);
+				$("#img1").mouseenter(function(){
+					clearTimeout(t);
+				});
+				$("#img1").mouseleave(function(){
+					t = setTimeout(changeSrc, 1000);
+				});
+			});
+		</script>
+		<style>
+			#img1 {
+				width: 380px;
+				border: 5px solid orange;
+				position: relative;
+			}
+
+			#img1 img {
+				width: 380px;
+				height: 250px;
+				display: block;
+			}
+
+			#img1 div {
+				border: 1px solid orange;
+				background: #f3f3f3;
+				padding: 1px 5px;
+				position: absolute;
+				bottom: 8px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="img1">
+			<img src="img/1.webp" width="380px">
+			<div style="right:60px;background:orange;">1</div>
+			<div style="right:35px;">2</div>
+			<div style="right:10px;">3</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<script>
+			// 定义用户名验证函数
+			function checkuname() {
+				// 获取用户名
+				var uname = $("#uname").val();
+				// 利用正则表达式进行测试用户名
+				var re = /^[a-zA-Z][a-zA-Z_0-9]{5,17}$/.test(uname);
+				if (re) {
+					$("#muname").html("用户名合法");
+					return true;
+				} else {
+					$("#muname").html("用户名不合法");
+					return false;
+				}
+			}
+			
+			// 比较密码是否一致
+			function checkRePassword() {
+				var password = $("#upassword").val();
+				var re_password = $("#repassword").val();
+				if (!(password == re_password)) {
+					alert("两次输入的密码不一致")
+					return false;
+				}
+			}
+			
+			// 获取type值
+			$(function(){
+				$("form").submit(function(){
+					alert($("#upassword").attr("type"))
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<form action="#" method="#">
+			账&nbsp;&nbsp;号:<input type="text" id="uname" onblur="checkuname()" />
+			<div id="muname"></div><br />
+			密&nbsp;&nbsp;码:<input type="password" id="upassword" /><br />
+			确认密码:<input type="password" id="repassword" onblur="checkRePassword()" /><br />
+			<input type="submit" id="btn" value="注册" />&nbsp;<input type="reset" value="重置" />
+		</form>
+	</body>
+</html>
