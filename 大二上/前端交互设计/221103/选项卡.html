@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选项卡</title>
+		<style>
+			ul, li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.content {
+				width: 380px;
+			}
+			.content #d0, #d1, #d2 {
+				border: 1px solid #c7edcc;
+			}
+			#d0 ul, #d1 ul, #d2 ul {
+				padding-left: 30px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			.content #ul1 {
+				overflow: hidden;
+				height: 38px;
+				line-height: 38px;
+			}
+			#ul1 li {
+				width: 80px;
+				height: 38px;
+				line-height: 38px;
+				text-align: center;
+				font-weight: bold;
+				float: left;
+			}
+			.content #ul1 .current {
+				background: orange;
+				color: white;
+			}
+		</style>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<script>
+			$(function(){
+				$("#ul1 li").each(function(index){
+					$(this).mouseenter(function(){
+						$("#d0, #d1, #d2").css("display","none");
+						$("#d" + index).css("display","block");
+						$("#ul1 li").removeClass("current");
+						$("#ul1 li:eq(" + index + ")").addClass("current");
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="content">
+			<ul id="ul1">
+				<li class="current">国内</li>
+				<li>國際</li>
+				<li>体育</li>
+			</ul>
+			<div id="d0">
+				<ul>
+					<li>国内新闻1</li>
+					<li>国内新闻2</li>
+					<li>国内新闻3</li>
+				</ul>
+			</div>
+
+			<div id="d1" style="display: none;">
+				<ul>
+					<li>國際新闻1</li>
+					<li>國際新闻2</li>
+					<li>國際新闻3</li>
+				</ul>
+			</div>
+
+			<div id="d2" style="display: none;">
+				<ul>
+					<li>体育新闻1</li>
+					<li>体育新闻2</li>
+					<li>体育新闻3</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

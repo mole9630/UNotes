@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>标签样式操作</title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			.p2 {
+				background: green;
+			}
+			.p3 {
+				font-size: 25px;
+			}
+		</style>
+		<script>
+			$(function() {
+				$("#p1").click(function() {
+					// 读取属性值
+					alert($("#p1").css("color"));
+					// 给属性赋值
+					$("#p1").css("color", "orange");
+					// 添加类别
+					$("#p1").addClass("p2");
+					$("#p1").addClass("p3");
+					$("#p1").addClass(""); // 无法删除已经有的类名
+					// 删除类别
+					$("#p1").removeClass("p3");
+					$("#p1").removeClass(); // 删除所有类别
+					// 样式切换
+					$("#p1").toggleClass("p2");
+				});
+				$("#p2").click(function() {
+					// 样式切换
+					$("#p2").toggleClass("p2");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p id="p1" style="color: red;">这是一段文本</p>
+		<p id="p2" style="color: red;">这是一段文本</p>
+	</body>
+</html>
