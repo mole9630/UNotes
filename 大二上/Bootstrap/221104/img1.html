@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>图片布局</title>
+		<link rel="stylesheet" href="bootstrap-4.6.1-dist/css/bootstrap.min.css">
+	</head>
+	<body class="text-center">
+		<div class="container-fluid">
+			<img src="img/banner.jpg" alt="响应式图片" class="img-fluid">
+		</div>
+		<img src="img/load-pic1.jpg" alt="" class="img-thumbnail">
+		<picture>
+			<source srcset="img/banner.jpg" media="(max-width:500px)">
+			<img src="img/banner1.jpg" alt="响应式图片" class="img-fluid">
+		</picture>
+	</body>
+</html>
