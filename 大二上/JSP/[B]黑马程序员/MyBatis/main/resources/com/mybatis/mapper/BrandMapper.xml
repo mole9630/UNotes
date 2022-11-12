@@ -110,6 +110,24 @@
     </select>
 
     <!--单条件-动态查询-->
+    <!--
+        * trim标签
+                * 作用:用于拼接where条件
+                * 如果trim标签中的内容为空,则不拼接trim标签中的前缀和后缀
+                * 如果trim标签中的内容不为空,则拼接trim标签中的前缀和后缀
+        * choose标签
+            * 作用:用于拼接where条件
+            * 如果choose标签中的内容为空,则不拼接choose标签中的前缀和后缀
+            * 如果choose标签中的内容不为空,则拼接choose标签中的前缀和后缀
+        * when标签
+            * 作用:用于拼接where条件
+            * 如果when标签中的内容为空,则不拼接when标签中的前缀和后缀
+            * 如果when标签中的内容不为空,则拼接when标签中的前缀和后缀
+        * otherwise标签
+            * 作用:用于拼接where条件
+            * 如果otherwise标签中的内容为空,则不拼接otherwise标签中的前缀和后缀
+            * 如果otherwise标签中的内容不为空,则拼接otherwise标签中的前缀和后缀
+    -->
     <select id="selectDynamicByConditionSingle" resultMap="brandResultMap">
         select *
         from tb_brand
@@ -129,5 +147,69 @@
             </otherwise>
         </choose>
     </select>
+
+
+    <!--添加-->
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand (brand_name, company_name, ordered, description, status)
+        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status});
+    </insert>
+
+    <!--修改-->
+    <update id="update">
+        update tb_brand
+        set brand_name = #{brandName},
+            company_name = #{companyName},
+            ordered = #{ordered},
+            description = #{description},
+            status = #{status}
+        where id = #{id};
+    </update>
+
+    <!--修改动态字段-->
+    <update id="updateDynamic">
+        update tb_brand
+        <set>
+            <if test="brandName != null and brandName != ''">
+                brand_name = #{brandName},
+            </if>
+            <if test="companyName != null and companyName != ''">
+                company_name = #{companyName},
+            </if>
+            <if test="ordered != null">
+                ordered = #{ordered},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <!--根据id删除-->
+    <delete id="deleteById">
+        delete
+        from tb_brand
+        where id = #{id};
+    </delete>
+
+    <!--批量删除-->
+    <!--
+        mybatis会将数组参数封装为一个Map集合
+            * 默认:array = 数组
+            * 使用@Param注解改变map集合的默认key的名称
+    -->
+    <delete id="deleteByIds">
+        delete
+        from tb_brand
+        where id in (
+            <foreach collection="ids" item="id" separator=",">
+                #{id}
+            </foreach>
+            );
+    </delete>
 
 </mapper>

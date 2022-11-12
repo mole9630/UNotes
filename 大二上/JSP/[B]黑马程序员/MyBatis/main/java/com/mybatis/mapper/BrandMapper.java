@@ -36,4 +36,20 @@ public interface BrandMapper {
 
     // 单条件-动态查询
     List<Brand> selectDynamicByConditionSingle(Brand brand);
+
+    // 添加功能
+    void add(Brand brand);
+
+    // 修改全部字段
+    int update(Brand brand);
+
+    // 修改动态字段
+    int updateDynamic(Brand brand);
+
+    // 根据id删除
+    void deleteById(Integer id);
+
+    // 批量删除
+//    void deleteByIds(Integer[] ids);
+    void deleteByIds(@Param("ids") Integer[] ids);
 }
