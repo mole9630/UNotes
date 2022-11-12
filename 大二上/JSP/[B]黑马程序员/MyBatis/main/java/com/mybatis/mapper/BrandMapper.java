@@ -26,8 +26,14 @@ public interface BrandMapper {
      * @return
      */
     List<Brand> selectByCondition(@Param("status") int status, @Param("companyName") String companyName, @Param("brandName") String brandName);
-
     List<Brand> selectByCondition(Brand brand);
-
     List<Brand> selectByCondition(Map map);
+
+    // 动态条件查询
+    List<Brand> selectDynamicByCondition(@Param("status") int status, @Param("companyName") String companyName, @Param("brandName") String brandName);
+    List<Brand> selectDynamicByCondition(Brand brand);
+    List<Brand> selectDynamicByCondition(Map map);
+
+    // 单条件-动态查询
+    List<Brand> selectDynamicByConditionSingle(Brand brand);
 }

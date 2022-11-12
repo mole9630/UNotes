@@ -6,7 +6,7 @@
     namespace 为名称空间
 -->
 <mapper namespace="com.mybatis.mapper.BrandMapper">
-<!--    <select id="selectAll" resultType="com.mybatis.pojo.User">-->
+    <!--    <select id="selectAll" resultType="com.mybatis.pojo.User">-->
 
     <!--
         数据库表的字段名 和 实体类的属性名称 不一样,则不能自动封装数据
@@ -39,10 +39,10 @@
         <result column="company_name" property="companyName"></result>
     </resultMap>
 
-<!--    <select id="selectAll" resultType="brand">-->
-<!--        select <include refid="brand_column"></include>-->
-<!--        from tb_brand;-->
-<!--    </select>-->
+    <!--    <select id="selectAll" resultType="brand">-->
+    <!--        select <include refid="brand_column"></include>-->
+    <!--        from tb_brand;-->
+    <!--    </select>-->
 
     <select id="selectAll" resultMap="brandResultMap">
         select *
@@ -64,7 +64,8 @@
     -->
     <select id="selectByIdBrand" parameterType="integer" resultMap="brandResultMap">
         select *
-        from tb_brand where id = #{id};
+        from tb_brand
+        where id = #{id};
     </select>
 
 
@@ -72,6 +73,61 @@
     <select id="selectByCondition" resultMap="brandResultMap">
         select *
         from tb_brand
-        where status = #{status} and company_name like #{companyName} and brand_name like #{brandName};
+        where status = #{status}
+          and company_name like #{companyName}
+          and brand_name like #{brandName};
     </select>
+
+    <!--
+        动态条件查询
+            * if标签
+                * test:判断条件
+                * 如果test的值为true,则执行if标签中的内容
+                * 如果test的值为false,则不执行if标签中的内容
+                * 问题:如果第一个if不执行 则where后面直接会连接and
+                    * 解决1:添加恒等式1 = 1
+                    * 解决2:添加where标签
+            * where标签
+                * 作用:用于拼接where条件
+                * 如果where标签中的内容为空,则不拼接where
+                * 如果where标签中的内容不为空,则拼接where
+        -->
+    <select id="selectDynamicByCondition" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        # where 1 = 1
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="companyName != null and companyName != ''">
+                and company_name like #{companyName}
+            </if>
+            <if test="brandName != null and brandName != ''">
+                and brand_name like #{brandName}
+            </if>
+        </where>
+    </select>
+
+    <!--单条件-动态查询-->
+    <select id="selectDynamicByConditionSingle" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        where
+        <choose> <!--相当于switch-->
+            <when test="status != null"> /*相当于case*/
+                status = #{status}
+            </when>
+            <when test="companyName != null and companyName != ''"> /*相当于case*/
+                company_name like #{companyName}
+            </when>
+            <when test="brandName != null and brandName != ''"> /*相当于case*/
+                brand_name like #{brandName}
+            </when>
+            <otherwise> /*若上方都不符合条件,则执行该条,相当于default*/
+                1 = 1
+            </otherwise>
+        </choose>
+    </select>
+
 </mapper>
