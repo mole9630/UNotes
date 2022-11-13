@@ -3,12 +3,14 @@ package com.mybatis.mapper;
 
 import com.mybatis.pojo.Brand;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 import java.util.Map;
 
 public interface BrandMapper {
     // 查询所有
+    @Select("select * from tb_brand")
     List<Brand> selectAll();
 
     // 查看详情

@@ -42,13 +42,6 @@
     <!--    <select id="selectAll" resultType="brand">-->
     <!--        select <include refid="brand_column"></include>-->
     <!--        from tb_brand;-->
-    <!--    </select>-->
-
-    <select id="selectAll" resultMap="brandResultMap">
-        select *
-        from tb_brand;
-    </select>
-
 
     <!--
         * 参数占位符
@@ -205,11 +198,10 @@
     <delete id="deleteByIds">
         delete
         from tb_brand
-        where id in (
-            <foreach collection="ids" item="id" separator=",">
+        where id in
+            <foreach collection="ids" item="id" separator="," open="(" close=")">
                 #{id}
-            </foreach>
-            );
+            </foreach>;
     </delete>
 
 </mapper>
