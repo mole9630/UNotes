@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img id="light" src="img/off.gif"><br>
+
+		<div class="cls">这是一段文本</div><br>
+		<div class="cls">摩尔</div><br>
+
+		<input type="checkbox" name="hobby"> 电影
+		<input type="checkbox" name="hobby"> 旅游
+		<input type="checkbox" name="hobby"> 游戏
+		<br>
+		<script>
+			/*
+				Document 对象中提供了以下获取 Element 元素对象的函数:
+					getElementById() ：根据id属性值获取，返回单个Element对象
+					getElementsByTagName() ：根据标签名称获取，返回Element对象数组
+					getElementsByName() ：根据name属性值获取，返回Element对象数组
+					getElementsByClassName() ：根据class属性值获取，返回Element对象数组
+			*/
+			// getElementById
+			var img = document.getElementById('light');
+			alert(img);
+
+			// getElementsByTagName
+			var divs = document.getElementsByTagName('div');
+			alert(divs.length);
+			for (let i = 0; i < divs.length; i++) {
+				alert(divs[i]);
+			}
+			/*
+				style:设置元素css样式
+				innerHTML:设置元素内容
+		   */
+			divs[0].style.color = 'red';
+			divs[0].innerHTML = "这是修改后的文本";
+			// getElementsByName
+			var hobbys = document.getElementsByName('hobby');
+			alert(hobbys);
+			hobbys[0].checked = true;
+			var flag = hobbys[1].checked; //返回是否被选择
+
+		 // getElementsByClassName
+			var clss = document.getElementsByClassName('cls');
+			alert(clss);
+
+			// 通过DOM对象更换图片
+			var img = document.getElementById('light');
+			img.src = "img/on.gif";
+		</script>
+	</body>
+</html>

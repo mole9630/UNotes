@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="on()">方式1</button>
+		<button type="button" id="btn">方式2</button>
+		<form id="reg" action="#">
+			<input type="submit">
+		</form>
+		<script>
+			// 事件绑定
+			// 方式1:通过HTML标签中的事件属性进行绑定
+			function on(){
+				alert("方式1-被点击");
+			}
+			
+			// 方法2:通过DOM元素属性绑定(推荐)
+			document.getElementById('btn').onclick = function(){
+				alert("方式2-被点击");
+			}
+			
+			// 常见事件
+			/*
+				onblur:元素失去焦点
+				onfocus:元素获取焦点
+				onchange:域内容被改变
+				onclick:单击事件
+				onkeydown:某个键盘按键被按下
+				onkeyup:某个键盘按键被按下后松开
+				onmouseover:鼠标移到某个元素上
+				onmouseout:鼠标从某个元素上移开
+				onmouseup:鼠标被按下
+				onmousedown:鼠标被按下并松开
+				onsubmit:确认按钮被点击
+			*/
+		   
+		   document.getElementById('reg').onsubmit = function(){
+			   // onsubmit返回true则表达才会被提交
+			   // return false; //表单不提交
+			   alert("提交成功!");
+		   }
+		</script>
+	</body>
+</html>

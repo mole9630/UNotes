@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 规则:单词字符组成 长度6-12位
+			var reg = /^\w{6,12}$/;
+			var str = "abcedfg";
+			
+			var flag = reg.test(str);
+			alert(flag);
+		</script>
+	</body>
+</html>
