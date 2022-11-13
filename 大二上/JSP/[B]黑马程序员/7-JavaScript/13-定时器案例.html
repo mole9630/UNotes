@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="on()">开灯</button>
+		<img id="light" src="img/off.gif" alt="">
+		<button type="button" onclick="off()">关灯</button>
+
+		<script>
+			// 开灯方法
+			function on() {
+				document.getElementById('light').src = 'img/on.gif';
+			}
+
+			// 关灯方法
+			function off() {
+				document.getElementById('light').src = 'img/off.gif';
+			}
+
+			// 定时器
+			// 根据一个变化的数字,产生固定个数的值:2 --> x % 2
+			var x = 0;
+			setInterval(function() {
+				if (x % 2 == 0) {
+					on();
+				} else {
+					off();
+				}
+				x++;
+			}, 500);
+		</script>
+	</body>
+</html>

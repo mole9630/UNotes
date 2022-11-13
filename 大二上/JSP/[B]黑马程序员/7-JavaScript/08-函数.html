@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 定义方法1
+			function add(a, b) {
+				return a + b;
+			}
+			document.write(add(1, 2) + "<br>");
+
+			// 定义方法
+			var add = function(a, b) {
+				return a + b;
+			}
+			document.write(add(2, 2) + "<br>");
+			document.write(add(2) + "<br>"); //NaN 可以传递任意个数参数
+			document.write(add(2, 2, 3) + "<br>"); //4 可以传递任意个数参数
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 直接使用window对象,其中window.可以省略不写
+			// alert
+			window.alert("警告框");
+
+			// confirm:点击确定按钮返回true,点击取消按钮返回false
+			var flag = confirm("含有确认和取消按钮的对话框");
+			document.write(flag + "<br>");
+			document.write("<hr>");
+
+			/*
+				setTimeout:在一定的时间间隔后执行一个function,只执行一次
+				setInterval:在一定的时间间隔后执行一个function,会循环执行一次
+			*/
+			// setTimeout
+			setTimeout(function() {
+				document.write("setTimeoutPass<br>");
+			}, 3000)
+			// setInterval
+			setInterval(function() {
+				document.write("setIntervalPass<br>");
+			}, 3000)
+		</script>
+	</body>
+</html>

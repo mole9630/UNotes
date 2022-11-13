@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 定义方式1
+			var arr = new Array(1, 2, 3);
+			document.write(arr + "<br>");
+
+			// 定义方式2
+			var arr = [1, 2, 3, 4];
+			document.write(arr + "<br>");
+			document.write("<hr>");
+
+			// 访问
+			arr[0] = 10;
+			document.write(arr + "<br>");
+
+			// 特点:JavaScript中的数组相当于Java中的集合,变长变类型(长度和类型可变)
+			// 变长
+			var arr2 = [1, 2, 3];
+			arr2[10] = 10;
+			document.write(arr2 + "<br>"); //1,2,3,,,,,,,,10
+			document.write(arr2[10] + "<br>");
+			document.write(arr2[9] + "<br>"); //undefined
+
+			// 变类型
+			arr2[5] = "Hello";
+			document.write(arr2 + "<br>"); //1,2,3,,,Hello,,,,,10
+			document.write(arr2[5] + "<br>"); //Hello
+			document.write("<hr>");
+
+			//属性:length:数组中元素的个数
+			var arr3 = [2, 3, 4];
+			for (let i = 0; i < arr3.length; i++) {
+				document.write(arr3[i] + " ");
+			}
+			document.write("<hr>");
+
+			// 方法
+			// push:添加方法
+			var arr4 = [1, 2, 3];
+			arr4.push(5);
+			document.write(arr4 + "<br>"); //1,2,3,5
+
+			// splice:删除元素
+			arr4.splice(3, 1);
+			document.write(arr4 + "<br>"); //1,2,3
+		</script>
+	</body>
+</html>

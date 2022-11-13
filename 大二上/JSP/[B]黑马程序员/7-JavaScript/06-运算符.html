@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+				==:
+					1.判断类型是否一样,若不一样则进行类型转换
+					2.再比较值
+				===:全等于
+					1.判断类型是否一样,若不一样则直接返回false
+					2.若一样再比较值
+			*/
+			var age1 = 20;
+			var age2 = "20";
+			document.write(age1 == age2); //true
+			document.write("<br>");
+			document.write(age1 === age2); //false
+			document.write("<hr>");
+
+			/*
+				类型转换:
+					* 其他类型转为number
+						1.string:按照字符串的字面值转为数字.如果字面值不是数字则转为NaN
+						2.boolean:true转为1,false转为0
+					* 其他类型转为boolean
+						1.number：
+							* 0和NaN转为false
+							* 其他数字转为true
+						2.string:
+							* 空字符串转为false
+							* 其他字符串转为true
+						3.null:false
+						4.undefined:false
+			*/
+			var str = +"abc";
+			var str2 = +"20";
+			document.write(str + 1 + "<br>"); //NaN
+			document.write(str2 + 1 + "<br>"); //21
+			document.write(parseInt(str2) + 1 + "<br>"); //此方法同于上行,但更专业
+			var flag = +true;
+			var flag2 = +false;
+			document.write(flag + "<br>"); //1
+			document.write(flag2 + "<br>"); //0
+			document.write("<hr>");
+
+			var flag = 0;
+			if (flag) {
+				document.write("flag转为了true<hr>");
+			} else {
+				document.write("flag转为了false<hr>");
+			}
+
+			// 健壮性判断
+			var str = "a"
+			// if(str != null && str.length > 0) {
+			if (str) { //等同于上一行
+				document.write("有值");
+			} else {
+				document.write("无值");
+			}
+		</script>
+	</body>
+</html>
