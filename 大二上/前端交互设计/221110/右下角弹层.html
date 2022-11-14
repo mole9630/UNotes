@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			#d1 {
+				position: absolute;
+				right: 2px;
+				bottom: 3px;
+				width: 200px;
+				height: 200px;
+				border: 1px solid #c7edcc;
+				display: none;
+			}
+		</style>
+		<script>
+			$(function(){
+				$("#d1").slideDown(1000,function(){
+					setTimeout(function(){
+						$("#d1").slideUp(1000);
+					}, 3000);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="d1">
+			<img src="//img.mole9630.top/blog-logo.png" width="200px" height="200px">
+		</div>
+	</body>
+</html>

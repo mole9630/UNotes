@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>显示隐藏及切换</title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			* {
+				margin: 0;
+			}
+			#d1 {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				border: 1px solid #c7edcc;
+				background-color: orange;
+				top: 50px;
+				left: 10px;
+				display: none;
+			}
+		</style>
+		<script>
+			$(function(){
+				// 瞬间显示(无参数)
+				$("#btn1").click(function(){
+					$("#d1").show();
+				});
+				
+				// 瞬间隐藏(五参数)
+				$("#btn2").click(function(){
+					$("#d1").hide();
+				});
+				
+				// 缓慢显示(有参数)
+				$("#btn3").click(function(){
+					$("#d1").show(2000, function(){
+						alert("正在显示");
+					});
+					// $("#d1").show(2000, alert("正在显示")); //等价于上方
+				});
+				
+				// 缓慢隐藏(有参数)
+				$("#btn4").click(function(){
+					$("#d1").hide(2000);
+				});
+				
+				// 瞬间切换
+				$("#btn5").click(function(){
+					$("#d1").toggle();
+				});
+				
+				// 缓慢切换
+				$("#btn6").click(function(){
+					$("#d1").toggle(2000,alert("正在切换"));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<button id="btn1">瞬间显示</button>
+		<button id="btn2">瞬间隐藏</button>
+		<button id="btn3">缓慢显示</button>
+		<button id="btn4">缓慢隐藏</button>
+		<button id="btn5">瞬间切换</button>
+		<button id="btn6">缓慢切换</button>
+	</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>潮流穿搭</title>
+		<!-- 引入Bootstrap框架样式 -->
+		<link rel="stylesheet" href="bootstrap-4.6.1-dist/css/bootstrap.min.css">
+		<!-- 引入主页样式 -->
+		<link rel="stylesheet" href="css/style.css">
+		<!-- 引入fontawesome图标库 -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<script src="bootstrap-4.6.1-dist/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!-- 导航栏 -->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">
+				<img src="img/logo.png" alt="logo" width="40" height="40">
+			</a>
+			<!-- 折叠按钮 -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- 导航列表 -->
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a href="#">首页</a></li>
+					<li class="nav-item"><a href="#">穿搭</a></li>
+					<li class="nav-item"><a href="#">热门</a></li>
+					<li class="nav-item"><a href="#">品牌</a></li>
+					<li class="nav-item"><a href="#">关注</a></li>
+					<li class="nav-item"><a href="#">发现</a></li>
+				</ul>
+				<!-- 搜索框及按钮 -->
+				<form class="form-inline ml-auto" action="#">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search...">
+					<button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+						<!-- 搜索按钮 -->
+						搜索<i class="fa fa-search" arial-hidden="true"></i>
+					</button>
+				</form>
+			</div>
+		</nav>
+		<!-- 轮播图 -->
+		<div class="carousel slide" id="carousel" data-ride="carousel">
+			<!-- 指示器 -->
+			
+			<!-- 轮播图片 -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="img/banner-1.jpg" alt="" class="d-block w-100">
+				</div>
+				<div class="carousel-item">
+					<img src="img/banner-2.jpg" alt="" class="d-block w-100">
+				</div>
+				<div class="carousel-item">
+					<img src="img/banner-3.jpg" alt="" class="d-block w-100">
+				</div>
+				<div class="carousel-item">
+					<img src="img/banner-4.jpg" alt="" class="d-block w-100">
+				</div>
+			</div>
+			<!-- 左右按钮切换 -->
+			<button class="carousel-control-prev" type="button" data-target="#carousel" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</button>
+			<button class="carousel-control-next" type="button" data-target="#carousel" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</button>
+		</div>
+		<!-- 潮流穿搭技巧模块 -->
+		<div class="trend-skill">
+			<div class="container">
+				<h2 class="index-2 mt-2">潮流穿搭技巧</h2>
+				<p class="index-2-p mb-5 mt-3">懂得如何穿搭的人,可以提升自己的时尚度.</p>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 mb-4">
+						<div class="media">
+							<img src="img/tab-1.png" alt="">
+							<div class="media-body ml-2">
+								<h5 class="mb-1 text-truncate">保证着装的干净整洁</h5>
+								<p class="text-muted mb-2 text-justify">干净整洁是每一种造型最基础的要求，即使是白T恤+牛仔裤+运动鞋这样最简单最基本的穿搭，也能够很好地提升你的整体气质，帮你散发出强大的气场</p>
+							</div>
+						</div>
+						
+						<div class="media">
+							<img src="img/tab-2.png" alt="">
+							<div class="media-body ml-2">
+								<h5 class="mb-1 text-truncate">模仿杂志、街拍潮人的穿搭</h5>
+								<p class="text-muted mb-2 text-justify">当你不知道今天该怎么穿搭的时候，不妨去看一下杂志上的、或者是街拍潮人们是怎么进行穿搭的，模仿他们的穿搭方法，对培养自身的时尚感和提升自己的时尚敏感度是有很大帮助的</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-6 col-md-6 mb-4">
+						<div class="media">
+							<img src="img/tab-3.png" alt="">
+							<div class="media-body ml-2">
+								<h5 class="mb-1 text-truncate">配饰的选择</h5>
+								<p class="text-muted mb-2 text-justify">配饰能给你整体的装扮提升一个层次，配饰搭配应不超过3个</p>
+							</div>
+						</div>
+						
+						<div class="media">
+							<img src="img/tab-4.png" alt="">
+							<div class="media-body ml-2">
+								<h5 class="mb-1 text-truncate">尽量避开太过花哨的衣服</h5>
+								<p class="text-muted mb-2 text-justify">选择合适自己的服装，尽量避开一些太过花哨的衣服</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 潮流穿搭风格 -->
+		<div class="trend-style">
+			<div class="container py-2">
+				<h2 class="index-2">潮流穿搭风格</h2>
+				<p class="index-2-p mb-5 mt-3">多重风格任你选</p>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="card md-4 shadow-sm">
+							<img src="img/chao-1.png" alt="" class="w-100">
+							<div class="card-body">
+								通常会选择衬衫搭配深色萝卜裤，很青春的样子，并且上身很舒服，有些许慵懒帅气的样子
+							</div>
+							<div class="d-flex justify-content-end">
+								<button type="button" class="btn btn-sm btn-outline-secondary">更多</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 潮流穿搭新闻 -->
+		<article></article>
+		<!-- 页脚 -->
+		<!-- 合作伙伴和版权声明 -->
+		<footer></footer>
+	</body>
+</html>

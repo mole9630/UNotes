@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>遮罩层</title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			.big-link {
+				display: block;
+				margin-top: 100px;
+				font-size: 60px;
+				color: blue;
+			}
+
+			.mask {
+				position: absolute;
+				top: 10px;
+				background: #777;
+				left: 0px;
+				opacity: 0.5;
+			}
+
+			.reveal-modal {
+				display: none;
+				top: 100px;
+				left: 50%;
+				margin-left: -300px;
+				width: 520px;
+				padding: 30px 40px 34px;
+				background: #eee;
+				position: absolute;
+				z-index: 101;
+				border-radius: 5px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+			}
+
+			#my-modal h1 {
+				background: #c7edcc;
+			}
+
+			a {
+				text-decoration: none;
+			}
+		</style>
+		<script>
+			// 显示函数
+			function show(){
+				$("#mask").css("width",$(document).width())
+				$("#mask").css("height",$(document).height())
+				$("#mask").show();
+				$("#my-modal").show();
+			}
+			
+			// 隐藏函数
+			function hide(){
+				$("#mask").css("width",$(document).width())
+				$("#mask").css("height",$(document).height())
+				$("#mask").hide();
+				$("#my-modal").hide();
+			}
+		</script>
+	</head>
+	<body>
+		<a class="big-link" href="#" onclick="show()">
+			<h3>登录</h3>
+		</a>
+		<div id="mask" class="mask"></div>
+		<div id="my-modal" class="reveal-modal">
+			<h1><span>登录</span><a href="JavaScript:hide()">X</a></h1>
+			<p>请在底部输入个人信息...</p>
+		</div>
+	</body>
+</html>

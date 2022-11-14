@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			ul, li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			/* 设置导航栏的高度和背景色 */
+			#nav {
+				height: 35px;
+				background: #f3f3f3;
+			}
+			
+			/* 设置一级菜单样式 */
+			#nav li {
+				float: left;
+				width: 100px;
+				line-height: 35px;
+				text-align: center;
+				background: #abcdef;
+				border-right: 1px solid white;
+			}
+			
+			/* 设置子菜单样式 */
+			#nav ul {
+				display: none;
+				background-color: #fedabc;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+		</style>
+		<script>
+			$(function(){
+				$("#son1").mouseenter(function(){
+					$("#son1 #submenu").slideDown(1000);
+				});
+				
+				$("#son1").mouseleave(function(){
+					$("#son1 #submenu").slideUp(1000);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul id="nav">
+			<li><a href="#">首页</a></li>
+			<li id="son1">
+				<a href="#">产品</a>
+				<ul id="submenu">
+					<li><a href="#">产品一</a></li>
+					<li><a href="#">产品二</a></li>
+				</ul>
+			</li>
+			<li><a href="#">资讯</a></li>
+		</ul>
+	</body>
+</html>

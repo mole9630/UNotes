@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#d1 {
+				position: absolute;
+				top: 50px;
+				left: 20px;
+				width: 200px;
+				height: 200px;
+				border: 1px solid #c7edcc;
+				background-color: orange;
+				display: none;
+			}
+			button {
+				padding: 3px;
+			}
+		</style>
+		<script>
+			$(function(){
+				// 淡入
+				$("#btn1").click(function(){
+					$("#d1").fadeIn();
+				});
+				
+				// 有速度的淡入
+				$("#btn1-1").click(function(){
+					$("#d1").fadeIn(2000);
+				});
+				
+				// 淡出
+				$("#btn2").click(function(){
+					$("#d1").fadeOut();
+				});
+				
+				// 有速度的淡出
+				$("#btn2-1").click(function(){
+					$("#d1").fadeOut(2000);
+				});
+				
+				// 切换
+				$("#btn3").click(function(){
+					$("#d1").fadeToggle();
+				});
+				
+				// 有速度的切换
+				$("#btn3-1").click(function(){
+					$("#d1").fadeToggle(2000);
+				});
+				
+				// 透明设置
+				$("#btn4").click(function(){
+					$("#d1").fadeTo(2000, 0.5); // 变到透明度0.5
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<button id="btn1">淡入</button>
+		<button id="btn2">淡出</button>
+		<button id="btn1-1">有速度的淡入</button>
+		<button id="btn2-1">有速度的淡出</button>
+		<button id="btn3">切换</button>
+		<button id="btn3-1">有速度的切换</button>
+		<button id="btn4">透明设置</button>
+	</body>
+</html>
