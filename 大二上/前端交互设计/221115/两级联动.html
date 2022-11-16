@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+	</head>
+	<body>
+		<select name="province">
+			<option value="ah">安徽省</option>
+			<option value="js">江苏省</option>
+		</select>
+		<select name="city">
+			<option value="null">---</option>
+		</select>
+		
+		<script>
+			$(function(){
+				showCity();
+			});
+			
+			$("[name='province']").change(function(){
+				showCity();
+			});
+			
+			function showCity(){				
+				// 获取第一个下拉列表选中的值
+				var v = $("[name='province']").val();
+				// console.log(v);
+				// 根据以上值的不同产生city下拉列表项
+				var op = $("[name='city']");
+				switch (v){
+					case 'ah':
+						// 清空当前对象
+						op.empty();
+						op.append("<option value='hf'>合肥市</option>");
+						op.append("<option value='wh'>芜湖市</option>");
+						op.append("<option value='hb'>淮北市</option>");
+						op.append("<option value='bb'>蚌埠市</option>");
+						break;
+					case 'js':
+						op.empty();
+						op.append("<option value='nj'>南京市</option>");
+						op.append("<option value='sz'>苏州市</option>");
+						op.append("<option value='nt'>南通市</option>");
+						op.append("<option value='yc'>盐城市</option>");
+						break;
+					default:
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			.test {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background: orange;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test"></div>
+
+		<script>
+			// 实现自定义动画
+			$(function() {
+				$(".test").mouseenter(function(e) {
+					alert("PageX:" + e.pageX + ", PageY:" + e.pageY);
+				});
+			});
+		</script>
+	</body>
+</html>
