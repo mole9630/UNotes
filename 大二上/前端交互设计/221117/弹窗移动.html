@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>弹窗移动</title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			.big-link {
+				display: block;
+				margin-top: 100px;
+				font-size: 60px;
+				color: blue;
+			}
+
+			.mask {
+				position: absolute;
+				top: 10px;
+				background: #777;
+				left: 0px;
+				opacity: 0.5;
+			}
+
+			.reveal-modal {
+				display: none;
+				top: 100px;
+				left: 50%;
+				margin-left: -300px;
+				width: 520px;
+				padding: 30px 40px 34px;
+				background: #eee;
+				position: absolute;
+				z-index: 101;
+				border-radius: 5px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+			}
+
+			#my-modal h1 {
+				background: #c7edcc;
+			}
+
+			a {
+				text-decoration: none;
+			}
+		</style>
+		<script>
+			// 显示函数
+			function show() {
+				$("#mask").css("width", $(document).width())
+				$("#mask").css("height", $(document).height())
+				$("#mask").show();
+				$("#my-modal").show();
+			}
+
+			// 隐藏函数
+			function hide() {
+				$("#mask").css("width", $(document).width())
+				$("#mask").css("height", $(document).height())
+				$("#mask").hide();
+				$("#my-modal").hide();
+			}
+
+			// 定义所需所有变量
+			var x0, y0, x1, y1, xn, yn, left0, top0;
+			var start = false; //标志
+			$(function() {
+				// 为h1动态追加事件mousedown, mousemove, mouseup
+				$("#my-modal>h1").mousedown(function(e) {
+					// 获取按下鼠标时的x,y坐标
+					x0 = e.pageX;
+					y0 = e.pageY;
+					// 获取当前div的上,左边距
+					left0 = parseInt($("#my-modal").css("left"));
+					top0 = parseInt($("#my-modal").css("top"));
+					// 启动拖动标志
+					start = true;
+				});
+
+				$("#my-modal>h1").mouseup(function() {
+					// 关闭拖动标志
+					start = false;
+				});
+
+				$(document).mousemove(function(e) {
+					// 根据启动标志来判断是否执行移动
+					if (start) {
+						// 获取移动过程中鼠标位置
+						xn = e.pageX;
+						yn = e.pageY;
+						// 求出x,y轴移动的距离
+						x1 = x0 - xn;
+						y1 = y0 - yn;
+						// 修改当前div的top,left
+						$("#my-modal").css("left",left0-x1+"px");
+						$("#my-modal").css("top",top0-y1+"px");
+					}
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<a class="big-link" href="#" onclick="show()">
+			<h3>登录</h3>
+		</a>
+		<div id="mask" class="mask"></div>
+		<div id="my-modal" class="reveal-modal">
+			<h1><span>登录</span><a href="JavaScript:hide()">X</a></h1>
+			<p>请在底部输入个人信息...</p>
+		</div>
+	</body>
+</html>

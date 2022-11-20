@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			.content {
+				width: 660px;
+				height: 150px;
+				border: 5px solid #c7edcc;
+				overflow: hidden;
+			}
+
+			.left {
+				background: orange;
+				width: 30px;
+				float: left;
+				height: 150px;
+				line-height: 150px;
+				font-size: 20px
+			}
+
+			.right {
+				background: orange;
+				width: 30px;
+				float: right;
+				height: 150px;
+				line-height: 150px;
+				font-size: 20px;
+			}
+
+			#imgContent {
+				float: left;
+				overflow: hidden;
+				width: 600px;
+				height: 150px;
+				position: relative;
+			}
+			
+			#showImages {
+				width: 1000px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			#showImages img{
+				width: 200px;
+				height: 150px;
+				display: block;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="left">&lt;&lt;</div>
+			<div id="imgContent">
+				<div id="showImages">
+					<img src="img/1.webp" alt="">
+					<img src="img/2.webp" alt="">
+					<img src="img/3.webp" alt="">
+					<img src="img/4.webp" alt="">
+					<img src="img/5.webp" alt="">
+				</div>
+			</div>
+			<div class="right">&gt;&gt;</div>
+		</div>
+
+	</body>
+</html>
