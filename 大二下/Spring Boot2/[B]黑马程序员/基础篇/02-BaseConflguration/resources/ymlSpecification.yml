@@ -1,0 +1,38 @@
+# yml规范
+country: china
+province: anhui
+city: hefei
+
+port: 80
+
+party: true
+
+birthday: 2000-01-01
+
+# 对象
+user:
+  name: zhangsan
+  age: 21
+
+# n级属性
+a:
+  b:
+    c: 123
+
+# 多个数据
+likes:
+  - apple
+  - banana
+  - orange
+
+likes2: [apple, banana, orange]
+
+# 对象数组
+users:
+  - name: zhangsan # 格式1
+    age: 21
+  -
+    name: lisi # 格式2
+    age: 22
+
+users2: [{name: zhangsan, age: 21}, {name: lisi, age: 22}]

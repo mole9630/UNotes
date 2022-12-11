@@ -1,0 +1,32 @@
+# 字面值表示方式
+boolean: TRUE # TRUE,true,True,FALSE,false,False均可
+float: 1.1 # 6.0221415e+23 支持科学计数法
+int: 123 # 0b1010_0111_1010_1110 支持二进制,八进制,十六进制、
+null: ~ # 使用~表示null
+string: hello world # 字符串可以直接书写
+string2: "hello world" # 可以使用双引号包裹特殊字符
+date: 2000-01-01 # 日期格式,必须使用yyyy-MM-dd格式
+datetime: 2000-01-01T00:00:00+08:00 # 日期时间格式,时间和日期之间使用T连接,最后使用+表示时区
+
+# 数组表示方式:在属性名书写位置的下方使用减号作为数据开始符号,每行书写一个数据,减号与数据间空格分隔
+subject:
+  - Java
+  - Html
+  - 大数据
+enterprise:
+  name: zhangsan
+  age: 21
+  subject:
+    - Java
+    - Html
+    - 大数据
+likes: [apple, banana, orange] # 数组书写缩略格式
+
+# 对象数组格式
+users:
+  - name: zhangsan # 格式1
+    age: 21
+  -
+    name: lisi # 格式2
+    age: 22
+users2: [{name: zhangsan, age: 21}, {name: lisi, age: 22}] # 对象数组书写缩略格式
