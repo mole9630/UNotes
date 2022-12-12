@@ -1,0 +1,2 @@
+<h2>测试文件文本</h2>
+<p>jquery ajax load方法</p>

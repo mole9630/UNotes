@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").click(function(){
+					$("#d1").load("text.txt", function(responseTxt, statusTxt, xhr){ //成功
+					// $("#d1").load("error.txt", function(responseTxt, statusTxt, xhr){ //失败
+						if (statusTxt == "success"){
+							alert("读取成功");
+						}
+						if (statusTxt == "error"){
+							alert("读取失败:" + xhr.status + ":" + xhr.statusTxt); //读取失败:0:undefined
+						}
+					})
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<button type="button">单击</button>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.1.js"></script>
+		<script>
+			/* 			
+				$.ajax({
+					url: "";
+					type: "post|get";
+					data: "数据";
+					dataType: "text|json|xml|script";
+					success: function(re) {
+						// 服务器回传数据处理
+					}
+				}); 
+			*/
+			
+			//json
+			var student1 = {
+				name: "张三",
+				age: 18
+			};
+			
+			var student2 = [
+				{
+					name: "张三",
+					age: 18
+				},
+				{
+					name: "李四",
+					age: 19
+				},
+				{
+					name: "王五",
+					age: 18
+				}
+			];
+			
+			var student3 = {
+				list:[
+					{
+						name: "张三",
+						age: 18
+					},
+					{
+						name: "李四",
+						age: 19
+					}
+				]
+			};
+			
+			$(function(){
+				var name;
+				var age;
+				for(var k in student2){
+					name = student2[k].name;
+					age = student2[k].age;
+					$("#tb").append("<tr><td>" + name +"</td><td>" + age +"</td></tr>")
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<table id="tb" border="1">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+		</table>
+	</body>
+</html>
