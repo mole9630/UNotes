@@ -19,7 +19,7 @@ a:
   b:
     c: 123
 
-# 多个数据
+# 数组
 likes:
   - apple
   - banana

@@ -1,2 +1,31 @@
 server:
   port: 80
+
+# yml规范
+country: china
+province: anhui
+city: hefei
+
+# 对象
+user:
+  uname: zhangsan
+  age: 21
+
+# 数组
+likes:
+  - apple
+  - banana
+  - orange
+
+# 对象数组
+users:
+  - name: zhangsan # 格式1
+    age: 21
+  -
+    name: lisi # 格式2
+    age: 22
+
+baseDir: c:\windows
+# 使用${属性名}的方式引用数据
+tempDir: ${baseDir}\temp
+tempDir2: "${baseDir}\temp" # 加引号则解析转义字符

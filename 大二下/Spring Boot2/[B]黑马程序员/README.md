@@ -10,3 +10,4 @@
   - 02-BaseConflguration
     - 项目基础配置(3种方法)
     - yml及yaml语法规则
+    - yml读取单个数据
