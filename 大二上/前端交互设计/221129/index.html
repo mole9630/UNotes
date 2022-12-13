@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <style>
+        #dimmed-container #medium-img {
+            width: 350px;
+            height: 350px;
+        }
+
+        #dimmed-container #mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 175px;
+            height: 175px;
+            background: #c7edcc;
+            opacity: 0.5;
+            display: none;
+        }
+
+        /* 悬于图片mask上方的专用于接收鼠标移动事件的一个透明层 */
+        #dimmed-container #mask-top {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: move;
+            opacity: 0;
+        }
+
+        /* 大图显示区域 */
+        #dimmed-container #large-img-container {
+            position: absolute;
+            top: 1px;
+            left: 400px;
+            width: 400px;
+            height: 400px;
+            background: #fff;
+            z-index: 500;
+            overflow: hidden;
+            border: 1px solid blue;
+            /* display: none;				 */
+        }
+
+        #dimmed-container #large-img-container img {
+            width: auto;
+            height: auto;
+        }
+
+        #large-img {
+            display: none;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            // 定义函数 当鼠标在实物移动时 显示对应大图部分
+            function showBig() {
+                // 封装Jquery对象
+                var $mask = $("#mask");
+                var $maskTop = $("#mask-top")
+                var $largeImgContainer = $("#large-img-container");
+                var $loading = $("#loading");
+                var $largeImg = $("#large-img");
+                var $mediumImg = $("#medium-img");
+                var MASK_WIDTH = $mask.width();
+                var MASK_HEIGHT = $mask.height();
+                var MEDIU_WIDTH = $mediumImg.width();
+                var MEDIU_HEIGHT = $mediumImg.height();
+
+                // 定义鼠标进入事件
+                $maskTop.hover(function () {
+                    // 显示遮罩层
+                    $mask.show();
+                    // 大图片显示
+                    $largeImgContainer.show();
+                    // 动态加载大图片
+                    var srcM = $mediumImg.attr("src");
+                    var srcL = srcM.replace("dressSmall.jpg", "dressBig.jpg");
+                    $largeImg.attr("src", "img/dressBig.jpg");
+                    // 绑定加载监听时间
+                    $largeImg.on("load", function () {
+                        var largeWidth = $largeImg.width();
+                        var largeHeight = $largeImg.height();
+                        // 设置容器
+                        $largeImgContainer.width(largeWidth / 2);
+                        $largeImgContainer.height(largeHeight / 2);
+                        $largeImg.show();
+                        // 监听鼠标移动事件
+                        $maskTop.mousemove(function (e) {
+                            // 获取鼠标位置
+                            var mouseLeft = e.offsetX;
+                            var mouseTop = e.offsetY;
+                            // 遮罩层位置
+                            var maskLeft = mouseLeft - MASK_WIDTH / 2;
+                            var maskTop = mouseTop - MASK_HEIGHT / 2;
+                            // 横向范围
+                            if (maskLeft < 0) {
+                                maskLeft = 0;
+                            }
+                            if (maskLeft > MEDIU_WIDTH - MASK_WIDTH) {
+                                maskLeft = MEDIU_WIDTH - MASK_WIDTH;
+                            }
+                            // 纵向范围
+                            if (maskTop < 0) {
+                                maskTop = 0;
+                            }
+                            if (maskTop > MEDIU_HEIGHT - MASK_HEIGHT) {
+                                maskTop = MEDIU_HEIGHT - MASK_HEIGHT;
+                            }
+                            // 重新绘制小方块 给mask重新定位(键值对)
+                            $mask.css({top: maskTop, left: maskLeft});
+                            // 计算大图位置
+                            var largeImgLeft = largeWidth * maskLeft / MEDIU_WIDTH;
+                            var largeImgTop = largeHeight * maskTop / MEDIU_HEIGHT;
+                            // 设置大图片移动位置
+                            $largeImg.css({left: -largeImgLeft, top: -largeImgTop});
+                        });
+                    });
+                }, function () {
+                    // 隐藏
+                    $mask.hide();
+                    $largeImgContainer.hide();
+                });
+            }
+
+            // 调用showBig显示函数
+            showBig();
+        });
+    </script>
+</head>
+<body>
+<div id="preview">
+    <p id="dimmed-container">
+        <img id="medium-img" src="img/dressSmall.jpg"/>
+        <span id="mask"></span> <!-- 小方块 -->
+        <span id="mask-top"></span> <!-- 悬于图片完全透明的层 -->
+        <span id="large-img-container">
+            <img id="large-img" src="img/dressBig.jpg"/>
+        </span>
+    </p>
+</div>
+
+</body>
+</html>

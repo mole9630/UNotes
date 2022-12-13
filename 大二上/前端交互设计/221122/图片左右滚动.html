@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style>
+			.content {
+				width: 660px;
+				height: 150px;
+				border: 5px solid #c7edcc;
+				overflow: hidden;
+			}
+
+			.left {
+				background: orange;
+				width: 30px;
+				float: left;
+				height: 150px;
+				line-height: 150px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+
+			.right {
+				background: orange;
+				width: 30px;
+				float: right;
+				height: 150px;
+				line-height: 150px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+
+			#imgContent {
+				float: left;
+				overflow: hidden;
+				width: 600px;
+				height: 150px;
+				position: relative;
+			}
+
+			#showImages {
+				width: 1000px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			#showImages img {
+				width: 200px;
+				height: 150px;
+				display: block;
+				float: left;
+			}
+		</style>
+		<script>
+			// 入口函数调用
+			$(function(){
+				bindEvent();
+			});
+			
+			// 定义绑定事件函数
+			function bindEvent(){
+				$(".left").bind("click",funLeft);
+				$(".right").bind("click",funRight);
+				// 变换颜色
+				var L = parseInt($("#showImages").css("left"));
+				if (L<=-400) {
+					$(".left").css("color","#ccc");
+					$(".right").css("color","darkred");
+				}
+				if (L>=0) {
+					$(".left").css("color","darkred");
+					$(".right").css("color","#ccc");
+				}
+				if (L>-400 && L<0) {
+					$(".left").css("color","darkred");
+					$(".right").css("color","darkred");
+				}
+			}
+			
+			// 定义解绑事件函数
+			function unbindEvent(){
+				$(".left").unbind("click",funLeft);
+				$(".right").unbind("click",funRight);
+			}
+			
+			// 定义左移动函数
+			function funLeft() {
+				// 获取当前含有img的div的left
+				var L = parseInt($("#showImages").css("left"));
+				var endL = L - 200;
+				// 判断
+				if (endL <= 0 && endL >= -400) {
+					endL = endL + "px";
+					unbindEvent();
+					// 设置动画完成移动
+					$("#showImages").animate({
+						left:endL
+					}, 1000, bindEvent)
+				}
+			}
+			
+			// 定义右移动函数
+			function funRight() {
+				// 获取当前含有img的div的right
+				var L = parseInt($("#showImages").css("left"));
+				var endL = L + 200;
+				// 判断
+				if (endL <= 0) {
+					endL = endL + "px";
+					unbindEvent();
+					// 设置动画完成移动
+					$("#showImages").animate({
+						left:endL
+					}, 1000, bindEvent)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="left">&lt;&lt;</div>
+			<div id="imgContent">
+				<div id="showImages">
+					<img src="img/1.webp" alt="">
+					<img src="img/2.webp" alt="">
+					<img src="img/3.webp" alt="">
+					<img src="img/4.webp" alt="">
+					<img src="img/5.webp" alt="">
+				</div>
+			</div>
+			<div class="right">&gt;&gt;</div>
+		</div>
+
+	</body>
+</html>
