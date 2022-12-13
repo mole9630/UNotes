@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+# MyBatis配置相关信息 (方法1)
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql:///ssm_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: root
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+  # Druid专用连接池配置 (方法2 推荐)
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql:///ssm_db?useUnicode=true&characterEncodin
+      username: root
+      password: root

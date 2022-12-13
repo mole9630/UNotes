@@ -1,0 +1,16 @@
+server:
+  port: 80
+
+# MyBatis-Plus配置相关信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///ssm_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+
+# 设置Mp相关配置 - 映射给所有表加"tbl_"的前缀
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_

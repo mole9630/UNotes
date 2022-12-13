@@ -11,3 +11,8 @@
     - 项目基础配置(3种方法)
     - yml及yaml语法规则
     - yml读取单个数据
+  - 03-整个第三方技术
+    - SpringBoot整合JUnit
+    - JUnit的classes属性
+    - SpringBoot整合MyBatis
+    - SpringBoot整合MyBatis-Plus
