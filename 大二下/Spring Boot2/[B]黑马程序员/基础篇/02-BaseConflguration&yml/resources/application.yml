@@ -7,6 +7,8 @@ province: anhui
 city: hefei
 
 # 对象
+# 创建类 用于封装以下的数据 由Spring帮我们去加载到对象中,并一定要告诉Spring加载这组信息(yml引用类型属性数据课程)
+# 使用时直接从Spring直接获取信息
 user:
   uname: zhangsan
   age: 21
