@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的一天</title>
+		<link rel="stylesheet" href="css/first.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<img src="img/p2/上层图案.png" alt="" class="w-100 img_top">
+			<img src="img/p2/文字.png" alt="" class="w-80 text_top">
+			<img src="img/p2/clock1_1.png" alt="" class="img_clock">
+			<div class="clock">
+				<img src="img/p2/底部圈.png" alt="" class="clock_wrapper">
+				<img src="img/p2/圈.png" alt="" class="clock_circle">
+				<img src="img/p2/start·start·start·start·start·start·start·start·start·.png" alt="" class="clock_start">
+				<img src="img/p2/点击开始.png" alt="" class="clock_text">
+			</div>
+			<div class="img_bottom">
+				<img src="img/p2/下层图案.png" alt="" class="w-100">
+				<img src="img/p2/底层图案.png" alt="" class="w-100">
+			</div>
+		</div>
+		
+		<script>
+			var img_clock = document.querySelector(".img_clock");
+			var clock = document.querySelector(".clock");
+			var index_left = 1;
+			var index_right = 1;
+			function loadding(){
+				index_right = index_right+1;
+				if (index_right >= 11){
+					index_left = 2;
+					index_right = 1;
+				}
+				if (index_left==2 && index_right>=6){
+					index_left = 1;
+					index_right = 1;
+					clearInterval(initial);
+					clock.style.display = 'block';
+					return
+				}
+				img_clock.src = `img/p2/clock${index_left}_${index_right}.png`;
+			}
+			var initial = setInterval(loadding, 100);
+			var clock_text = document.querySelector(".clock_text");
+			clock_text.addEventListener("click", function(){
+				location.href = "second.html"
+			})
+		</script>
+	</body>
+</html>

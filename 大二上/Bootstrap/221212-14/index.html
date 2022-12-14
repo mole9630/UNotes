@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/new.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<!-- 时针盘 -->
+			<img src="img/p1/表盘.png" alt="" class="watch_plate">
+			<img src="img/p1/中心.png" alt="" class="watch_center">
+			<img src="img/p1/时针.png" alt="" class="watch_hour">
+			<img src="img/p1/分针.png" alt="" class="watch_minute">
+			<img src="img/p1/秒针.png" alt="" class="watch_second">
+			<img src="img/p1/星星.png" alt="" class="two_star">
+			<img src="img/p1/单星.png" alt="" class="one_star">
+			<!-- 加载数字 -->
+			<div class="loadding_percent">
+				<img src="img/p1/0.png" alt="" class="img_hundereds">
+				<img src="img/p1/0.png" alt="" class="img_tens">
+				<img src="img/p1/0.png" alt="" class="img_ones">
+				<img src="img/p1/百分号.png" alt="" class="img_percent">
+			</div>
+		</div>
+
+		<script>
+			var index_tens = 0;
+			var index_ones = 0;
+			var img_hundereds = document.querySelector(".img_hundereds");
+			var img_tens = document.querySelector(".img_tens");
+			var img_ones = document.querySelector(".img_ones");
+			var loading = function {
+				index_ones = index_ones + 1;
+				if (index_ones >= 10) {
+					index_tens = index_tens + 1;
+					index_ones = 0;
+					img_tens.style.display = "block";
+				}
+				img_tens.src = "img/p1/" + index_tens + ".png";
+				img_ones.src = "img/p1/" + index_ones + ".png";
+
+				if (index_tens >= 10) {
+					index_tens = 0;
+					index_ones = 0;
+					img_hundereds.style.display = "block";
+					img_hundereds.src = "img/1.png";
+					img_tens.src = "img/p1/" + index_tens + ".png";
+					img_ones.src = "img/p1/" + index_ones + ".png";
+					clearInterval(initial)
+					return;
+				}
+			}
+			
+			var initial = setInterval(loading, 10)
+		</script>
+	</body>
+</html>

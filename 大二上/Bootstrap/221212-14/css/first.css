@@ -1,0 +1,83 @@
+html, body {
+	height: 100%;
+	background-color: #fcedfc;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	position: relative;
+	text-align: center;
+}
+
+.img_top {
+	margin-top: 15%;
+}
+.text_top {
+	margin-top: 20px;
+}
+.img_bottom {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.w-80 {
+	width: 80%;
+}
+.w-100 {
+	width: 100%;
+}
+
+.clock {
+	display: none;
+}
+.img_clock, .clock img {
+	width: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.clock_circle {
+	animation: rotate360_reverse 8s linear infinite;
+}
+.clock_start {
+	width: 22%!important;
+	animation: rotate360 8s infinite;
+}
+.clock_text {
+	animation: scaleText 3s ease-in-out infinite;
+}
+@keyframes rotate360_reverse {
+	to {
+		transform: translate(-50%, -50%) rotate(-360deg);
+	}
+}
+@keyframes rotate360 {
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+@keyframes scaleText {
+	// 定义关键帧,scaleText是需要绑定到选择器的关键帧名称
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+	25% {
+		transform: translate(-50%, -50%) scale(1.1);
+	}
+	50% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+	70% {
+		transform: translate(-50%, -50%) scale(1.1);
+	}
+}
