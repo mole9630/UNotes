@@ -9,10 +9,14 @@ class Student:
         print("年龄：{0:d}".format(self.Age))
         print("性别：{0:s}".format(self.Sex))
 
+    def __str__(self):  # 该方法可以返回一个字符串,当我们使用print打印对象时,会自动调用该方法
+        return f"我叫{self.Name},今年{self.Age}岁,性别{self.Sex}"
+
 
 if __name__ == "__main__":
     stu = Student('李明', 18, "男")  # 传递时, 按照顺序传递
     stu.display()
+    print(stu)  # 打印实例名,会自动调用__str__方法
 
 
 # 已知定义一个Person类如下代码所示
