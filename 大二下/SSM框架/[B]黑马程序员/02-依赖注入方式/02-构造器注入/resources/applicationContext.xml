@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 标准书写 -->
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl">
+        <constructor-arg name="connectionNum" value="9630"/>
+        <constructor-arg name="databaseName" value="mysql"/>
+    </bean>
+
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"/>
+
+    <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl">
+        <constructor-arg name="bookDao" ref="bookDao"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+
+    <!--
+    解决形参的名称问题,与形参名不耦合(了解即可)
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl">
+        <constructor-arg type="int" value="9630"/>
+        <constructor-arg type="java.lang.String" value="mysql"/>
+    </bean>
+
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"/>
+
+    <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl">
+        <constructor-arg name="bookDao" ref="bookDao"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+    -->
+
+    <!--
+    解决参数类型重复问题,使用位置解决参数匹配(了解即可)
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl">
+        <constructor-arg index="0" value="9630"/>
+        <constructor-arg index="1" value="mysql"/>
+    </bean>
+
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"/>
+
+    <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl">
+        <constructor-arg name="bookDao" ref="bookDao"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+    -->
+</beans>
