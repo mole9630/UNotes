@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+       ">
+
+    <!-- 1.开启context命名空间-->
+    <!-- 2.受用context空间加载properties文件 -->
+    <!--system-properties-mode="NEVER表示不加载系统属性(eg:username)-->
+<!--    <context:property-placeholder location="jdbc.properties" system-properties-mode="NEVER"/>-->
+
+    <!-- 用逗号(,)分隔可加载多个配置文件 -->
+<!--    <context:property-placeholder location="jdbc.properties, jdbc2.properties" system-properties-mode="NEVER"/>-->
+
+    <!-- 仅从当前工程目录内读取配置文件(最规范及专业的加载方法) -->
+<!--    <context:property-placeholder location="classpath:*.properties" system-properties-mode="NEVER"/>-->
+
+    <!-- 不仅从当前工程目录内,而且也从依赖的jar包中读取所有配置文件 -->
+    <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
+
+
+    <!-- 管理DruidDataSource对象 -->
+    <!-- 3.使用属性占位符${}读取properties文件中的属性-->
+    <bean id="druid" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl">
+        <property name="name" value="${username}"/>
+    </bean>
+</beans>

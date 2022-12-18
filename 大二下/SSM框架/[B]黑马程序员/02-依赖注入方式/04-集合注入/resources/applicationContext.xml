@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl">
+        <property name="array">
+            <array>
+                <value>233</value>
+                <value>2333</value>
+                <value>9630</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>mole</value>
+                <value>github</value>
+                <value>9630</value>
+                <!--<ref bean="book"/>-->
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>mole</value>
+                <value>github</value>
+                <value>9630</value>
+                <value>9630</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="country" value="chine"/>
+                <entry key="province" value="Beijing"/>
+                <entry key="city" value="Haidian"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="driverClassName">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql:///spring</prop>
+                <prop key="username">root</prop>
+                <prop key="password">root</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
