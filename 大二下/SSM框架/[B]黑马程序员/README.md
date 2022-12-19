@@ -26,3 +26,7 @@
   - 05-注解开发管理第三方bean(@bean)
   - 06-注解开发实现为第三方bean注入资源
   - 07R-注解开发总结(XML配置比对注解配置)
+- 04-Spring整合第三方
+  - 01-Spring整个MyBatis思路分析(原生开发)
+  - 02-Spring整合MyBatus
+  - 03-Spring整合JUnit(@RunWith, @ContextConfiguration)
