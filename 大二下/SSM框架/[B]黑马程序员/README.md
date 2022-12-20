@@ -14,7 +14,7 @@
   - 02-构造器注入(简单类型(value), 引用类型(ref))
   - 03-自动装配(概念, 类型)
   - 04-集合注入(数组, Set, Map, Properties)
-  - 05-案例-数据源对象管理(druid, c3p0)
+  - 05-案例:数据源对象管理(druid, c3p0)
   - 06-加载Properties文件信息(加载Properties文件信息, 开启命名空间方式)
   - 07-容器的创建及获取bean(创建容器(2种), 获取bean(3种), BeanFactory)
   - 08R-核心容器总结(容器相关, Bean相关, 依赖注入相关)
@@ -30,3 +30,10 @@
   - 01-Spring整个MyBatis思路分析(原生开发)
   - 02-Spring整合MyBatus
   - 03-Spring整合JUnit(@RunWith, @ContextConfiguration)
+- 05-AOP
+  - 01R-AOP简介
+  - 02-AOP入门案例
+  - 03R-AOP工作流程
+  - 04R-AOP切入点表达式
+  - 05R-AOP通知类型
+  - 06-案例:测量业务层接口万次执行效率
