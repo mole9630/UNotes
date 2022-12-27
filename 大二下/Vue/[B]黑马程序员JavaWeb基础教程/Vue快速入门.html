@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-model 在表单元素上创建双向数据绑定 -->
+			<input v-model="username" />
+			<!-- 插值表达式 -->
+			{{username}}
+		</div>
+		<script src="js/vue.min.js"></script>
+		<script>
+			// 1.创建vue核心对象
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+						username: ""
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

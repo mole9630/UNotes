@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-bind 为HTML标签绑定属性值, 如href,css等 -->
+			<!-- v-bind:herf 动态绑定链接 -->
+			<a v-bind:href="url">单击</a>
+			<!-- 简化书写 -->
+			<a :href="url">单击</a>
+			<hr>
+			请输入要跳转的url:<input v-model="url" /> -->
+			<a :href="url">单击</a>
+
+			<hr>
+			<!-- v-on 为HTML标签绑定事件 -->
+			<!-- 若无参数, 方法名后的括号(())可以省略 -->
+			<button v-on:click="show">单击</button>
+			<!-- 简化书写 -->
+			<button @click="show">单击(简)</button>
+
+			<hr>
+			<!-- v-if -->
+			<!-- v-else -->
+			<!-- v-else-if -->
+			<!-- 以上用于条件性的渲染某些元素, 判断为true时渲染, 否则不渲染 -->
+			<!-- v-show 根据条件展示某元素, 区别在于切换的是display属性的值 -->
+			请输入count的值:<input type="text" v-model="count">
+			<div v-if="count==3">div1</div>
+			<div v-else-if="count==2">div2</div>
+			<div v-else>div3</div>
+
+			<div v-show="count==3">div v-show</div>
+
+			<hr>
+			<!-- v-for 列表渲染, 遍历容器的元素或对象的属性 -->
+			<!-- 不加索引的方式 -->
+			<div v-for="addr in addrs">
+				{{addr}}
+			</div>
+			<!-- 加索引的方式 -->
+			<!-- i表示索引 从0开始 -->
+			<div v-for="(addr,i) in addrs">
+				{{i+1}} - {{addr}}<br>
+			</div>
+		</div>
+
+		<script src="js/vue.min.js"></script>
+		<script>
+			// 1.创建vue核心对象
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+						url: "http://mole9630.top/",
+						count: 3,
+						addrs: ["北京", "上海", "天津", "重庆"]
+					}
+				},
+				methods: {
+					show() {
+						alert("show方法执行")
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
