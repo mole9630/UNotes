@@ -17,4 +17,7 @@
     - SpringBoot整合MyBatis
     - 03-MyBatis-Plus
     - 04-Druid
-    - 05-基于SSMP案例制作分析(实体类快速开发(lombok), 数据层标准开发(基础CRUD), 开启MP运行日志, 分页)
+  - 04-基于SpringBoot的SSMP整合案例
+    - 01-实体类及数据层标准开发(实体类快速开发(lombok), 数据层标准开发(基于CRUD), 开启MP运行日志, 分页, 条件查询)
+    - 02-业务层标准开发(基于CRUD)
+    - 03R-业务层快速开发(基于MyBatisPlus构建)
