@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>记事本</title>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<!-- 主体区域 -->
+		<section id="todoapp">
+			<!-- 输入框 -->
+			<header class="hidden"></header>
+			<h1>记事本</h1>
+			<input autofocus="autofocus" autocapitalize="off" placeholder="请输入任务,按回车(Enter)添加." class="new-todo"
+				v-model="inputValue" @keyup.enter="addTask(inputValue)">
+			<!-- 列表区域 -->
+			<section class="main">
+				<ul class="todo-list">
+					<li class="todo" v-for="(item, index) in list">
+						<div class="view">
+							<span class="index">{{ index+1 }}</span>
+							<label>{{ item }}</label>
+							<button class="destroy" @click="removeTask(index)"></button>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<!-- 统计和清空 -->
+			<footer class="footer">
+				<span class="todo-count">
+					<strong>{{list.length}}</strong>&nbsp;个任务
+				</span>
+				<button class="clear-completed" @click="clearTask" v-if="list.length != 0">清空</button>
+			</footer>
+		</section>
+		<!-- 底部 -->
+		<footer class="info"></footer>
+
+		<script src="../../static/js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#todoapp",
+				data: {
+					inputValue: "",
+					list: ["吃饭饭", "睡觉觉", "放松松"]
+				},
+				methods: {
+					// 新增任务
+					addTask(inputValue) {
+						if (inputValue.trim().length != 0) {
+							console.log(inputValue)
+							this.list.push(inputValue);
+							// 清空输入框内容
+							this.inputValue = "";
+						} else {
+							alert("无法添加空白任务");
+						}
+					},
+					// 删除任务
+					removeTask(index) {
+						this.list.splice(index, 1); //从索引index开始删除, 删除1个
+					},
+					// 清空任务
+					clearTask() {
+						this.list = [];
+					}
+				},
+			});
+		</script>
+	</body>
+</html>
