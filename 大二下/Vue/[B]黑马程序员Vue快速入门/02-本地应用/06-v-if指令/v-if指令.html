@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>v-if指令</title>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="showDOM">显示</button>
+			<button @click="unshowDOM">隐藏</button>
+			<button @click="toggleDOM">切换显示状态</button><br>
+			<p v-if="isShow">这是一个p标签(v-if)</p>
+			<p v-show="isShow">这是一个p标签(v-show)</p>
+			<hr>
+			请输入您的年龄:<input type="text" v-model="age"><br>
+			<p v-if="age >= 18">这是一个p标签</p>
+		</div>
+
+		<script src="../../static/js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					isShow: true,
+					age: 0
+				},
+				methods: {
+					showDOM() {
+						this.isShow = true;
+					},
+					unshowDOM() {
+						this.isShow = false;
+					},
+					toggleDOM() {
+						this.isShow = !this.isShow;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

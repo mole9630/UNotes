@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>v-show指令</title>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="showImg">显示图片</button>
+			<button @click="unshowImg">隐藏图片</button>
+			<button @click="toggleImg">切换显示状态</button><br>
+			<img src="img/logo.png" v-show="isShow">
+			<hr>
+			请输入您的年龄:<input type="text" v-model="age"><br>
+			<img src="img/logo.png" v-show="age >= 18">
+		</div>
+
+		<script src="../../static/js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					isShow: true,
+					age: 0
+				},
+				methods: {
+					showImg() {
+						this.isShow = true;
+					},
+					unshowImg() {
+						this.isShow = false;
+					},
+					toggleImg() {
+						this.isShow = !this.isShow;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

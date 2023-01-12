@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>v-bind指令</title>
+		<style>
+			.active {
+				border: 3px solid #c7edcc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{ imgTitle + ' : ' +isActive }}</h2>
+			<button @click="toggleActive">切换active状态</button><br>
+			<img @click="toggleActive" v-bind:src="imgSrc" v-bind:title="imgTitle + 'Img'"
+				v-bind:class="isActive?'active':''">
+			<hr>
+			<!-- 简写形式:直接写冒号(:)即可 -->
+			<!-- {active:isActive}表示对象形式, active是否生效取决于isActive的值 -->
+			<img @click="toggleActive" :src="imgSrc" :title="imgTitle + 'Img'" :class="{active:isActive}">
+		</div>
+
+		<script src="../../static/js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					imgSrc: "img/logo.png",
+					imgTitle: "logo",
+					isActive: false
+				},
+				methods: {
+					toggleActive() {
+						this.isActive = !this.isActive;
+					}
+				},
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>图片切换</title>
+		<link rel="stylesheet" href="./css/index.css" />
+	</head>
+
+	<body>
+		<div id="mask">
+			<div class="center">
+				<h2 class="title">
+					<img src="./img/logo.png" alt="">
+					深圳创维校区环境
+				</h2>
+				<!-- 图片 -->
+				<img :src="imgArr[index]" alt="" />
+				<!-- 左箭头 -->
+				<a href="javascript:void(0)" v-show="index!=0" @click="prev" class="left">
+					<img src="./img/prev.png" alt="" />
+				</a>
+				<!-- <a href="javascript:void(0)" v-if="index!=0" @click="prev" class="left">
+					<img src="./img/prev.png" alt="" />
+				</a> -->
+				<!-- 右箭头 -->
+				<a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next" class="right">
+					<img src="./img/next.png" alt="" />
+				</a>
+			</div>
+		</div>
+
+		<script src="../../static/js/vue.js"></script>
+
+		<script>
+			var app = new Vue({
+				el: "#mask",
+				data: {
+					imgArr: [
+						"./img/00.jpg",
+						"./img/01.jpg",
+						"./img/02.jpg",
+						"./img/03.jpg",
+						"./img/04.jpg",
+						"./img/05.jpg",
+						"./img/06.jpg",
+						"./img/07.jpg",
+						"./img/08.jpg",
+						"./img/09.jpg",
+						"./img/10.jpg",
+					],
+					index: 0
+				},
+				methods: {
+					prev: function() {
+						this.index--;
+					},
+					next: function() {
+						this.index++;
+					}
+				},
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>计数器</title>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<div id="app">
+			<div class="input-num">
+				<button @click="add">+</button>
+				<span>{{ num }}</span>
+				<button @click="sub">-</button>
+			</div>
+		</div>
+
+		<script src="../../static/js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					num: 1
+				},
+				methods: {
+					add: function() {
+						// 设置最大阈值
+						if (this.num < 10) {
+							this.num++;
+						} else {
+							alert("最大仅为10");
+						}
+					},
+					sub: function() {
+						// 设置最小阈值
+						if (this.num > 1) {
+							this.num--;
+						} else {
+							alert("最小仅为1")
+						}
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

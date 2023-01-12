@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>v-text指令</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-text会替换标签原有字符串 -->
+			<h2 v-text="msg + '!'">这是h2中原有文本</h2>
+			<!-- 插值表达式可以拼接字符串 -->
+			<h2>插值表达式:{{ msg + "!" }}</h2>
+			<h2 v-text="info"></h2>
+			<h2 v-text="msg + info"></h2>
+			<h2>插值表达式:{{ msg + "+" + info }}</h2>
+		</div>
+
+		<script src="../../static/js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: "Hello Vue",
+					info: "这是一个提示文本"
+				}
+			})
+		</script>
+	</body>
+</html>
