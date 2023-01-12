@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>天气查询</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/index.css">
+		<style>
+			.active {
+				color: #c7edcc;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap" id="app">
+			<!-- 搜索框 -->
+			<div class="search_form">
+				<div class="logo">
+					<img src="img/logo.png" alt="logo">
+				</div>
+				<div class="form_group">
+					<input type="text" class="input_txt" placeholder="请输入要查询的城市" v-model="city"
+						@keyup.enter="searchWeather">
+					<button class="input_sub" @click='searchWeather'>搜&nbsp;索</button>
+				</div>
+				<div class="hotkey">
+					<a href="javascript:void(0)" @click="changeCity('北京')">北京</a>
+					<a href="javascript:void(0)" @click="changeCity('天津')">天津</a>
+					<a href="javascript:void(0)" @click="changeCity('上海')">上海</a>
+					<a href="javascript:void(0)" @click="changeCity('重庆')">重庆</a>
+				</div>
+			</div>
+
+			<!-- 天气数据框 -->
+			<ul class="weather_list">
+				<li v-for="(item, index) in weatherList" :class="index==1?'active':''">
+					<!-- 天气类型数据 -->
+					<div class="info_type">
+						<span class="iconfont">{{ item.tianqi }}</span>
+					</div>
+					<!-- 温度数据 -->
+					<div class="info_temp">
+						<b>温度:&nbsp;{{ item.wendu }}℃</b><br>
+						<b>风向:&nbsp;{{ item.fengdu }}</b><br>
+						<b>空气指数:&nbsp;{{ item.pm }}</b><br>
+					</div>
+					<!-- 日期 -->
+					<div class="info_date">
+						<span>{{ item.riqi }}</span>
+					</div>
+					<img src="img/line.png">
+				</li>
+			</ul>
+		</div>
+
+		<script src="../../static/js/axios.min.js"></script>
+		<script src="../../static/js/vue.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>axios基本使用</title>
+	</head>
+	<body>
+		<input type="button" value="get请求" class="get">
+		<input type="button" value="post请求" class="post">
+
+		<script src="../../static/js/axios.min.js"></script>
+		<script>
+			document.querySelector(".get").onclick = function() {
+				axios.get("https://v.api.aa1.cn/api/yiyan/index.php").then((res) => {
+					console.log(res);
+				}, (() => {
+					alert("获取失败, 请稍后再试");
+				}));
+			}
+
+			document.querySelector(".post").onclick = function() {
+				axios.get("https://examples.com/api/reg", {
+					username: "mole",
+					password: "123321"
+				}).then((res) => {
+					console.log(res);
+				}, (() => {
+					alert("获取失败, 请稍后再试");
+				}));
+			}
+		</script>
+	</body>
+</html>

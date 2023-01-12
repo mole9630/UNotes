@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>axios+vue</title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="获取一言" @click="getOneWord">
+			<p v-html="msg"></p>
+		</div>
+
+		<script src="../../static/js/axios.min.js"></script>
+		<script src="../../static/js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: ""
+				},
+				methods: {
+					getOneWord() {
+						axios.get("https://v.api.aa1.cn/api/yiyan/index.php").then((res) => {
+							this.msg = res.data;
+						}, (() => {
+							alert("获取失败, 请稍后再试");
+						}));
+					}
+				},
+			});
+		</script>
+	</body>
+</html>
