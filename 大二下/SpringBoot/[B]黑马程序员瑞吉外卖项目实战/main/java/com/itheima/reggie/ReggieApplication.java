@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 @Slf4j // lombok提供的日志注解
 @ServletComponentScan // 扫描@WebFilter注解
