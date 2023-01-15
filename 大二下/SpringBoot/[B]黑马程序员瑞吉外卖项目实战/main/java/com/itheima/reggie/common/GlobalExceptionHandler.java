@@ -31,4 +31,10 @@ public class GlobalExceptionHandler {
         }
         return R.error("未知错误, 请联系管理员");
     }
+
+    @ExceptionHandler(CustomException.class) // 拦截指定异常
+    public R<String> exceptionHandler(CustomException e) {
+//        log.error("业务异常: {}", e.getMessage());
+        return R.error(e.getMessage());
+    }
 }
