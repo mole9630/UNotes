@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
         // 判断异常信息中是否包含外键约束
         if (e.getMessage().contains("Duplicate entry")) {
             String[] split = e.getMessage().split(" ");
-            return R.error("已存在用户名:" + split[2] + ", 请更换用户名后重新提交");
+            return R.error("已存在:" + split[2] + ", 请更换名称后重试");
         }
         return R.error("未知错误, 请联系管理员");
     }
