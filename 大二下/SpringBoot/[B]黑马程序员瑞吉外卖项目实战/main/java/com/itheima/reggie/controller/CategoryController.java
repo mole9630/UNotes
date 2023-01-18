@@ -8,6 +8,8 @@ import com.itheima.reggie.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 分类管理
  */
@@ -68,5 +70,22 @@ public class CategoryController {
     public R<String> update(@RequestBody Category category) {
         categoryService.updateById(category);
         return R.success("修改分类成功");
+    }
+
+    /**
+     * 根据条件查询分类数据
+     * @return R 分类列表
+     */
+    @GetMapping("/list")
+    public R<List<Category>> list(Category category){
+        // 条件构造器
+        LambdaQueryWrapper<Category> queryWrapper = new LambdaQueryWrapper<>();
+        // 添加条件
+        queryWrapper.eq(category.getId() != null, Category::getId, category.getId());
+        // 添加排序条件, 根据sort字段排序
+        queryWrapper.orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);
+        // 查询
+        List<Category> list = categoryService.list(queryWrapper);
+        return R.success(list);
     }
 }
