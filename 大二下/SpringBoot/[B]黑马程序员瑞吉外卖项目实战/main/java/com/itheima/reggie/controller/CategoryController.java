@@ -82,6 +82,7 @@ public class CategoryController {
         LambdaQueryWrapper<Category> queryWrapper = new LambdaQueryWrapper<>();
         // 添加条件
         queryWrapper.eq(category.getId() != null, Category::getId, category.getId());
+        queryWrapper.eq(category.getType() != null, Category::getType, category.getType());
         // 添加排序条件, 根据sort字段排序
         queryWrapper.orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);
         // 查询
