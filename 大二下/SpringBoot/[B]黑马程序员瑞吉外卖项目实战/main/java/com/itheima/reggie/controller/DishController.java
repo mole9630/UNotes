@@ -6,6 +6,7 @@ import com.itheima.reggie.common.R;
 import com.itheima.reggie.dto.DishDto;
 import com.itheima.reggie.entity.Category;
 import com.itheima.reggie.entity.Dish;
+import com.itheima.reggie.entity.DishFlavor;
 import com.itheima.reggie.service.CategoryService;
 import com.itheima.reggie.service.DishFlavorService;
 import com.itheima.reggie.service.DishService;
@@ -104,8 +105,22 @@ public class DishController {
      * @param dish 菜品信息
      * @return 菜品数据
      */
+//    @GetMapping("/list")
+//    public R<List<Dish>> list(Dish dish) {
+//        // 构造条件构造器
+//        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+//        // 添加过滤条件
+//        queryWrapper.eq(dish.getCategoryId() != null, Dish::getCategoryId, dish.getCategoryId());
+//        queryWrapper.eq(dish.getName() != null, Dish::getName, dish.getName());
+//        queryWrapper.eq(Dish::getStatus, 1); // 只查询上架的菜品
+//        // 添加排序条件
+//        queryWrapper.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
+//
+//        List<Dish> list = dishService.list(queryWrapper);
+//        return R.success(list);
+//    }
     @GetMapping("/list")
-    public R<List<Dish>> list(Dish dish) {
+    public R<List<DishDto>> list(Dish dish) {
         // 构造条件构造器
         LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
         // 添加过滤条件
@@ -116,6 +131,32 @@ public class DishController {
         queryWrapper.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
 
         List<Dish> list = dishService.list(queryWrapper);
-        return R.success(list);
+
+        List<DishDto> dishDtoList = list.stream().map((item) -> {
+            DishDto dishDto = new DishDto();
+            BeanUtils.copyProperties(item, dishDto); // 拷贝属性
+
+            Long categoryId = item.getCategoryId(); // 获取菜品分类ID
+            // 根据分类ID查询分类
+            Category category = categoryService.getById(categoryId);
+
+            // 检查分类是否为空
+            if (category != null) {
+                String categoryName = category.getName(); // 获取分类名称
+                dishDto.setCategoryName(categoryName); // 设置分类名称
+            }
+
+            // 追加口味数据
+            Long dishId = item.getId();// 当前菜品ID
+            LambdaQueryWrapper<DishFlavor> queryWrapper2 = new LambdaQueryWrapper<>();
+            queryWrapper2.eq(DishFlavor::getDishId, dishId);
+            // SQL:select * from dish_flavor where dish_id = ?
+            List<DishFlavor> dishFlavorList = dishFlavorService.list(queryWrapper2);// 口味信息集合
+            dishDto.setFlavors(dishFlavorList);
+
+            return dishDto;
+        }).collect(Collectors.toList());
+
+        return R.success(dishDtoList);
     }
 }
