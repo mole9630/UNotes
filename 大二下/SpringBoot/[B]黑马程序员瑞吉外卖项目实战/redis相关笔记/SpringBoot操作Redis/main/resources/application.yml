@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: springdataredis_demo
+  #Redis相关配置
+  redis:
+    host: 192.168.216.137
+    port: 6379
+    password: root
+    database: 0 #操作的是0号数据库
+    jedis:
+      #Redis连接池配置
+      pool:
+        max-active: 8 #最大连接数
+        max-wait: 1ms #连接池最大阻塞等待时间
+        max-idle: 4 #连接池中的最大空闲连接
+        min-idle: 0 #连接池中的最小空闲连接
