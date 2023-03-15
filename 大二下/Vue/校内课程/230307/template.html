@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+
+    <!-- 利用template标签实现复杂组件模板创建 -->
+    <template id="tmp1">
+        <div>
+            <div>
+                <p><span>{{ msg }}</span></p>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // 利用component()API来创建组件
+        Vue.component('my-component', {
+            template: '#tmp1',
+            data() {
+                return {
+                    msg: 'component-data-msg'
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'vue-data-msg'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>directive</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-myfocus="true">
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        Vue.directive('myfocus', {
+            // inserted:希望使用当前指令的元素, 在插入到DOM界面中时, 让此元素获得焦点
+            inserted(el, binding) {
+                if(binding.value) {
+                    el.focus()
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

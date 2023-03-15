@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=e     blkkkkkkkkkkkkkkkkkkkkkkkkkkklklkllkklkllklklkllkdge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 在事件内调用简单的js代码 -->
+        <button @click="count += Math.random()">单击</button>
+        <p>产生的随机数累加和为:{{ count }}</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            }
+        })
+    </script>
+</body>
+</html>

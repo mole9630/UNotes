@@ -3,4 +3,9 @@
 
 ## 课程目录
 ###
-* 230216 | 
+* 230210 | el, data, methods, computed, watch, filters
+* 230216 | webpack打包工具
+* 230302 | 内置指令(v-bind, v-model, v-text, v-html, v-for, v-if)
+* 230307 | 事件(click, keyup), 事件修饰符(.stop, .prevent, .capture, .self, .once), Vue组件(全局注册, 局部注册, template标签)
+* 230309 | 组件间的数据传递(props, $emit), 组件切换, 钩子函数(beforeCreate, created, beforeMount, mounted, beforeUpdate, updated, beforeDestroy, destroyed)
+* 230314 | 全局API(directive, use, extend, set, mixin)

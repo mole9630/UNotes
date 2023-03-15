@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extend</title>
+</head>
+<body>
+    <div>
+        <div id="app1">app1:{{ title }}</div>
+        <div id="app2">app2:{{ title }}</div>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        var vueExtend = Vue.extend({
+            data() {
+                return {
+                    title: 'vueExtend-data'
+                }
+            }
+        })
+
+        var app1 = new Vue({
+            el: '#app1',
+            data: {
+                title: 'Vue-data'
+            }
+        })
+        var app2 = new vueExtend({
+            el: '#app2'
+        })
+        console.log(app2);
+    </script>
+</body>
+</html>

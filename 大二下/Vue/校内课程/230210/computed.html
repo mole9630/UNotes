@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computed</title>
+</head>
+<body>
+    <div id="app">
+        <p>单价:{{price}}</p>
+        <p>数量:{{num}}</p>
+        <p>总价格:{{totalPrice}}</p>
+        <br>
+        <button @click='num++'>+</button>
+        <button @click='num==0 ? 0 : num--'>-</button>
+    </div>
+    <hr>
+
+    <script src="../common/js/vue.js"></script>
+    <!-- 创建Vue实例或对象 -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                price: 20,
+                num: 0
+            },
+            computed: {
+                totalPrice() {
+                    return this.price * this.num
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <my-component></my-component>
+    <my-vue-component></my-vue-component>
+    <div id="app">
+        <my-component></my-component>
+        <my-vue-component></my-vue-component>
+        {{ msg }}
+    </div>
+
+    <script>
+        // 利用component()API来创建组件
+        Vue.component('my-component', {
+            data() {
+                return {
+                    msg: 'component-data-msg'
+                }
+            },
+            template: '<p>{{ msg }}</p>'
+        })
+
+        var com1 = {
+            template: '<p>这个是局部注册的组件</p>'
+        }
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'vue-data-msg'
+            },
+            // 利用components属性进行组件局部注册
+            components: {
+                // 'my-vue-component': com1
+                myVueComponent: com1 //与上行同理, 但更推荐用这种方法
+            }
+        })
+    </script>
+</body>
+</html>

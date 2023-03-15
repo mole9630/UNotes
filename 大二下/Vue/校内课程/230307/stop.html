@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.stop</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div @click="doParent">
+            <button @click="doThis">事件冒泡</button>
+            <button @click.stop="doThis">阻止事件冒泡</button>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                doParent() {
+                    console.log("这个是父元素的事件");
+                },
+                doThis() {
+                    console.log("这个是子元素的事件");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

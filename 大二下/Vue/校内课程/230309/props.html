@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>props</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-component name="这里是父组件的name"></my-component>
+    </div>
+
+    <script>
+        // 创建组件
+        Vue.component('my-component', {
+            // 父组件要传递给子组件的属性集合
+            props: ['name'],
+            // 定义子模版
+            template: "<p>这里是父组件传递过来的信息:<span style='color:grey'>{{ name }}</span></p>"
+        })
+
+        var app = new Vue({ 
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

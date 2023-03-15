@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filters</title>
+</head>
+<body>
+    <div id="app">
+        {{ cityName | toUpCase }}
+        <hr>
+        <div :id="dataId | formatId">data ID</div>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <!-- 创建Vue实例或对象 -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                cityName: 'Anhui',
+                dataId: 'mole9630'
+            },
+            filters: {
+                // value === cityName
+                toUpCase(value) {
+                    return value ? value.toUpperCase() : ''
+                },
+                formatId(value) {
+                    return value ? value.charAt(2) + value.indexOf('e') : ''
+                }
+            }
+        })
+    </script>
+</body>
+</html>

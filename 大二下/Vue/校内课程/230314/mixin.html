@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mixin</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        Vue.mixin({
+            created() {
+                console.log("我是混入对象的钩子函数")
+                var myOption = this.$options.myOption
+                if(myOption) {
+                    console.log(myOption.toUpperCase());
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            myOption: 'hello',
+            created() {
+                console.log("我是vue实例对象的钩子函数");
+            }
+        })
+    </script>
+</body>
+</html>

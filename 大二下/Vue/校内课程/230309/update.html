@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="isShow=!isShow">更新</button>
+        <div v-if="isShow" ref="div1">test</div>
+    </div>
+
+    <script>
+        var app = new Vue({ 
+            el: '#app',
+            data: {
+                isShow: false
+            },
+            beforeUpdate() {
+                console.log('组件更新之前');
+                console.log(this.$refs.div1);
+            },
+            updated() {
+                console.log('组件更新之后');
+                console.log(this.$refs.div1);
+            }
+        })
+    </script>
+</body>
+</html>

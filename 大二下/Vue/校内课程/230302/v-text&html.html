@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text&html</title>
+</head>
+<body>
+    <div id="app">
+        <p v-text="text"></p>
+        <div v-html="html"></div>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                text: 'Hello',
+                html: '<p style="font-size: 20px;">这是v-html插入的html代码</p>'
+            }
+        })
+    </script>
+</body>
+</html>

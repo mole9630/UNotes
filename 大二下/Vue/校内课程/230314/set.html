@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{ a }}</div>
+        <div>{{ obj.b }}</div>
+        <div>{{ obj.c }}</div>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                a: '根级响应式属性a',
+                obj: {
+                    a: 'a',
+                    b: 'b'
+                }
+            }
+        })
+        Vue.set(app.obj, 'b', 'set添加的响应式属性obj.b')
+        Vue.set(app.obj, 'c', 'set添加的响应式属性obj.c')
+    </script>
+</body>
+</html>

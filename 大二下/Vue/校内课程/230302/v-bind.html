@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <style>
+        .box {
+            background-color: rgb(184, 142, 221);
+            width: 400px;
+            height: 500px;
+        }
+        .inner {
+            background-color: rgb(56, 187, 56);
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 绑定样式属性值 -->
+        <div v-bind:style="{backgroundColor:col, width:w, height:h}"></div>
+        <div v-bind:style="divStyle"></div>
+        <hr>
+        <!-- 绑定样式类 -->
+        <div :class="box">
+            类名为box的div
+            <div :class="inner">类名为inner的div</div>
+            <div :class="inner">类名为inner的div</div>
+        </div>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                col: '#c7edcc',
+                w: '200px',
+                h: '200px',
+                divStyle: {
+                    backgroundColor: 'green',
+                    width: '100px',
+                    height: '100px'
+                },
+                box: 'box',
+                inner: 'inner'
+            }
+        })
+    </script>
+</body>
+</html>

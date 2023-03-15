@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>destroy</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div ref="div1">test</div>
+    </div>
+
+    <script>
+        var app = new Vue({ 
+            el: '#app',
+            data: {
+                msg: 'hello'
+            },
+            beforeDestroy() {
+                console.log('实例销毁之前');
+                console.log(this.$refs.div1);
+                console.log(this.msg);
+                console.log(app);
+            },
+            destroyed() {
+                console.log('实例销毁之后');
+                console.log(this.$refs.div1);
+                console.log(this.msg);
+                console.log(app);
+            }
+        })
+
+        // 控制台执行:app.$destroy()
+    </script>
+</body>
+</html>
