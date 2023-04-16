@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-conponent></my-conponent>
+    </div>
+
+    <script>
+        Vue.component('my-conponent', {
+            template: '<button @click="root">查看根实例</button>',
+            methods: {
+                root() {
+                    console.log(this.$root);
+                    console.log(this.$root === app.$root);
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

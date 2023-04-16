@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement</title>
+</head>
+<body>
+    <div id="app">
+        <my-component>
+            <template v-slot:header>
+                <div style="background-color: burlywood;">
+                    导航栏
+                </div>
+            </template>
+
+            <template v-slot:content>
+                <div style="background-color: yellowgreen;">
+                    内容区
+                </div>
+            </template>
+
+            <template v-slot:footer>
+                <div style="background-color: tomato;">
+                    底部
+                </div>
+            </template>
+        </my-component>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        Vue.component('my-component', {
+            render(createElement) {
+                return createElement('div', [
+                    createElement('header', this.$slots.header),
+                    createElement('content', this.$slots.content),
+                    createElement('footer', this.$slots.footer)
+                ])
+            }
+        })
+
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

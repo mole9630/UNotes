@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyframes</title>
+    <script src="../common/js/vue.js"></script>
+    <link rel="stylesheet" href="../common/css/animate.css">
+    <style>
+        .circular {
+            width: 100px;
+            height: 100px;
+            background-color: #c7edcc;
+            border-radius: 50%;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 100px;
+            color: tomato;
+        }
+
+        /* 自定义动画 */
+        @keyframes Amimate {
+            0% {
+                transform: scale(0);
+                background: #c7edcc;
+            }
+            25% {
+                transform: scale(0.25);
+                background: skyblue;
+            }
+            50% {
+                transform: scale(0.5);
+                background: seagreen;
+            }
+            75% {
+                transform: scale(0.75);
+                background: yellowgreen;
+            }
+            100% {
+                transform: scale(1);
+                background: #c7edcc;
+            }
+        }
+        .fade-enter-active {
+                animation: Amimate 1s
+        }
+        .fade-leave-active {
+                animation: Amimate 1s reverse
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="isShow = !isShow">使用@keyframes创建css动画</button>
+        <hr>
+        <div>
+            <transition name="fade">
+                <div class="circular" v-if="isShow">圆形</div>
+            </transition>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            }
+        })
+    </script>
+</body>
+</html>

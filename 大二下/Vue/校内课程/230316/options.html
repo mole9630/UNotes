@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>options</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ base }}</p>
+        <p>{{ noBase }}</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                base: '基础数据'
+            },
+            customOption: '自定义数据',
+            // 在钩子函数里实现自定义数据转换为app实例对象的一级响应数据
+            created() {
+                this.noBase = this.$options.customOption
+            }
+        })
+    </script>
+</body>
+</html>

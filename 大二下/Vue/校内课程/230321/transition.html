@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        /* 图形初始样式 */
+        .chart {
+            width: 200px;
+            height: 50px;
+            background-color: #c7edcc;
+        }
+        /* 进入初始状态和离开结束状态设置 */
+        .box-enter, .box-leave-to {
+            width: 0px;
+        }
+        /* 进入结束状态和离开初始状态设置 */
+        .box-enter-to, .box-leave {
+            width: 200px;
+        }
+        /* 进入过程状态和离开过程状态设置 */
+        .box-enter-active, .box-leave-active {
+            transition: width 5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="toggle">改变图形宽度</button>
+        <hr>
+        <transition name="box">
+            <!-- 内部放过渡对象 -->
+            <div class="chart" v-if="show"></div>
+        </transition>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            },
+            methods: {
+                toggle() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+</body>
+</html>

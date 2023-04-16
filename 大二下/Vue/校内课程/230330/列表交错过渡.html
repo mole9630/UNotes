@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>列表交错过渡</title>
+  <script src="../common/js/velocity.js"></script>
+  <script src="../common/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input placeholder="请输入要查找的内容" v-model="query">
+    <transition-group name="item" tag="ul" @before-enter="beforeEnter"
+     @enter="enter" @leave="leave" v-bind:css="false">
+     <li v-for="(item, index) in ComputedList" :key="item.msg">
+       {{ item.msg }}
+     </li>
+    </transition-group>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        query: '',
+        items: [
+          {msg: '张三'}, {msg: '李四'}, {msg: '王五'}, {msg: '赵六'}, {msg: '李三'}
+        ]
+      },
+      computed: {
+        ComputedList() {
+          var app = this.query
+          var nameList = this.items
+          return nameList.filter(
+            function(item) {
+              return item.msg.indexOf(app) != -1;
+            }
+          )
+        }
+      },
+      methods: {
+        beforeEnter (el) {
+          el.style.opacity = 0
+          el.style.height = 0
+        },
+        enter (el, done) {
+          var delay = el.dataset.index * 150
+          setTimeout(function () {
+            Velocity(el, { opacity: 1, height: '1.6em' }, { complete: done })
+          }, delay)
+        },
+        leave (el, done) {
+          var delay = el.dataset.index * 150
+          setTimeout(function () {
+            Velocity(el, { opacity: 0, height: 0 }, { complete: done })
+          }, delay)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

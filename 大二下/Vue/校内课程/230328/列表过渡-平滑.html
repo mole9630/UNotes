@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>列表过渡-平滑</title>
+  <script src="../common/js/velocity.js"></script>
+  <script src="../common/js/vue.js"></script>
+  <script src="../common/js/lodash.js"></script>
+  <style>
+    /* 数字圆圈样式 */
+    .list-item {
+      display: inline-block;
+      margin-right: 10px;
+      background-color: red;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      line-height: 25px;
+      color: #fff;
+    }
+    /* 插入或移除元素的过程 */
+    .list-enter-active {
+      transition: all 1s;
+    }
+
+    .list-leave-active {
+      transition: all 1s;
+      position: absolute;
+    }
+    /* 开始插入或移除结束的位置变化 */
+    .list-enter, .list-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .list-move {
+      transition: transform 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="add">随机插入一个数字</button>
+    <button @click="remove">随机移除一个数字</button>
+    <transition-group name="list" tag="p">
+      <span class="list-item" v-for="item in items" :key="item">
+        {{ item }}
+      </span>
+    </transition-group>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        // 原始数据
+        items: [1, 2, 3, 4, 5],
+        // 每次的插入数据
+        nextNum: 6
+      },
+      methods: {
+        // 定义插入位置函数
+        randomIndex() {
+          return Math.floor(Math.random() * this.items.length)
+        },
+        // 插入
+        add() {
+          this.items.splice(this.randomIndex(), 0, this.nextNum++)
+        },
+        // 移除
+        remove() {
+          this.items.splice(this.randomIndex(), 1)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

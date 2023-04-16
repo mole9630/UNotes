@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>velocity</title>
+    <script src="../common/js/velocity.js"></script>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="isShow = !isShow">动画效果</button>
+        <hr>
+            <transition name="fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+                <p v-if="isShow">文字动画效果</p>
+            </transition>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            },
+            methods: {
+                beforeEnter(el) {
+                    el.style.opacity = 0
+                    el.style.transformOrigin = 'left'
+                    el.style.color = '#c7edcc'
+                },
+                enter(el, done) {
+                    Velocity(el, {
+                        opacity: 1,
+                        fontSize: '1.4em'
+                    }, {
+                        duration: 300
+                    })
+                    Velocity(el, {
+                        fontSize: '1em'
+                    }, {
+                        complete: done
+                    })
+                },
+                leave(el, done) {
+                    Velocity(el, {
+                        translateX: '15px',
+                        rotateZ: '50deg'
+                    }, {
+                        duration: 3000
+                    })
+                    Velocity(el, {
+                        rotateZ: '100deg',
+                        loop: 2
+                    }, {
+                        duration: 3000
+                    })
+                    Velocity(el, {
+                        rotateZ: '45deg',
+                        translateX: '30px',
+                        translateY: '30px',
+                        opacity: 0
+                    }, {
+                        complete: done
+                    })
+                },
+            }
+        })
+    </script>
+</body>
+</html>

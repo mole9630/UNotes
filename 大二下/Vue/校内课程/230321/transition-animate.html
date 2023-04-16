@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition-animate</title>
+    <link rel="stylesheet" href="../common/css/animate.css">
+</head>
+<body>
+    <div id="app">
+        <button @click="show=!show">显示/隐藏</button>
+        <hr>
+        <transition appear appear-active-class="animated swing" enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutLeft">
+            <!-- 内部放过渡对象 -->
+            <p v-if="show">文字打开动画效果</p>
+        </transition>
+        <hr>
+        <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutLeft">
+            <!-- 内部放过渡对象 -->
+            <p v-if="show">文字动画效果</p>
+        </transition>
+    </div>
+
+    <script src="../common/js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            }
+        })
+    </script>
+</body>
+</html>

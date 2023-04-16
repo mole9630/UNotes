@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>切换保存和编辑按钮-动画</title>
+  <script src="../common/js/vue.js"></script>
+  <style>
+    .fade-enter, .fade-leave-to {
+      opacity: 0;
+    }
+    .fade-enter, .fade-leave-active {
+      transition: opacity 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="isEditing = !isEditing">切换保存和编辑按钮</button>
+    <div>
+      <transition name="fade" mode="out-in">
+        <button v-bind:key="isEditing">
+          {{isEditing ? '保存' : '编辑'}}
+        </button>
+      </transition>
+    </div>
+  </div>
+  
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        isEditing: true
+      }
+    })
+  </script>
+</body>
+</html>

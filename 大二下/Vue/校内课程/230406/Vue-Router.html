@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-Router</title>
+    <script src="../common/js/vue.js"></script>
+    <!-- 由于Vue-Router依赖于Vue, 故要在Vue的后面引入 -->
+    <script src="../common/js/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- router-link用来支持路由导航功能 -->
+        <router-link to="/login" tag="span">登录</router-link>
+        <!-- router-view用来充当占位符 -->
+        <router-view></router-view>
+    </div>
+    
+
+    <script>
+        // 创建组件对象
+        var login = {
+            template: '<div>登录表单</div>'
+        }
+
+        // 创建路由对象
+        var routerObj = new VueRouter({
+            // 配置路由匹配规则
+            routes: [
+                {
+                    path: '/login',
+                    component: login
+                }
+            ]
+        })
+
+        var app = new Vue({
+            el: '#app',
+            // 将路由规则对象注册到Vue实例上
+            router: routerObj
+        })
+    </script>
+</body>
+</html>

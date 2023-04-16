@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相同标签名元素过渡</title>
+    <script src="../common/js/velocity.js"></script>
+    <script src="../common/js/vue.js"></script>
+    <link rel="stylesheet" href="../common/css/animate.css">
+</head>
+<body>
+    <div id="app">
+        <button @click="isShow = !isShow">切换编辑和保存按钮</button>
+        <hr>
+        <div>
+            <transition name="fade">
+                <p v-if="isShow" key="true">isShow-true时文字动画效果</p>
+                <p v-else key="false">isShow-false时文字动画效果</p>
+                <!-- 利用key值实现同名元素过渡动画 -->
+                <p :key="isShow">{{ isShow ? true : false}}</p>
+            </transition>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            }
+        })
+    </script>
+</body>
+</html>
