@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vue-router.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .header {
+            background-color: lightblue;
+            height: 80px;
+        }
+
+        .container {
+            display: flex;
+            height: 600px;
+        }
+
+        .sidebar {
+            background-color: lightgreen;
+            flex: 2;
+        }
+
+        .main {
+            background-color: lightpink;
+            flex: 8;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <router-view></router-view>
+        <div class="container">
+            <router-view name="sidebar"></router-view>
+            <router-view name="main"></router-view>
+        </div>
+    </div>
+
+    <script>
+        // 创建模板
+        var header = {
+            template: "<h1 class='header'>导航区域</h1>"
+        }
+        var sidebar = {
+            template: "<h1 class='sidebar'>侧边栏区域</h1>"
+        }
+        var mainBox = {
+            template: "<h1 class='main'>主编辑区</h1>"
+        }
+
+        //创建路由
+        var router = new VueRouter({
+            routes: [{
+                path: '/',
+                components: {
+                    'default': header,
+                    'sidebar': sidebar,
+                    'main': mainBox
+                }
+            }]
+        })
+
+        var app = new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+
+</html>

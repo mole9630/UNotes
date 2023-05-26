@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuex的State</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ this.$store.state.msg }}</p>
+        <p>{{ msg }}</p>
+    </div>
+
+    <script>
+        // 创建Vuex存储对象
+        var store = new Vuex.Store({
+            state: {
+                msg: "Hello"
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            store, // 配置项与对象名一样, 可以省略对象名
+            computed: {
+                msg() { // 简化写法, 调用只用写msg即可
+                    return this.$store.state.msg
+                }
+            }
+        })
+    </script>
+</body>
+</html>

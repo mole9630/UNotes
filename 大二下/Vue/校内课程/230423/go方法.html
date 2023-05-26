@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go方法</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="go">跳转</button>
+        <button @click="back">后退</button>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        // 创建组建
+        var user = {
+            // template: '<h1>{{ this.$route.query.name }}</h1>'
+            template: '<h1>{{ this.$route.params.name }}</h1>'
+        }
+
+        // 创建路由
+        var router = new VueRouter({
+            routes: [{
+                // path: '/user', component: user
+                path: '/user', component: user, name:'user'
+            }]
+        })
+
+        var app = new Vue({
+            el: '#app',
+            router,
+            methods: {
+                go() {
+                    this.$router.push({
+                        // path: '/user',
+                        // query: {
+                        //     name: 'ZhangSan'
+                        // } 
+                        name: 'user',
+                        params: {
+                            name: 'ZhangSan'
+                        }
+                    })
+                },
+                back() {
+                    this.$router.go(-1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

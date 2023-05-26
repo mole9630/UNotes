@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异步操作</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="asyc">异步操作</button>
+        <p>{{ this.$store.state.count }}</p>
+    </div>
+
+    <script>
+        const store = new Vuex.Store({
+            // 初始化count
+            state: {
+                count: 0
+            },
+            // 构建mutations配置项
+            mutations: {
+                receive(state) {
+                    setTimeout(() => {
+                        state.count++
+                    }, 2000);
+                }
+            },
+            actions: {
+                receive(context) {
+                    context.commit('receive')
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                asyc() {
+                    // this.$store.commit('receive')
+                    this.$store.dispatch('receive')
+                }
+            },
+            store
+        })
+    </script>
+</body>
+</html>

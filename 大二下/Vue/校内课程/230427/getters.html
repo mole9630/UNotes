@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getters</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <p>{{ this.$store.getters }}</p>
+        <p>{{ this.$store.getters.getStuInfo }}</p>
+        <p>{{ this.$store.getters.getStuInfo[1]['name'] }}</p> -->
+        <hr>
+        <h1>列表查询</h1>
+        <input type="text" v-model="id" placeholder="请输入ID">
+        <button @click="search">搜索</button>
+        <p>搜索结果:{{ this.$store.getters.getStuInfo == 0 ? '-' : this.$store.getters.getStuInfo}}</p>
+    </div>
+
+    <script>
+        const store = new Vuex.Store({
+            // 初始化count
+            state: {
+                todo: [
+                    {id: 1, name: 'ZhangSan', age: 21, sex: 'man'},
+                    {id: 2, name: 'LiSi', age: 20, sex: 'man'},
+                    {id: 3, name: 'WangWu', age: 21, sex: 'man'}
+                ],
+                id: 0
+            },
+            // 定义getters配置项
+            getters: {
+                // 箭头函数只有一个参数, 括号可以省略, 若写括号一定要有返回值
+                getStuInfo: state => {
+                    return state.todo.filter(info => info.id == state.id)
+                }
+            },
+            // 创建mutations, 修改state里的id
+            mutations: {
+                change(state, id) {
+                    state.id = id
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            store,
+            data: {
+                id: 0
+            },
+            methods: {
+                search() {
+                    this.$store.commit('change', this.id)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

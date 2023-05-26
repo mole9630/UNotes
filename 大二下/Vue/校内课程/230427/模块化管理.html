@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块化管理</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vuex.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // 创建模块
+        const moduleA = {
+            state: {
+                nameA: 'a'
+            }
+        }
+
+        const moduleB = {
+            state: {
+                nameB: 'b'
+            }
+        }
+
+        const store = new Vuex.Store({
+            // 注册上面定义的模块到vuex实例
+            modules: {
+                a: moduleA,
+                b: moduleB
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            store
+        })
+        console.log(store.state.a);
+        console.log(store.state.b);
+    </script>
+</body>
+</html>

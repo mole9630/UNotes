@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vuex.js"></script>
+</head>
+<body>
+    <script>
+        // 创建store对象, 目的是调用registerModule(API)
+        const store = new Vuex.Store({})
+        store.registerModule('myModule', {
+            state: {
+                name: 'ZhangSan'
+            }
+        })
+        document.write(store.state.myModule.name)
+    </script>
+</body>
+</html>

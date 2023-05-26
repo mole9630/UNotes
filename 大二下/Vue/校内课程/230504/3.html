@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ this.$store.state.name }}</p>
+    </div>
+
+    <script>
+        const store = new Vuex.Store({
+            state: {
+                name: '这是替换前的数据'
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            store
+        })
+        store.replaceState({name: '这是替换后的数据'})
+    </script>
+</body>
+</html>

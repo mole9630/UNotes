@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/js/vue.js"></script>
+    <script src="../common/js/vuex.js"></script>
+</head>
+<body>
+    <script>
+        // 创建插件对象
+        const myPluging = (store) => {
+            // 当store对象初始化后调用
+            store.subscribe(
+                // subscribe的参数是一个回调函数, 每次mutation提交后被调用
+                // mutation格式: (type, payload)
+                (mutation, state) => {
+                    // 输出mutation参数
+                    console.log(mutation.type, mutation.payload);
+                }
+            )
+        }
+
+        // 创建store对象
+        const store = new Vuex.Store({
+            // 创建mutation配置选项
+            mutations: {
+                do(state) {
+                    console.log(state);
+                }
+            },
+            // 在plugins配置项注册插件
+            plugins: [myPluging],
+            devtools: false // 关闭devtools开发工具
+        })
+
+        // 提交同步操作
+        store.commit('do', 'myPlugin')
+    </script>
+</body>
+</html>
