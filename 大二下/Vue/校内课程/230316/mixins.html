@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mixins</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="me">test</button>
+    </div>
+
+    <script>
+        // 1.创建局部混入对象
+        var myMixin = {
+            created() {
+                this.hello()
+            },
+            methods: {
+                hello() {
+                    console.log("hello from mixin");
+                },
+                me() {
+                    console.log("混入对象的方法");
+                }
+            }
+        }
+
+        // 2.创建vue子类
+        var component = Vue.extend({
+            mixins: [myMixin]
+        })
+
+        // 3.创建子类对象
+        var com = new component()
+
+        var app = new Vue({
+            el: '#app',
+            created() {
+                console.log('app对象的钩子函数');
+            },
+            methods: {
+                me() {
+                console.log("app对象的方法");
+                }
+            }
+        })
+        // 当混入对象与app的选项冲突时, 有优先原则:
+        //  若为数据或函数冲突, Vue优先
+        //  若为钩子函数冲突, 都执行, 混入对象的钩子函数优先
+    </script>
+</body>
+</html>

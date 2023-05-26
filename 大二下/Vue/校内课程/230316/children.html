@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>children</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="child">查看子组件</button>
+        <my-conponent></my-conponent>
+    </div>
+
+    <script>
+        Vue.component('my-conponent', {
+            template: '<div>myComponent</div>'
+        })
+
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                child() {
+                    console.log(this.$children);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

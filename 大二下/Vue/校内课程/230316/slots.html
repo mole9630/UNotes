@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slots</title>
+    <script src="../common/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-conponent>Hello</my-conponent>
+    </div>
+    <template id="first">
+        <div>
+            <!-- 默认插槽 -->
+            <slot></slot>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('my-conponent', {
+            template: '#first'
+        })
+
+        var app = new Vue({
+            el: '#app'
+        })
+
+        // app.$children[0].$slot:表示app实例第一个子组件的所有插槽
+        // default[0]:表示获取默认插槽的一个节点
+        // text:表示获取节点内容
+        console.log(app.$children[0].$slots.default[0].text)
+    </script>
+</body>
+</html>
