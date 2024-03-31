@@ -18,9 +18,8 @@ int main() {
     }
 
     // 输出结果数组
-    for (int arrNum:arr) {
-        printf("%d ", arrNum);
+    for (int i=0; i < arrSize; ++i) {
+        printf("%d ", arr[i]);
     }
-
     return 0;
 }
