@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店信息表</title>
+    <style>
+        div {
+            border: 3px solid cornflowerblue;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>目的地：</span><input type="text">
+        <span>入住时间：</span><input type="datetime-local">
+        <span>退房时间：</span><input type="datetime-local">
+        <br>
+        <span>酒店位置</span>
+        <select>
+            <option selected>景点</option>
+            <option>相山公园</option>
+            <option>南湖公园</option>
+            <option>中湖公园</option>
+            <option>东湖公园</option>
+        </select>
+
+        <select>
+            <option selected>交通枢纽</option>
+            <option>淮北站</option>
+            <option>淮北北站</option>
+            <option>淮北西站</option>
+        </select>
+
+        <select>
+            <option selected>地铁周边</option>
+            <option>人民路</option>
+            <option>淮海路</option>
+            <option>古城路</option>
+        </select>
+
+        <select>
+            <option selected>行政区</option>
+            <option>相山区</option>
+            <option>杜集区</option>
+            <option>烈山区</option>
+            <option>濉溪县</option>
+        </select>
+        <br>
+
+        <span>酒店价格</span>
+        <input type="radio" name="price">不限
+        <input type="radio" name="price">100元以下
+        <input type="radio" name="price">100-300元
+        <input type="radio" name="price">300-600元
+        <input type="radio" name="price">600-1500元
+        <br>
+
+        <span>酒店星级</span>
+        <input type="checkbox">不限
+        <input type="checkbox">三星 / 舒适
+        <input type="checkbox">四星 / 高档
+        <input type="checkbox">五星 / 豪华
+
+        <br>
+        <span>主题风格</span>
+        <input type="checkbox">不限
+        <input type="checkbox">客栈
+        <input type="checkbox">精品酒店
+        <input type="checkbox">情侣酒店
+        <input type="checkbox">园林酒店
+    </div>
+</body>
+</html>

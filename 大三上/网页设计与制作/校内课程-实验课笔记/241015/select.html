@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+    <style>
+        div {
+            border: 3px solid #c7edcc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="#">
+            所在校区：
+            <select>
+                <option>-请选择-</option>
+                <option>北京</option>
+                <option>天津</option>
+                <option>上海</option>
+                <option>重庆</option>
+            </select>
+            &nbsp;&nbsp;
+            特长(单选)：
+            <select>
+                <option>唱歌</option>
+                <option selected>跳舞</option>
+                <option>画画</option>
+            </select>
+            &nbsp;&nbsp;
+            爱好(多选：)
+            <select multiple="multiple" size="4">
+                <option>读书</option>
+                <option selected>写代码</option>
+                <option>旅行</option>
+                <option selected>音乐</option>
+                <option>踢球</option>
+            </select>
+            <br><br>
+
+            输入用户名：<input type="text" list="nameList">
+            <datalist id="nameList">
+                <option>admin</option>
+                <option>lucy</option>
+                <option>lily</option>
+            </datalist>
+
+            <br><br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店信息表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border: 3px solid #4a90e2;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .container span {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+            color: #4a90e2;
+            margin-right: 10px;
+        }
+
+        .container input[type="text"],
+        .container input[type="datetime-local"],
+        .container select {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 120px);
+            box-sizing: border-box;
+        }
+
+        .container input[type="radio"],
+        .container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .container br + span {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .container label {
+            margin-right: 20px;
+        }
+
+        .container input[type="submit"] {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #3c7dbf;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <span>目的地：</span><input type="text">
+    <span>入住时间：</span><input type="datetime-local">
+    <span>退房时间：</span><input type="datetime-local">
+    <br>
+    <span>酒店位置</span>
+    <select>
+        <option selected>景点</option>
+        <option>相山公园</option>
+        <option>南湖公园</option>
+        <option>中湖公园</option>
+        <option>东湖公园</option>
+    </select>
+
+    <select>
+        <option selected>交通枢纽</option>
+        <option>淮北站</option>
+        <option>淮北北站</option>
+        <option>淮北西站</option>
+    </select>
+
+    <select>
+        <option selected>地铁周边</option>
+        <option>人民路</option>
+        <option>淮海路</option>
+        <option>古城路</option>
+    </select>
+
+    <select>
+        <option selected>行政区</option>
+        <option>相山区</option>
+        <option>杜集区</option>
+        <option>烈山区</option>
+        <option>濉溪县</option>
+    </select>
+    <br>
+
+    <span>酒店价格</span>
+    <label><input type="radio" name="price">不限</label>
+    <label><input type="radio" name="price">100元以下</label>
+    <label><input type="radio" name="price">100-300元</label>
+    <label><input type="radio" name="price">300-600元</label>
+    <label><input type="radio" name="price">600-1500元</label>
+    <br>
+
+    <span>酒店星级</span>
+    <label><input type="checkbox">不限</label>
+    <label><input type="checkbox">三星 / 舒适</label>
+    <label><input type="checkbox">四星 / 高档</label>
+    <label><input type="checkbox">五星 / 豪华</label>
+    <br>
+
+    <span>主题风格</span>
+    <label><input type="checkbox">不限</label>
+    <label><input type="checkbox">客栈</label>
+    <label><input type="checkbox">精品酒店</label>
+    <label><input type="checkbox">情侣酒店</label>
+    <label><input type="checkbox">园林酒店</label>
+    <br>
+    <input type="submit" value="搜索">
+</div>
+</body>
+</html>

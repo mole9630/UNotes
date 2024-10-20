@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>会员注册</title>
+</head>
+<body>
+  <div>
+    <h2>会员注册</h2>
+
+    <div>
+      <span>性质：</span>
+      <input type="radio" name="characteristic">个人
+      <input type="radio" name="characteristic">企业
+    </div>
+
+    <div>
+      <span>昵称：</span>
+      <input type="text" placeholder="小明">
+    </div>
+
+    <div>
+      <span>密码：</span>
+      <input type="password">
+    </div>
+
+    <div>
+      <span>电子邮箱1：</span>
+      <input type="email">
+    </div>
+
+    <div>
+      <span>电子邮箱2：</span>
+      <input type="text" pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/">
+    </div>
+
+    <div>
+      <span>所在地：</span>
+      <select>
+        <option selected>广州</option>
+        <option>北京</option>
+        <option>上海</option>
+        <option>天津</option>
+        <option>重庆</option>
+      </select>
+    </div>
+
+    <div>
+      <span>身份证号：</span>
+      <input type="text" pattern="/^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/">
+    </div>
+
+    <div>
+      <span>手机号码：</span>
+      <input type="tel" name="telphone" pattern="^\d{11}$" required>
+    </div>
+
+    <div>
+      <textarea cols="50" rows="5">如果您有什么意见或问题可以告诉我！</textarea>
+    </div>
+
+    <div>
+      <input type="submit" value="提交">
+      <input type="reset" value="重置">
+    </div>
+  </div>
+</body>
+</html>

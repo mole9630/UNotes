@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>会员注册</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        input[type="reset"] {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <form action="#">
+        <table>
+            <tr>
+                <th colspan="2"><h2>会员注册</h2></th>
+            </tr>
+            <tr>
+                <td>性质：</td>
+                <td>
+                    <label><input type="radio" name="characteristic" value="personal">个人</label>
+                    <label><input type="radio" name="characteristic" value="company">企业</label>
+                </td>
+            </tr>
+            <tr>
+                <td>昵称：</td>
+                <td><input type="text" placeholder="小明"></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password"></td>
+            </tr>
+            <tr>
+                <td>电子邮箱1：</td>
+                <td><input type="email"></td>
+            </tr>
+            <tr>
+                <td>电子邮箱2：</td>
+                <td><input type="text" pattern="^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$"></td>
+            </tr>
+            <tr>
+                <td>所在地：</td>
+                <td>
+                    <select>
+                        <option selected>广州</option>
+                        <option>北京</option>
+                        <option>上海</option>
+                        <option>天津</option>
+                        <option>重庆</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>身份证号：</td>
+                <td><input type="text"
+                           pattern="^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$">
+                </td>
+            </tr>
+            <tr>
+                <td>手机号码：</td>
+                <td><input type="tel" name="telephone" pattern="^\d{11}$" required></td>
+            </tr>
+            <tr>
+                <td>意见或问题：</td>
+                <td><textarea cols="50" rows="5" placeholder="如果您有什么意见或问题可以告诉我！"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
