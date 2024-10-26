@@ -1,0 +1,41 @@
+div {
+    border: 3px solid cornflowerblue;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* 通配符选择器 */
+* {
+    font-size: 30px;
+}
+
+/* 元素选择器 */
+p {
+    color: green;
+}
+
+/* ID选择器 */
+#first {
+    color: darksalmon;
+}
+
+/* 选择第n个子元素 */
+p:nth-child(2) {
+    color: darkslateblue;
+}
+
+/* 选择倒数第n个子元素 */
+p:nth-last-child(2) {
+    color: crimson;
+}
+
+/* 选择第n个同类型元素 */
+p:nth-of-type(3) {
+    color: deeppink;
+}
+
+/* 类选择器 */
+.end {
+    color: darkkhaki;
+}
