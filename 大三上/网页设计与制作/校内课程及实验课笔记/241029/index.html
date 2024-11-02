@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <style>
+        :target {
+            border: 5px solid goldenrod;
+        }
+
+        a[target] {
+            background-color: yellowgreen;
+            font-size: 25px;
+        }
+
+        div p:before {
+            content: "";
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            background-color: aquamarine;
+        }
+
+        div p:after {
+            content: "";
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <p><a href="#news1">跳转至内容1</a></p>
+    <p><a href="#news2">跳转至内容2</a></p>
+    <p>点击上方链接，target选择器会突出显示活动HTML锚</p>
+    <p id="news1"><b>内容1...</b></p>
+    <p id="news2"><b>内容2...</b></p>
+    <p><b>注释：</b>Internet Explorer8以及更早的版本不支持：target选择器</p>
+
+    <hr>
+
+    <p>带有target属性的链接会得到黄色背景：</p>
+    <a href="https://mole9630.top/">无target属性链接</a>
+    <a href="https://mole9630.top/" target="_blank">target属性链接(blank)</a>
+    <a href="https://mole9630.top/" target="_top">target属性链接(top)</a>
+    <p><b>注释：</b>对于IE8及更早版本的浏览器中的[<i>attribute</i>]，必须有声明&lt;!DOCTYPE&gt;</p>
+
+    <hr>
+
+    <div>
+        <p>我是唐老鸭</p>
+        <p>我住在Duckburg。</p>
+        <p><b>注释：</b>对于在IE8中工作的:before，必须声明DOCTYPE</p>
+    </div>
+</body>
+</html>
