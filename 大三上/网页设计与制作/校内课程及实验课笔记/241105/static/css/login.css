@@ -8,6 +8,14 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* 防止滚动条出现 */
+    position: relative;
+    height: 100%;
+}
+
 .login-panel {
     width: 350px;
     padding: 40px;
@@ -101,4 +109,34 @@ body {
 
 .forgot-password a:hover {
     color: #0056b3;
+}
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-panel {
+    position: relative;
+    z-index: 1;
+}
+.mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    z-index: 100;
 }
