@@ -1,3 +1,5 @@
+package hblg;
+
 import java.sql.*;
 
 public class DBUtil {
@@ -10,26 +12,18 @@ public class DBUtil {
     }
 
     public static void close(Connection conn, Statement stmt, ResultSet rs) {
-        if (rs != null) {
-            try {
+        try {
+            if (rs != null) {
                 rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
-        }
-        if (stmt != null) {
-            try {
+            if (stmt != null) {
                 stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
-        }
-        if (conn != null) {
-            try {
+            if (conn != null) {
                 conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
