@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿淘宝顶部搜索栏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container {
+            width: 80%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column; /* 修改为列布局 */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .search-box {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            background-color: #f8f8f8;
+            border-radius: 20px;
+            padding: 5px 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-box input {
+            width: 400px;
+            flex-grow: 1;
+            border: none;
+            background: none;
+            padding: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: #ff6700;
+            border: none;
+            padding: 8px 16px;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-box button:hover {
+            background-color: #e85d00;
+        }
+
+        /* 新增的分类链接样式 */
+        .category-links {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-links li {
+            margin: 0 10px;
+        }
+
+        .category-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .category-links a:hover {
+            color: #ff6700;
+        }
+
+        /* 商品展示样式 */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4列布局 */
+            gap: 1rem; /* 列间距 */
+            margin-top: 2rem; /* 与上方内容的间距 */
+        }
+
+        .product-item {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product-item img {
+            width: 100%; /* 图片宽度自适应 */
+            height: auto;
+        }
+
+        .product-item {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+
+        .product-item .tooltip {
+            display: none;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        .product-item:hover .tooltip {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="search-container">
+        <!-- 淘宝 Logo -->
+        <div class="logo">
+            <img src="status/imgs/TaoBao-logo.png" alt="Taobao Logo">
+        </div>
+
+        <!-- 搜索框 -->
+        <div class="search-box">
+            <input type="text" placeholder="请输入搜索内容">
+            <button>搜索</button>
+        </div>
+
+        <!-- 新增的分类链接 -->
+        <ul class="category-links">
+            <li><a href="#">服装</a></li>
+            <li><a href="#">配饰</a></li>
+            <li><a href="#">美妆</a></li>
+            <li><a href="#">食品</a></li>
+            <li><a href="#digital">数码</a></li>
+            <li><a href="#">日用</a></li>
+            <li><a href="#">更多>>></a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- 商品展示 -->
+<div class="product-list" id="digital">
+    <div class="product-item">
+        <img src="status/imgs/goods/0.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+    <div class="product-item">
+        <img src="status/imgs/goods/1.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+    <div class="product-item">
+        <img src="status/imgs/goods/2.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+    <div class="product-item">
+        <img src="status/imgs/goods/3.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+    <div class="product-item">
+        <img src="status/imgs/goods/4.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+    <div class="product-item">
+        <img src="status/imgs/goods/5.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+    <div class="product-item">
+        <img src="status/imgs/goods/6.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+    <div class="product-item">
+        <img src="status/imgs/goods/7.jpg" alt="Product 1">
+        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+        <p>¥96.30</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productItems = document.querySelectorAll('.product-item');
+
+            productItems.forEach(item => {
+                const tooltip = document.createElement('div');
+                tooltip.classList.add('tooltip');
+                tooltip.textContent = 'STM官方旗舰店';
+                item.appendChild(tooltip);
+
+                item.addEventListener('mouseover', function() {
+                    const customContent = '这是 ' + item.querySelector('h3').textContent + ' 的详细信息';
+                    tooltip.textContent = customContent;
+                });
+            });
+        });
+    </script>
+
+</div>
+
+</body>
+</html>

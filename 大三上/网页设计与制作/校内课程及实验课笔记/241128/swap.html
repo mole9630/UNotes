@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两数交换</title>
+</head>
+<body>
+<script>
+    function swap1(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
+    }
+
+    function swap2(a, b) {
+        [a, b] = [b, a];
+        return [a, b];
+    }
+
+    let x = 5, y = 10, a = 4, b = 9;
+    [x, y] = swap1(x, y);
+    [a, b] = swap2(a, b);
+    document.write("x=" + x + ", y=" + y);
+    document.write("<hr>")
+    document.write("a=" + a + ", b=" + b);
+</script>
+</body>
+</html>

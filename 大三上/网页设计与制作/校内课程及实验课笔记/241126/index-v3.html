@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>淘宝</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-container {
+      width: 80%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .search-box {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      background-color: #f8f8f8;
+      border-radius: 20px;
+      padding: 5px 15px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .search-box input {
+      width: 400px;
+      flex-grow: 1;
+      border: none;
+      background: none;
+      padding: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-box button {
+      background-color: #ff6700;
+      border: none;
+      padding: 8px 16px;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .search-box button:hover {
+      background-color: #e85d00;
+    }
+
+    .category-links {
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0;
+    }
+
+    .category-links li {
+      margin: 0 10px;
+    }
+
+    .category-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .category-links a:hover {
+      color: #ff6700;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+      padding: 0 10px;
+    }
+
+    .product-item {
+      border: 1px solid #f0f0f0;
+      padding: 1rem;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-item:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-info h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .product-info .price {
+      color: #e4393c;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .product-info .sales {
+      font-size: 14px;
+      color: #999;
+    }
+
+    .product-info .rating {
+      margin-top: 5px;
+    }
+
+    .product-info .star {
+      color: #ffac00;
+    }
+
+    .product-info .reviews {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .product-actions {
+      margin-top: 10px;
+    }
+
+    .product-actions .btn {
+      width: 100%;
+      padding: 8px 0;
+      font-size: 14px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+
+    .product-actions .btn.add-to-cart {
+      background-color: #ff6700;
+      color: white;
+    }
+
+    .product-actions .btn.add-to-cart:hover {
+      background-color: #e85d00;
+    }
+
+    .product-actions .btn.buy-now {
+      background-color: #ff4b00;
+      color: white;
+    }
+
+    .product-actions .btn.buy-now:hover {
+      background-color: #e53900;
+    }
+
+    .product-description {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 10px;
+      border-radius: 0 0 8px 8px;
+      font-size: 14px;
+      text-align: left;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-item:hover .product-description {
+      display: block;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="search-container">
+    <div class="logo">
+      <img src="status/imgs/TaoBao-logo.png" alt="Taobao Logo">
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="请输入搜索内容">
+      <button>搜索</button>
+    </div>
+
+    <ul class="category-links">
+      <li><a href="#">服装</a></li>
+      <li><a href="#">配饰</a></li>
+      <li><a href="#">美妆</a></li>
+      <li><a href="#">食品</a></li>
+      <li><a href="#digital">数码</a></li>
+      <li><a href="#">日用</a></li>
+      <li><a href="#">更多>>></a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="product-list" id="digital">
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/0.jpg" alt="Product 1">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>STM32F103C8T6开发板，适合用于嵌入式学习和开发，搭载ARM Cortex-M3处理器。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/1.jpg" alt="Product 2">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>STM32开发板，支持多种开发环境，适合初学者和进阶开发者。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/2.jpg" alt="Product 3">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>适用于学生、嵌入式开发者，提供完整的开发工具和学习资料。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/3.jpg" alt="Product 4">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>支持多种传感器扩展，满足不同开发需求。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/4.jpg" alt="Product 5">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>提供多种调试接口，方便开发者进行二次开发。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/5.jpg" alt="Product 6">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>适合用来进行智能硬件开发，支持多种外设接口。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/6.jpg" alt="Product 7">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>支持实时操作系统RTOS，适合嵌入式系统开发。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+
+  <div class="product-item">
+    <div class="product-image">
+      <img src="status/imgs/goods/7.jpg" alt="Product 8">
+    </div>
+    <div class="product-info">
+      <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+      <p class="price">¥96.30</p>
+      <p class="sales">已售 1000+ 件</p>
+      <p class="rating">
+        <span class="star">⭐⭐⭐⭐</span>
+        <span class="reviews">(1000+评价)</span>
+      </p>
+    </div>
+    <div class="product-description">
+      <p>带有多种开发工具和示例代码，帮助用户快速上手。</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn add-to-cart">加入购物车</button>
+      <button class="btn buy-now">立即购买</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
