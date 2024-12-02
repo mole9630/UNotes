@@ -103,16 +103,18 @@
       padding: 0 10px;
     }
 
-    .product-item {
-      border: 1px solid #f0f0f0;
-      padding: 1rem;
-      text-align: center;
-      background-color: #fff;
-      border-radius: 8px;
-      position: relative;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+   .product-item {
+     border: 1px solid #f0f0f0;
+     padding: 1rem;
+     text-align: center;
+     background-color: #fff;
+     border-radius: 8px;
+     position: relative;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     padding-bottom: 5rem;
+   }
+
 
     .product-item:hover {
       transform: translateY(-5px);
@@ -162,7 +164,8 @@
     }
 
     .product-actions {
-      margin-top: 10px;
+      position: relative;
+      z-index: 2;
     }
 
     .product-actions .btn {
@@ -194,21 +197,22 @@
       background-color: #e53900;
     }
 
-    .product-description {
-      display: none;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      padding: 10px;
-      border-radius: 0 0 8px 8px;
-      font-size: 14px;
-      text-align: left;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+   .product-description {
+     display: none;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: rgba(0, 0, 0, 0.7);
+     color: #fff;
+     padding: 10px;
+     border-radius: 0 0 8px 8px;
+     font-size: 14px;
+     text-align: left;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     z-index: 1;
+   }
 
     .product-item:hover .product-description {
       display: block;
@@ -254,9 +258,9 @@
         <span class="star">⭐⭐⭐⭐</span>
         <span class="reviews">(1000+评价)</span>
       </p>
-    </div>
     <div class="product-description">
       <p>STM32F103C8T6开发板，适合用于嵌入式学习和开发，搭载ARM Cortex-M3处理器。</p>
+    </div>
     </div>
     <div class="product-actions">
       <button class="btn add-to-cart">加入购物车</button>
@@ -418,5 +422,33 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  const buyNowButtons = document.querySelectorAll('.buy-now');
+  const categoryLinks = document.querySelectorAll('.category-link a');
+
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+      alert('商品已加入购物车！');
+    });
+  });
+
+  buyNowButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+      alert('立即购买此商品！');
+    });
+  });
+
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      alert('暂未开放');
+    });
+  });
+});
+
+</script>
+
 </body>
 </html>

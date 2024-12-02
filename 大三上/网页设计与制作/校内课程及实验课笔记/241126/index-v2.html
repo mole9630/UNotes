@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>仿淘宝顶部搜索栏</title>
+    <title>淘宝</title>
     <style>
         body {
             margin: 0;
@@ -23,7 +23,7 @@
             width: 80%;
             max-width: 1000px;
             display: flex;
-            flex-direction: column; /* 修改为列布局 */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
@@ -72,7 +72,6 @@
             background-color: #e85d00;
         }
 
-        /* 新增的分类链接样式 */
         .category-links {
             margin-top: 10px;
             width: 100%;
@@ -96,85 +95,103 @@
             color: #ff6700;
         }
 
-        /* 轮播图样式 */
-        .carousel {
-            width: 100%;
-            max-width: 1000px;
-            margin: 20px auto;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-item {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: auto;
-        }
-
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .carousel-control.prev {
-            left: 10px;
-        }
-
-        .carousel-control.next {
-            right: 10px;
-        }
-
-        /* 商品展示样式 */
         .product-list {
             display: grid;
             grid-template-columns: repeat(4, 1fr); /* 4列布局 */
             gap: 1rem; /* 列间距 */
             margin-top: 2rem; /* 与上方内容的间距 */
+            padding: 0 10px; /* 左右内边距 */
         }
 
         .product-item {
-            border: 1px solid #ccc;
+            border: 1px solid #f0f0f0;
             padding: 1rem;
             text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
             position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .product-item img {
-            width: 100%; /* 图片宽度自适应 */
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image img {
+            width: 100%;
             height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
         }
 
-        .product-item .tooltip {
-            display: none;
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem;
+        .product-item:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-info .price {
+            color: #e4393c;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-info .sales {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .product-info .rating {
+            margin-top: 5px;
+        }
+
+        .product-info .star {
+            color: #ffac00;
+        }
+
+        .product-info .reviews {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .product-actions {
+            margin-top: 10px;
+        }
+
+        .product-actions .btn {
+            width: 100%;
+            padding: 8px 0;
+            font-size: 14px;
             border-radius: 4px;
-            white-space: nowrap;
-            z-index: 1000;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
         }
 
-        .product-item:hover .tooltip {
-            display: block;
+        .product-actions .btn.add-to-cart {
+            background-color: #ff6700;
+            color: white;
+        }
+
+        .product-actions .btn.add-to-cart:hover {
+            background-color: #e85d00;
+        }
+
+        .product-actions .btn.buy-now {
+            background-color: #ff4b00;
+            color: white;
+        }
+
+        .product-actions .btn.buy-now:hover {
+            background-color: #e53900;
         }
     </style>
 </head>
@@ -182,18 +199,15 @@
 
 <div class="header">
     <div class="search-container">
-        <!-- 淘宝 Logo -->
         <div class="logo">
             <img src="status/imgs/TaoBao-logo.png" alt="Taobao Logo">
         </div>
 
-        <!-- 搜索框 -->
         <div class="search-box">
             <input type="text" placeholder="请输入搜索内容">
             <button>搜索</button>
         </div>
 
-        <!-- 新增的分类链接 -->
         <ul class="category-links">
             <li><a href="#">服装</a></li>
             <li><a href="#">配饰</a></li>
@@ -206,125 +220,179 @@
     </div>
 </div>
 
-<!-- 轮播图 -->
-<div class="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item">
-            <img src="status/imgs/carousel/1.jpg" alt="Carousel Image 1">
-        </div>
-        <div class="carousel-item">
-            <img src="status/imgs/carousel/2.jpg" alt="Carousel Image 2">
-        </div>
-    </div>
-    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
-    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
-</div>
-
 <!-- 商品展示 -->
 <div class="product-list" id="digital">
     <div class="product-item">
-        <img src="status/imgs/goods/0.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/0.jpg" alt="Product 1">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
+
     <div class="product-item">
-        <img src="status/imgs/goods/1.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/1.jpg" alt="Product 2">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
+
     <div class="product-item">
-        <img src="status/imgs/goods/2.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/2.jpg" alt="Product 3">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
+
     <div class="product-item">
-        <img src="status/imgs/goods/3.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/3.jpg" alt="Product 4">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
+
     <div class="product-item">
-        <img src="status/imgs/goods/4.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/4.jpg" alt="Product 5">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
+
     <div class="product-item">
-        <img src="status/imgs/goods/5.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/5.jpg" alt="Product 6">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
+
     <div class="product-item">
-        <img src="status/imgs/goods/6.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/6.jpg" alt="Product 7">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
+
     <div class="product-item">
-        <img src="status/imgs/goods/7.jpg" alt="Product 1">
-        <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
-        <p>¥96.30</p>
+        <div class="product-image">
+            <img src="status/imgs/goods/7.jpg" alt="Product 8">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
+    </div>
+
+    <div class="product-item">
+        <div class="product-image">
+            <img src="status/imgs/goods/8.jpg" alt="Product 9">
+        </div>
+        <div class="product-info">
+            <h3>STM32开发板套件 STM32F103C8T6单片机学习板ARM</h3>
+            <p class="price">¥96.30</p>
+            <p class="sales">已售 1000+ 件</p>
+            <p class="rating">
+                <span class="star">⭐⭐⭐⭐</span>
+                <span class="reviews">(1000+评价)</span>
+            </p>
+        </div>
+        <div class="product-actions">
+            <button class="btn add-to-cart">加入购物车</button>
+            <button class="btn buy-now">立即购买</button>
+        </div>
     </div>
 </div>
-
-<script>
-    // 当前显示的幻灯片索引
-    let currentIndex = 0;
-    // 获取所有 carousel-item 元素
-    const items = document.querySelectorAll('.carousel-item');
-
-    /**
-     * 显示指定索引的幻灯片
-     * @param {number} index - 要显示的幻灯片索引
-     */
-    function showSlide(index) {
-        // 如果索引超出范围，返回到起始或末尾幻灯片
-        if (index >= items.length) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = items.length - 1;
-        } else {
-            currentIndex = index;
-        }
-        // 计算当前幻灯片的位置偏移量
-        const offset = -currentIndex * 100;
-        // 更新 carousel-inner 元素的 transform 属性以显示当前幻灯片
-        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
-    }
-
-    /**
-     * 显示下一张幻灯片
-     */
-    function nextSlide() {
-        // 调用 showSlide 函数显示当前索引加一的幻灯片
-        showSlide(currentIndex + 1);
-    }
-
-    /**
-     * 显示上一张幻灯片
-     */
-    function prevSlide() {
-        // 调用 showSlide 函数显示当前索引减一的幻灯片
-        showSlide(currentIndex - 1);
-    }
-
-    // 自动播放
-    // 每隔2秒自动切换到下一张幻灯片
-    setInterval(nextSlide, 2000);
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const productItems = document.querySelectorAll('.product-item');
-
-        productItems.forEach(item => {
-            const tooltip = document.createElement('div');
-            tooltip.classList.add('tooltip');
-            tooltip.textContent = 'STM官方旗舰店';
-            item.appendChild(tooltip);
-
-            item.addEventListener('mouseover', function () {
-                const customContent = '点我 ' + item.querySelector('h3').textContent + ' 的详细信息';
-                tooltip.textContent = customContent;
-            });
-        });
-    });
-</script>
 
 </body>
 </html>
