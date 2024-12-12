@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对表格操作</title>
+    <script>
+        function createTable() {
+            var container = document.getElementById("container");
+            var myTable = document.createElement("table");
+            myTable.id = "myTable"; // 给表格设置id
+            myTable.border = "0";
+            myTable.setAttribute("cellSpacing", "2");
+            myTable.style.width = "600px"; // 设置表格宽度
+            myTable.style.height = "400px"; // 设置表格高度
+            myTable.bgColor = "black";
+
+            // 创建表格的第一行
+            var myRow = document.createElement("tr");
+            myRow.bgColor = "white";
+            var myCell1 = document.createElement("td");
+            myCell1.height = "80";
+            myCell1.appendChild(document.createTextNode("第1行第1列"));
+            myRow.appendChild(myCell1);
+
+            var myCell2 = document.createElement("td");
+            myCell2.appendChild(document.createTextNode("第1行第2列"));
+            myRow.appendChild(myCell2);
+
+            // 创建表格的第二行
+            var myRow2 = document.createElement("tr");
+            myRow2.bgColor = "white";
+            var myCell3 = document.createElement("td");
+            myCell3.appendChild(document.createTextNode("第2行第1列"));
+            myRow2.appendChild(myCell3);
+
+            var myCell4 = document.createElement("td");
+            myCell4.appendChild(document.createTextNode("第2行第2列"));
+            myRow2.appendChild(myCell4);
+
+            // 将行添加到表格中
+            myTable.appendChild(myRow);
+            myTable.appendChild(myRow2);
+
+            // 将表格添加到容器中
+            container.appendChild(myTable);
+        }
+
+        function insertRowsAndColsWithPrompt() {
+            var myTable = document.getElementById("myTable");
+            if (!myTable) return; // 如果表格不存在，不执行操作
+
+            var numRows = parseInt(prompt("请输入要插入的行数:"));
+            var numCols = parseInt(prompt("请输入要插入的列数:"));
+
+            if (isNaN(numRows) || isNaN(numCols) || numRows <= 0 || numCols <= 0) {
+                alert("请输入有效的行数和列数");
+                return;
+            }
+
+            for (var i = 0; i < numRows; i++) {
+                var newRow = myTable.insertRow(-1);
+                newRow.bgColor = "orange";
+                newRow.style.height = "40px";
+
+                for (var j = 0; j < numCols; j++) {
+                    var newCell = newRow.insertCell(j);
+                    var textNode = document.createTextNode(`第${myTable.rows.length}行第${j + 1}列`);
+                    newCell.appendChild(textNode);
+                }
+            }
+        }
+
+        function deleteTable() {
+            var myTable = document.getElementById("myTable");
+            if (myTable) {
+                myTable.remove();
+            }
+        }
+
+        function deleteRow() {
+            var myTable = document.getElementById("myTable");
+            if (myTable && myTable.rows.length > 0) {
+                myTable.deleteRow(myTable.rows.length - 1); // 删除最后一行
+            }
+        }
+
+        function deleteCol() {
+            var myTable = document.getElementById("myTable");
+            if (myTable && myTable.rows.length > 0) {
+                for (var i = 0; i < myTable.rows.length; i++) {
+                    var row = myTable.rows[i];
+                    if (row.cells.length > 0) {
+                        row.deleteCell(row.cells.length - 1); // 删除最后一列
+                    }
+                }
+            }
+        }
+
+        function operateCell() {
+            var myTable = document.getElementById("myTable");
+            if (myTable && myTable.rows.length > 1) {
+                var cell = myTable.rows[1].cells[2]; // 获取第2行第3列
+                if (cell) {
+                    cell.innerHTML = "第2行第3列";
+                    cell.style.color = "yellow";
+                }
+            }
+        }
+
+        function deleteCellWithPrompt() {
+            var myTable = document.getElementById("myTable");
+            if (!myTable) {
+                alert("表格不存在");
+                return;
+            }
+
+            var rowIndex = parseInt(prompt("请输入要删除的行号:")) - 1;
+            var colIndex = parseInt(prompt("请输入要删除的列号:")) - 1;
+
+            if (isNaN(rowIndex) || isNaN(colIndex) || rowIndex < 0 || colIndex < 0 || rowIndex >= myTable.rows.length || colIndex >= myTable.rows[rowIndex].cells.length) {
+                alert("请输入有效的行号和列号");
+                return;
+            }
+
+            myTable.rows[rowIndex].deleteCell(colIndex);
+        }
+    </script>
+</head>
+<body>
+<div id="container"></div>
+<hr>
+<button id="createTableButton">创建表格</button>
+<button id="insertRowsAndColsButton">插入指定行和列</button>
+<button id="deleteRowButton">删除1行</button>
+<button id="deleteColButton">删除1列</button>
+<button id="operateCellButton">修改单元格</button>
+<button id="deleteTableButton">删除表格</button>
+<button id="deleteCellButton">删除指定单元格</button>
+<script>
+    onload = function() {
+        // 获取按钮元素
+        var createTableButton = document.getElementById("createTableButton");
+        var insertRowsAndColsButton = document.getElementById("insertRowsAndColsButton");
+        var deleteRowButton = document.getElementById("deleteRowButton");
+        var deleteColButton = document.getElementById("deleteColButton");
+        var operateCellButton = document.getElementById("operateCellButton");
+        var deleteTableButton = document.getElementById("deleteTableButton");
+        var deleteCellButton = document.getElementById("deleteCellButton");
+
+        // 绑定点击事件
+        createTableButton.addEventListener("click", createTable);
+        insertRowsAndColsButton.addEventListener("click", insertRowsAndColsWithPrompt);
+        deleteRowButton.addEventListener("click", deleteRow);
+        deleteColButton.addEventListener("click", deleteCol);
+        operateCellButton.addEventListener("click", operateCell);
+        deleteTableButton.addEventListener("click", deleteTable);
+        deleteCellButton.addEventListener("click", deleteCellWithPrompt);
+    };
+</script>
+</body>
+</html>
