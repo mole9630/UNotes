@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对表格操作</title>
+    <script>
+        function createTable() {
+            var container = document.getElementById("container");
+            var myTable = document.createElement("table");
+            myTable.id = "myTable"; // 给表格设置id
+            myTable.border = "0";
+            myTable.setAttribute("cellSpacing", "2");
+            myTable.setAttribute("width", "60%");
+            myTable.bgColor = "black";
+
+            // 创建表格的第一行
+            var myRow = document.createElement("tr");
+            myRow.bgColor = "white";
+            var myCell1 = document.createElement("td");
+            myCell1.height = "80";
+            myCell1.appendChild(document.createTextNode("第1行第1列"));
+            myRow.appendChild(myCell1);
+
+            var myCell2 = document.createElement("td");
+            myCell2.appendChild(document.createTextNode("第1行第2列"));
+            myRow.appendChild(myCell2);
+
+            // 创建表格的第二行
+            var myRow2 = document.createElement("tr");
+            myRow2.bgColor = "white";
+            var myCell3 = document.createElement("td");
+            myCell3.appendChild(document.createTextNode("第2行第1列"));
+            myRow2.appendChild(myCell3);
+
+            var myCell4 = document.createElement("td");
+            myCell4.appendChild(document.createTextNode("第2行第2列"));
+            myRow2.appendChild(myCell4);
+
+            // 将行添加到表格中
+            myTable.appendChild(myRow);
+            myTable.appendChild(myRow2);
+
+            // 将表格添加到容器中
+            container.appendChild(myTable);
+        }
+
+        function insertRow1() {
+            var myTable = document.getElementById("myTable");
+            if (!myTable) return; // 如果表格不存在，不执行操作
+            var newRow = "<tr bgcolor='orange'><td>第3行第1列</td><td>第3行第2列</td><td>第3行第3列</td></tr>";
+            myTable.innerHTML += newRow;
+        }
+
+        function insertRow2() {
+            var myTable = document.getElementById("myTable");
+            if (!myTable) return; // 如果表格不存在，不执行操作
+            var newRow = myTable.insertRow(-1);
+            var myTd1 = newRow.insertCell(-1);
+            myTd1.innerHTML = "第3行第1列";
+            var myTd2 = newRow.insertCell(-1);
+            myTd2.innerHTML = "第3行第2列";
+            var myTd3 = newRow.insertCell(-1);
+            myTd3.innerHTML = "第3行第3列";
+            newRow.bgColor = "orange";
+            newRow.style.height = "40px";
+        }
+
+        function deleteTable() {
+            var myTable = document.getElementById("myTable");
+            if (myTable) {
+                myTable.remove();
+            }
+        }
+
+        function deleteRow() {
+            var myTable = document.getElementById("myTable");
+            if (myTable && myTable.rows.length > 0) {
+                myTable.deleteRow(0);
+            }
+        }
+
+        function deleteCol() {
+            var myTable = document.getElementById("myTable");
+            if (myTable && myTable.rows.length > 1) {
+                var myTre = myTable.rows[1];
+                if (myTre.cells.length > 2) {
+                    myTre.deleteCell(2);
+                }
+            }
+        }
+
+        function operateCell() {
+            var myTable = document.getElementById("myTable");
+            if (myTable && myTable.rows.length > 1) {
+                var cell = myTable.rows[1].cells[2]; // 获取第2行第3列
+                if (cell) {
+                    cell.innerHTML = "第2行第3列";
+                    cell.style.color = "yellow";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="container"></div>
+<hr>
+<input type="button" value="创建表格" onclick="createTable()">
+<input type="button" value="插入行1" onclick="insertRow1()">
+<input type="button" value="插入行2" onclick="insertRow2()">
+<input type="button" value="删除1行" onclick="deleteRow()">
+<input type="button" value="删除1列" onclick="deleteCol()">
+<input type="button" value="修改单元格" onclick="operateCell()">
+<input type="button" value="删除表格" onclick="deleteTable()">
+</body>
+</html>

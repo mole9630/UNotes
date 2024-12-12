@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对表格操作</title>
+    <script>
+        function createTable() {
+            var myTable = document.createElement("table");
+            myTable.border = "0";
+            myTable.setAttribute("cellSpacing", "2");
+            myTable.setAttribute("width", "60%");
+            myTable.bgColor = "black";
+            var myRow = document.createElement("tr")
+            myRow.bgColor = "white";
+            var myCell = document.createElement("td");
+            myCell.height = "80";
+            myCell.appendChild(document.createTextNode("第1行第1列"));
+            myRow.appendChild(myCell);
+            // 创建表格的第1行第2列
+            myCell = document.createElement("td");
+            myCell.appendChild(document.createTextNode("第1行第2列"));
+            myRow.appendChild(myCell);
+            // 将tr节点添加到table中
+            myTable.appendChild(myRow);
+            // 将table添加到body中
+            document.body.appendChild(myTable);
+        }
+
+        function insertRow1() {
+            var myTable = document.getElementById("myTable");
+            var newRow = "<tr bgcolor='orange'><td>第3行第1列</td>" + "<td>第3行第2列</td><td>第3行第3列</td></tr>";
+            myTable.innerHTML = myTable.innerHTML + newRow;
+        }
+
+        function insertRow2() {
+            var myTable = document.getElementById("myTable");
+            var newRow = myTable.insertRow(-1);
+            var myTd1 = newRow.insertCell(-1);
+            myTd1.innerHTML = "第3行第1列";
+            var myTd2 = newRow.insertCell(-1);
+            myTd2.innerHTML = "第3行第2列";
+            var myTd3 = newRow.insertCell(-1);
+            myTd3.innerHTML = "第3行第3列";
+            newRow.bgColor = "orange";
+            newRow.style.height = "40px";
+        }
+
+        function deleteTable() {
+            var myTable = document.getElementById("myTable");
+            myTable.remove();
+        }
+
+        function deleteRow() {
+            var myTable = document.getElementById("myTable");
+            myTable.deleteRow(0);
+        }
+
+        function deleteCol() {
+            var myTable = document.getElementById("myTable");
+            var myTre = myTable.rows[1];
+            myTre.deleteCell(2);
+        }
+
+        function operateCell() {
+            var myTable = document.getElementById("myTable");
+            var cell = myTable.rows[1].cells[2]; // 获取第2行第3列
+            cell.innerHTML = "第2行第3列";
+            cell.style.color = "yellow";
+        }
+    </script>
+</head>
+<body onload="tableCell()">
+<table id="myTable" border="0" cellspacing="2" bgcolor="black">
+    <tr bgcolor="white">
+        <td>第1行第1列</td>
+        <td>第1行第2列</td>
+        <td>第1行第3列</td>
+    </tr>
+    <tr bgcolor="white" id="myTr">
+        <td>第2行第1列</td>
+        <td>第2行第2列</td>
+        <td>第2行第3列</td>
+    </tr>
+</table>
+<hr>
+<input type="button" value="创建表格" onclick="createTable()">
+<input type="button" value="插入行1" onclick="insertRow1()">
+<input type="button" value="插入行2" onclick="insertRow2()">
+<input type="button" value="删除1行" onclick="deleteRow()">
+<input type="button" value="删除1列" onclick="deleteCol()">
+<input type="button" value="修改单元格" onclick="operateCell()">
+<input type="button" value="删除表格" onclick="deleteTable()">
+</body>
+</html>
