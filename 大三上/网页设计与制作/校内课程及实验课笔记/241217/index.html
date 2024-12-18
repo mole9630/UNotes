@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+<body>
+<div class="carousel">
+    <!-- 轮播图内部图片容器 -->
+    <div class="carousel-inner">
+        <img src="static/imgs/1.jpg" alt="Image 1">
+        <img src="static/imgs/2.jpg" alt="Image 2">
+        <img src="static/imgs/3.jpg" alt="Image 3">
+        <img src="static/imgs/4.jpg" alt="Image 4">
+    </div>
+    <!-- 左侧切换按钮 -->
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <!-- 右侧切换按钮 -->
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+<hr>
+<div class="footer">
+    <span>小米:让全球每个人都能享受科技带来的美好生活</span>
+</div>
+<script src="./static/js/index.js"></script>
+</body>
+</html>

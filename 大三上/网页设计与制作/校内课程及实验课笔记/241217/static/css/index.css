@@ -1,0 +1,67 @@
+/* 轮播图容器样式 */
+.carousel {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 3px solid darkcyan;
+}
+
+/* 轮播图内部图片容器样式 */
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* 图片样式 */
+.carousel-inner img {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* 按钮样式 */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* 左侧按钮位置 */
+.prev {
+    left: 10px;
+}
+
+/* 右侧按钮位置 */
+.next {
+    right: 10px;
+}
+
+/* 鼠标悬停在轮播图上时显示按钮 */
+.carousel:hover button {
+    opacity: 1;
+}
+
+/* 底部字体框 */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+}
+
+/* 底部字体 */
+.footer span {
+    font-size: 16px;
+    color: orange;
+    font-weight: bold;
+}
