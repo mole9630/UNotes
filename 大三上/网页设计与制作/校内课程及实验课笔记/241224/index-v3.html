@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>熊猫的笑脸</title>
+</head>
+<body>
+    <canvas id="pandaCanvas" width="400" height="400" style="border:1px solid #d3d3d3;">
+        浏览器不支持Canvas
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('pandaCanvas');
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 脸
+        ctx.beginPath();
+        ctx.arc(200, 200, 150, 0, Math.PI * 2);
+        ctx.fillStyle = '#55bb8a';
+        ctx.fill();
+        ctx.closePath();
+
+        // 白色眼圈
+        // 左眼圈
+        ctx.beginPath();
+        ctx.arc(140, 160, 50, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.closePath();
+
+        // 右眼圈
+        ctx.beginPath();
+        ctx.arc(260, 160, 50, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.closePath();
+
+        // 眼睛
+        // 左眼
+        ctx.beginPath();
+        ctx.arc(140, 160, 20, 0, Math.PI * 2);
+        ctx.fillStyle = '#55bb8a';
+        ctx.fill();
+        ctx.closePath();
+
+        // 右眼
+        ctx.beginPath();
+        ctx.arc(260, 160, 20, 0, Math.PI * 2);
+        ctx.fillStyle = '#55bb8a';
+        ctx.fill();
+        ctx.closePath();
+
+        // 绘制鼻子
+        ctx.beginPath();
+        ctx.arc(200, 220, 15, 0, Math.PI * 2);
+        ctx.fillStyle = '#55bb8a';
+        ctx.fill();
+        ctx.closePath();
+
+        // 绘制嘴巴
+        ctx.beginPath();
+        ctx.moveTo(170, 240);
+        ctx.quadraticCurveTo(200, 270, 230, 240);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'white';
+        ctx.stroke();
+        ctx.closePath();
+
+        // 绘制耳朵
+        // 左耳
+        ctx.beginPath();
+        ctx.arc(120, 80, 30, 0, Math.PI * 2);
+        ctx.fillStyle = '#55bb8a';
+        ctx.fill();
+        ctx.closePath();
+
+        // 右耳
+        ctx.beginPath();
+        ctx.arc(280, 80, 30, 0, Math.PI * 2);
+        ctx.fillStyle = '#55bb8a';
+        ctx.fill();
+        ctx.closePath();
+    </script>
+</body>
+</html>

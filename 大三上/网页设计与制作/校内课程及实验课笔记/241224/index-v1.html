@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>笑脸</title>
+</head>
+<body>
+    <canvas id="smileCanvas" width="200" height="200" style="border:1px solid #d3d3d3;">
+        浏览器不支持Canvas
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('smileCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 设置画布背景为白色
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 绘制脸
+        ctx.beginPath();
+        ctx.arc(100, 100, 80, 0, Math.PI * 2);
+        ctx.fillStyle = 'pink';
+        ctx.fill();
+        ctx.closePath();
+
+        // 绘制眼睛
+        // 左眼
+        ctx.beginPath();
+        ctx.arc(70, 70, 10, 0, Math.PI * 2);
+        ctx.fillStyle = 'black';
+        ctx.fill();
+        ctx.closePath();
+
+        // 右眼
+        ctx.beginPath();
+        ctx.arc(130, 70, 10, 0, Math.PI * 2);
+        ctx.fillStyle = 'black';
+        ctx.fill();
+        ctx.closePath();
+
+        // 绘制嘴巴
+        ctx.beginPath();
+        ctx.arc(100, 100, 40, Math.PI, 0, true);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+        ctx.closePath();
+    </script>
+</body>
+</html>

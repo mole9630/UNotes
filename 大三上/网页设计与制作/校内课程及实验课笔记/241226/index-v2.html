@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式弹性布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            flex: 1;
+            background-color: #e9aa2b;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            max-height: 50px;
+        }
+
+        .content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content .top {
+            background-color: #005B99;
+            flex: 1;
+            border-radius: 8px;
+        }
+
+        .content .bottom {
+            background-color: #4e88ca;
+            flex: 1;
+            border-radius: 8px;
+        }
+
+        .content .middle {
+            background-color: #b7e9ff;
+            flex: 2;
+            border-radius: 8px;
+            justify-content: center;
+            align-items: center;
+            display: -webkit-flex;
+            font-size: 28px;
+        }
+
+        .footer {
+            flex: 1;
+            background-color: #FFD700;
+            margin-top: 5px;
+            border-radius: 8px;
+            max-height: 50px;
+        }
+
+        @media screen and (max-width: 640px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .content .top, .content .bottom {
+                flex: 1;
+                max-height: 180px;
+                min-height: 50px;
+            }
+
+            .content .middle {
+                min-height: 250px;
+                flex: 1;
+                margin: 5px 0;
+                justify-content: center;
+                align-items: center;
+                display: -webkit-flex;
+                font-size: 28px;
+            }
+
+            .top {
+                display: flex;
+                justify-content: space-around;
+                padding: 20px;
+                background-color: #f4f4f4;
+            }
+
+            .top ul {
+                border: 3px solid darkblue;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .top ul li {
+                background-color: #ffffff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px 20px;
+                text-align: center;
+                flex: 1;
+                margin: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+            .top ul li:hover {
+                background-color: #e0e0e0;
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+    </div>
+    <div class="content">
+        <div class="top">
+            <span>清华大学</span>
+            <ul>
+                <li><a href="#">清华新闻</a></li>
+                <li><a href="#">学校概况</a></li>
+                <li><a href="#">院系设置</a></li>
+                <li><a href="#">教育教学</a></li>
+                <li><a href="#">科学研究</a></li>
+                <li><a href="#">招生就业</a></li>
+                <li><a href="#">合作交流</a></li>
+                <li><a href="#">走进清华</a></li>
+            </ul>
+        </div>
+        <div class="middle">
+            <img src="">
+            <img src="">
+            <img src="">
+            <img src="">
+
+            <img src="">
+            <img src="">
+            <img src="">
+            <img src="">
+        </div>
+        <div class="bottom">
+            <img src="">
+            <img src="">
+            <img src="">
+            <img src="">
+            <img src="">
+            <img src="">
+            <img src="">
+            <img src="">
+        </div>
+    </div>
+    <div class="footer">
+        <span>
+            电话：010-62793001
+            邮箱：webmaster@tsinghua.edu.cn
+            地址：北京市海淀区清华大学
+        </span>
+    </div>
+</div>
+</body>
+</html>
