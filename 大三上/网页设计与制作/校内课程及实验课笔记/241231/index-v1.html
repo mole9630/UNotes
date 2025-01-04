@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>掌上商城实验</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
+        .search-box input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-box button {
+            padding: 10px 20px;
+            border: none;
+            background: linear-gradient(to right, #FF8D0E, #FF5000);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel img {
+            width: 100%;
+            display: block;
+        }
+        .carousel .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .carousel .carousel-control.prev {
+            left: 10px;
+        }
+        .carousel .carousel-control.next {
+            right: 10px;
+        }
+        .nav-block {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 10px;
+            padding: 10px;
+        }
+        .nav-block img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .product-block {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+        .product-block .product-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="search-box">
+        <input type="text" placeholder="搜索商品">&nbsp;
+        <button>搜索</button>
+    </div>
+</header>
+<div class="carousel">
+    <div class="carousel-inner">
+        <img src="./static/imgs/carousel/1.jpg">
+        <img src="./static/imgs/carousel/2.jpg">
+        <img src="./static/imgs/carousel/3.jpg">
+        <img src="./static/imgs/carousel/4.jpg">
+    </div>
+    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+</div>
+<div class="nav-block">
+    <img src="./static/imgs/nav/nav-tpp.png">
+    <img src="./static/imgs/nav/nav-fz.png">
+    <img src="./static/imgs/nav/nav-usy.png">
+    <img src="./static/imgs/nav/nav-jyj.png">
+    <img src="./static/imgs/nav/nav-tgc.png">
+    <img src="./static/imgs/nav/nav-alpm.png">
+    <img src="./static/imgs/nav/nav-jhs.png">
+    <img src="./static/imgs/nav/nav-xhh.png">
+</div>
+<div class="product-block">
+    <div class="product-item">
+        <img src="">
+        <p></p>
+        <p>¥100</p>
+    </div>
+    <div class="product-item">
+        <img src="">
+        <p></p>
+        <p>¥200</p>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-inner img');
+    const totalImages = images.length;
+
+    function showSlide(index) {
+        if (index < 0) {
+            currentIndex = totalImages - 1;
+        } else if (index >= totalImages) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
+        }
+        const offset = -currentIndex * 100;
+        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    // 自动播放
+    setInterval(nextSlide, 3000);
+</script>
+</body>
+</html>
