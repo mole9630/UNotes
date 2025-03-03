@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例-比较大小</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>第一个数：</span><input type="text" v-model="num1"><br>
+        <span>第二个数：</span><input type="text" v-model="num2"><br>
+        <span id="difference">差值：{{difference()}}</span><br>
+        <button @click="compare">比较</button><br>
+        <span>结果：</span><span id="result"></span>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num1: '',
+                num2: '',
+                resultNum: ''
+            },
+            methods: {
+                difference() {
+                    this.resultNum = document.getElementById('difference').innerHTML = this.num1 - this.num2;
+                },
+                compare() {
+                    if (this.resultNum > 0) {
+                        document.getElementById('result').innerHTML = this.num1 + ' > ' + this.num2;
+                    } else if (this.resultNum < 0) {
+                        document.getElementById('result').innerHTML = this.num1 + ' < ' + this.num2;
+                    } else {
+                        document.getElementById('result').innerHTML = this.num1 + ' = ' + this.num2;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
