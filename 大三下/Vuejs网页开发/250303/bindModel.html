@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        单向绑定：<input type="text" v-bind:value="name">
+        <br>
+        双向绑定：<input type="text" v-model="name">
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '张三'
+            }
+        });
+    </script>
+</body>
+</html>

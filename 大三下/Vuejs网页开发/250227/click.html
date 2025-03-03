@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单击事件</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<h3>单击按钮修改文本(JavaScript)</h3>
+<h4>初始文本</h4>
+<button id="btn-change">单击修改</button>
+<button id="btn-restore">单击还原</button>
+
+<script>
+    var btnChange = document.getElementById('btn-change');
+    var btnRestore = document.getElementById('btn-restore');
+    btnChange.onclick = function () {
+        var h4 = document.getElementsByTagName('h4')[0];
+        h4.innerHTML = '修改后的文本';
+    }
+    btnRestore.onclick = function () {
+        var h4 = document.getElementsByTagName('h4')[0];
+        h4.innerHTML = '初始文本';
+    }
+</script>
+<hr>
+<div id="app">
+    <h3>单击按钮修改文本(Vue)</h3>
+    <h4>{{ text }}</h4>
+    <button @click="changeText">单击修改</button>
+    <button @click="reStoreText">单击还原</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            text: '初始文本'
+        },
+        methods: {
+            changeText: function () {
+                this.text = '修改后的文本';
+            },
+            reStoreText: function () {
+                this.text = '修改后的文本';
+            }
+        }
+    })
+</script>
+</body>
+</html>

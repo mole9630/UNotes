@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    姓：<input type="text" v-model="lastNameA"><br>
+    名：<input type="text" v-model="firstNameA"><br>
+    姓名：{{lastNameA}}-{{firstNameA}}
+    <hr>
+    姓：<input type="text" v-model="lastNameB"><br>
+    名：<input type="text" v-model="firstNameB"><br>
+    姓名：{{changeName()}}
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            lastNameA: '',
+            firstNameA: '',
+            lastNameB: '',
+            firstNameB: ''
+        },
+        methods: {
+            changeName() {
+                return this.lastNameB + '-' + this.firstNameB;
+            }
+        }
+    });
+</script>
+</body>
+</html>

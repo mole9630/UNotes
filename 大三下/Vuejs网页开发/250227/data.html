@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    课程名称：{{ course.name }}
+    <br>
+    教室名称：{{ classRoom.name }}
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                course: {name: "Vue"},
+                classRoom: {name: "404"}
+            }
+        }
+    });
+</script>
+</body>
+</html>
