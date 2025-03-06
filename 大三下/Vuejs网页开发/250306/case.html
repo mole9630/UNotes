@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例-添加学生判断合格</title>
+    <script src="../vue.js"></script>
+    <style>
+        #app {
+            margin: 0 auto;
+            border: #3c7dbf solid 2px;
+        }
+        #info {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in students" :key="item.sno">
+                <span>
+                    {{item.sno}} {{item.name}} {{item.score}}
+                </span>
+                <span v-if="item.score < 60" id="info">
+                    不合格
+                </span>
+            </li>
+        </ul>
+        <button @click.once="addStudent">添加学生</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                students: [
+                    {sno: '001', name: '张三', score: 79},
+                    {sno: '002', name: '李四', score: 90},
+                    {sno: '003', name: '王五', score: 59}
+                ]
+            },
+            methods: {
+                addStudent () {
+                    this.students.push({
+                        sno: '005',
+                        name: '小五',
+                        score: 48
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
