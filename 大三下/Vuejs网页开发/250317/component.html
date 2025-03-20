@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <school></school>
+        <hr>
+        <college></college>
+        <hr>
+        <student></student>
+    </div>
+
+
+    <script>
+        const school = Vue.extend({
+            data() {
+                return {
+                    schoolName: '清华大学',
+                    schoolAddress: '北京市海淀区',
+                }
+            },
+            template: `
+                <div>
+                  <h3>学校名称：{{schoolName}}</h3>
+                  <h3>学校地址：{{schoolAddress}}</h3>
+                </div>
+            `
+        });
+
+        const college = Vue.extend({
+            data() {
+                return {
+                    collegeName: '电子与信息工程学院',
+                }
+            },
+            template: `
+                <div>
+                  <h3>学院名称：{{collegeName}}</h3>
+                </div>
+            `
+        });
+
+        const student = Vue.extend({
+            data() {
+                return {
+                    studentName: '张三',
+                    studentAge: 18
+                }
+            },
+            methods: {
+                addAge() {
+                    this.studentAge++;
+                }
+            },
+            template: `
+                <div>
+                  <h3>学生姓名：{{studentName}}</h3>
+                  <h3>学生年龄：{{studentAge}}</h3>
+                  <button @click="addAge">年龄+1</button>
+                </div>
+            `
+        });
+
+        Vue.component('college', college);
+
+        new Vue({
+            el: '#app',
+            components: {
+                school,
+                student
+            }
+        });
+    </script>
+</body>
+</html>

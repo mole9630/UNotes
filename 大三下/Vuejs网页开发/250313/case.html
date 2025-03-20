@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例-学生信息的增删改查</title>
+    <script src="../vue.js"></script>
+    <style>
+        body {
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        #app {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+
+        #input-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        input[type="text"] {
+            padding: 6px 12px;
+            margin: 0 10px 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            width: 120px;
+        }
+
+
+        button {
+            padding: 6px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        #infoTable {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        td[style*="color: red"] {
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <h3>添加学生</h3>
+    <div id="input-group">
+        <span>id：</span><input type="text" v-model="studentId">
+        <span>name：</span><input type="text" v-model="studentName"></input>
+        <span>grade：</span><input type="text" v-model="studentGrade"></input>
+        <button @click="addStudent">添加</button>
+        <br>
+        <span>搜索名称关键字：</span><input type="text" v-model="searchName"></input>
+        <button @click="searchStudent">搜索</button>
+    </div>
+
+    <hr>
+
+    <div id="infoTable">
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>grade</th>
+                <th>ctime</th>
+                <th>operation</th>
+            </tr>
+            <tr v-for="student in searchList">
+                <td>{{student.id}}</td>
+                <td>{{student.name}}</td>
+                <td v-if="student.grade >= 60">{{student.grade}}</td>
+                <td v-if="student.grade < 60" style="color: red">{{student.grade}}</td>
+                <td>{{student.ctime | formatDate}}</td>
+                <td>
+                    <button @click="deleteStudent(student.id)">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            studentId: '',
+            studentName: '',
+            studentGrade: '',
+            searchName: '',
+            students: [
+                {id: 1, name: '张三', grade: '89', ctime: '2025-01-01'},
+                {id: 2, name: '李四', grade: '78', ctime: '2025-01-01'},
+                {id: 3, name: '王五', grade: '56', ctime: '2025-01-01'},
+                {id: 4, name: '赵六', grade: '47', ctime: '2025-01-01'}
+            ],
+            searchList: []
+        },
+        methods: {
+            addStudent() {
+                console.log('添加学生-ID：' + this.studentId + '，姓名：' + this.studentName + '，成绩：' + this.studentGrade);
+                this.students.push({
+                    id: this.studentId,
+                    name: this.studentName,
+                    grade: this.studentGrade,
+                    ctime: new Date()
+                });
+                this.studentId = '';
+                this.studentName = '';
+            },
+            deleteStudent(id) {
+                console.log('删除学生-ID：' + id);
+                for(let i = 0; i < this.students.length; i++) {
+                    if(id == this.students[i].id) {
+                        this.students.splice(i, 1);
+                    }
+                }
+            },
+            searchStudent() {
+                console.log('搜索姓名关键字：' + this.searchName);
+                var newList = [];
+                for(let i = 0; i < this.students.length; i++) {
+                    if(this.students[i].name.indexOf(this.searchName) != -1) {
+                        newList.push(this.students[i]);
+                    } else if (this.searchName == '') {
+                        this.searchList = this.students;
+                    }
+                }
+                this.searchList = newList;
+            }
+        },
+        created() {
+            this.searchList = this.students;
+        },
+        filters: {
+            formatDate(value) {
+                var date = new Date(value);
+                // console.log(date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate());
+                return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            }
+        }
+    })
+</script>
+</body>
+</html>

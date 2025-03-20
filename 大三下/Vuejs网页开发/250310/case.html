@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例-键盘监听事件及自定义指令</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="./status/case.css">
+</head>
+<body>
+<div id="app">
+    <div class="input-group">
+        <span>输入任意内容：</span>
+        <input type="text" v-model="msg" @keyup.17="show">
+    </div>
+    <div>
+        <span class="result" v-change="color">{{showMsg}}</span>
+    </div>
+
+    <hr>
+
+    <div class="input-group">
+        <span>输入任意内容(lazy)：</span>
+        <input type="text" v-model.lazy="msgLazy">
+    </div>
+    <div>
+        <span class="result">{{msgLazy}}</span>
+    </div>
+
+    <hr>
+
+    <div class="input-group">
+        <span>输入任意内容(number)：</span>
+        <input type="text" v-model.number="msgNumber">
+    </div>
+    <div>
+        <span class="result">{{msgNumber}}<br>数据类型: {{typeof msgNumber}}</span>
+    </div>
+
+    <hr>
+
+    <div class="input-group">
+        <span>输入任意内容(trim)：</span>
+        <input type="text" v-model.trim="msgTrim">
+    </div>
+        <div>
+        <span class="result">{{msgTrim}}</span>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: '',
+            showMsg: '',
+            msgLazy: '',
+            msgNumber: '',
+            msgTrim: '',
+            color: '#FFD700'
+        },
+        methods: {
+            show() {
+                this.showMsg = this.msg;
+            }
+        },
+        directives: {
+            change(el, binding) {
+                el.style.color = binding.value;
+            }
+        }
+    })
+</script>
+</body>
+</html>
